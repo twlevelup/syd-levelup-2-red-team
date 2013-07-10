@@ -16,5 +16,10 @@ function Player()
         g.point(self.x, self.y, 1)
     end
 
+    function self.move(dx, dy)
+        self.x = self.x + dx
+        self.y = self.y + dy
+    end
+
     return self
 end
