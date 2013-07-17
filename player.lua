@@ -1,3 +1,5 @@
+require 'input'
+
 function Player()
     local self = {
         size = 20,
@@ -16,7 +18,26 @@ function Player()
         g.point(self.x, self.y, 1)
     end
 
-    function self.move(dx, dy)
+    function self.update(i)
+        local dx = 0
+        local dy = 0
+
+        if i.pressed("left") then
+            dx = dx - 1
+        end
+
+        if i.pressed("right") then
+            dx = dx + 1
+        end
+
+        if i.pressed("up") then
+            dy = dy - 1
+        end
+
+        if i.pressed("down") then
+            dy = dy + 1
+        end
+
         self.x = self.x + dx
         self.y = self.y + dy
     end
