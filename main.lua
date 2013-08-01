@@ -13,7 +13,8 @@ function love.load()
     love.input.bind('right', 'right')
     love.input.bind('down', 'down')
 
-    TEsound.play('assets/sounds/blip.ogg')
+    TEsound.playLooping('assets/sounds/nyan.ogg', 'background')
+    TEsound.volume('background', 0.4)
 end
 
 function love.update()

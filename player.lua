@@ -1,6 +1,7 @@
 require 'input'
 
 function Player()
+    
     local self = {
         size = 20,
         x = 400,
@@ -9,6 +10,8 @@ function Player()
         _cat_image = "assets/images/cat.png",
         sprite = nil
     }
+    
+    local moving = false
 
     function self.draw(g)
         if self.sprite == nil then
@@ -41,6 +44,15 @@ function Player()
         if i.pressed("down") then
             dy = dy + self.speed
         end
+
+        local gonnaMove = dx ~= 0 or dy ~= 0
+        if not moving and gonnaMove then
+            TEsound.playLooping('assets/sounds/move.ogg', 'moving')
+        end
+        if moving and not gonnaMove then
+            TEsound.stop('moving')
+        end
+        moving = gonnaMove
 
         self.x = self.x + dx
         self.y = self.y + dy
