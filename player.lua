@@ -7,25 +7,31 @@ function Player(sound)
         x = 400,
         y = 300,
         speed = 5,
-        _cat_image = "assets/images/cat.png",
-        sprite = nil
+        _sprites = "assets/images/nyancat-sprites.png",
+        sprites = nil,
+        grid = nil,
+        animation = nil
     }
     
     local moving = false
 
     function self.draw(g)
-        if self.sprite == nil then
-            self.sprite = g.newImage("assets/images/nyancat.png")
+        if self.sprites == nil then
+            self.sprites = g.newImage(self._sprites)
         end
 
-        g.draw(
-            self.sprite,
-            self.x - (self.size / 2),
-            self.y - (self.size / 2)
-        )
+        if self.grid == nil then
+            self.grid = g.animation.newGrid(100, 70, self.sprites:getWidth(), self.sprites:getHeight())
+        end
+
+        if self.animation == nil then
+            self.animation = g.animation.newAnimation(self.grid("1-6", 1), 0.05)
+        end
+
+        self.animation:draw(self.sprites, self.x, self.y)
     end
 
-    function self.update(i)
+    function self.update(dt, i)
         local dx = 0
         local dy = 0
 
@@ -56,6 +62,10 @@ function Player(sound)
 
         self.x = self.x + dx
         self.y = self.y + dy
+
+        if self.animation ~= nil then
+            self.animation:update(dt)
+        end
     end
 
     return self

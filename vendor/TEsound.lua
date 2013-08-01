@@ -1,6 +1,6 @@
 --- TEsound v1.3, a simplified sound system for Love 2D
 -- @author Ensayia (Ensayia@gmail.com) & Taehl (SelfMadeSpirit@gmail.com)
-TEsound = {}				-- Namespace
+local TEsound = {}				-- Namespace
 TEsound.channels = {}		-- This holds the currently playing sound channels
 TEsound.volumeLevels = {}	-- Volume levels that multiply the volumes of sounds with those tags
 TEsound.pitchLevels = {}	-- Pitch levels that multiply the pitches of sounds with those tags
@@ -143,3 +143,5 @@ function TEsound.findPitch(tag)
 	end
 	return 1
 end
+
+return TEsound

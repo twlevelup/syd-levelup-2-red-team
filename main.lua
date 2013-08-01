@@ -1,26 +1,28 @@
 require 'input'
 require 'player'
 
-require 'vendor/TEsound'
+local sound = require 'vendor/TEsound'
+love.graphics.animation = require 'vendor/anim8'
 
 local entities = {}
-local player = Player(TEsound)
+local player = Player(sound)
 
 function love.load()
     table.insert(entities, player)
+
     love.input.bind('up', 'up')
     love.input.bind('left', 'left')
     love.input.bind('right', 'right')
     love.input.bind('down', 'down')
 
-    TEsound.playLooping('assets/sounds/nyan.ogg', 'background')
-    TEsound.volume('background', 0.4)
+    sound.playLooping('assets/sounds/nyan.ogg', 'background')
+    sound.volume('background', 0.4)
 end
 
-function love.update()
-    TEsound.cleanup()
+function love.update(dt)
+    sound.cleanup()
     for _, e in pairs(entities) do
-        e.update(love.input)
+        e.update(dt, love.input)
     end
 end
 
