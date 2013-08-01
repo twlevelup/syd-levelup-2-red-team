@@ -1,6 +1,7 @@
 require 'input'
 require 'player'
-require 'TEsound'
+
+local sound = require 'vendor/TEsound'
 
 local entities = {}
 local player = Player()
@@ -12,7 +13,7 @@ function love.load()
     love.input.bind('right', 'right')
     love.input.bind('down', 'down')
 
-    TEsound.play('sfx/blip.ogg')
+    TEsound.play('assets/sounds/blip.ogg')
 end
 
 function love.update()
