@@ -18,6 +18,7 @@ function love.load()
 end
 
 function love.update()
+    TEsound.cleanup()
     for _, e in pairs(entities) do
         e.update(love.input)
     end
