@@ -4,18 +4,22 @@ function Player()
     local self = {
         size = 20,
         x = 400,
-        y = 300
+        y = 300,
+        speed = 5,
+        _cat_image = "assets/images/cat.png",
+        sprite = nil
     }
 
     function self.draw(g)
-        g.rectangle(
-            'line',
-            self.x - (self.size / 2),
-            self.y - (self.size / 2),
-            self.size, self.size
-        )
+        if self.sprite == nil then
+            self.sprite = g.newImage("assets/images/nyancat.png")
+        end
 
-        g.point(self.x, self.y, 1)
+        g.draw(
+            self.sprite,
+            self.x - (self.size / 2),
+            self.y - (self.size / 2)
+        )
     end
 
     function self.update(i)
@@ -23,19 +27,19 @@ function Player()
         local dy = 0
 
         if i.pressed("left") then
-            dx = dx - 1
+            dx = dx - self.speed
         end
 
         if i.pressed("right") then
-            dx = dx + 1
+            dx = dx + self.speed
         end
 
         if i.pressed("up") then
-            dy = dy - 1
+            dy = dy - self.speed
         end
 
         if i.pressed("down") then
-            dy = dy + 1
+            dy = dy + self.speed
         end
 
         self.x = self.x + dx
