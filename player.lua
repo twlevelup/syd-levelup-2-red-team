@@ -1,6 +1,6 @@
 require 'input'
 
-function Player()
+function Player(sound)
     
     local self = {
         size = 20,
@@ -47,10 +47,10 @@ function Player()
 
         local gonnaMove = dx ~= 0 or dy ~= 0
         if not moving and gonnaMove then
-            TEsound.playLooping('assets/sounds/move.ogg', 'moving')
+            sound.playLooping('assets/sounds/move.ogg', 'moving')
         end
         if moving and not gonnaMove then
-            TEsound.stop('moving')
+            sound.stop('moving')
         end
         moving = gonnaMove
 
