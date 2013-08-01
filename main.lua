@@ -8,6 +8,10 @@ local player = Player()
 function love.load()
     table.insert(entities, player)
     love.input.bind('up', 'up')
+    love.input.bind('left', 'left')
+    love.input.bind('right', 'right')
+    love.input.bind('down', 'down')
+
     TEsound.play('sfx/blip.ogg')
 end
 
