@@ -1,5 +1,6 @@
 require 'input'
 require 'player'
+require 'TEsound'
 
 local entities = {}
 local player = Player()
@@ -7,6 +8,7 @@ local player = Player()
 function love.load()
     table.insert(entities, player)
     love.input.bind('up', 'up')
+    TEsound.play('sfx/blip.ogg')
 end
 
 function love.update()
