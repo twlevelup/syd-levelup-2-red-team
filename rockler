@@ -1,0 +1,29 @@
+#!/usr/bin/env sh
+if [ "$1" = "help" ]; then
+  echo 'Usage:'
+  echo ''
+  echo './rockler         run `luarocks make` pointing at the vendor directory, and'
+  echo '                  to the luarocks and moonrocks servers.'
+  echo ''
+  echo './rockler love .  run love for the current directory, with LUA_PATH set'
+  echo '                  so it finds the vendored rocks.'
+  echo ''
+  echo './rockler [cmd]   run cmd with LUA_PATH set and PATH including ./vendor/bin'
+  echo '                  e.g. ./rockler busted'
+  exit 0
+fi
+
+if [ "$1" = "" ]; then
+  luarocks make --tree=vendor --server=http://rocks.moonscript.org --server=http://luarocks.org/repositories/rocks
+  exit $?
+fi
+
+if [ "$1" = "love" ]; then
+  shift
+  CMD="/Applications/love.app/Contents/MacOS/love $@"
+else
+  CMD=$@
+fi
+
+LUA_PATH="./vendor/share/lua/5.1/?/?.lua;./vendor/share/lua/5.1/?.lua;./vendor/share/lua/5.1/?/init.lua;"
+PATH=./vendor/bin:$PATH LUA_PATH=$LUA_PATH $CMD
