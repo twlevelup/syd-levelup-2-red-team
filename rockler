@@ -25,5 +25,5 @@ else
   CMD=$@
 fi
 
-LUA_PATH="./vendor/share/lua/5.1/?/?.lua;./vendor/share/lua/5.1/?.lua;./vendor/share/lua/5.1/?/init.lua;"
+LUA_PATH="./?.lua;./vendor/?.lua;./vendor/share/lua/5.1/?/?.lua;./vendor/share/lua/5.1/?.lua;./vendor/share/lua/5.1/?/init.lua;"
 PATH=./vendor/bin:$PATH LUA_PATH=$LUA_PATH $CMD
