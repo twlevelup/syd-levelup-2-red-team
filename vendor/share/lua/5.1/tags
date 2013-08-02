@@ -1,0 +1,775 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+%s) return fn	pl\func.lua	/^    return function(%s) return fn(%s) end$/;"	f
+) return f:read	pl\input.lua	/^      return function() return f:read() end$/;"	f
+) yieldtree	pl\dir.lua	/^    return wrap( function() yieldtree( d ) end )$/;"	f
+...) return f	pl\func.lua	/^    return function(...) return f(g(...)) end$/;"	f
+...) return fn	pl\utils.lua	/^    return function(...) return fn(p,...) end$/;"	f
+...) return m._base[key]	pl\class.lua	/^            return function(...) return m._base[key](self,...) end$/;"	f
+ATS 	pl\path.lua	/^local function ATS (P)$/;"	f
+CPH 	pl\func.lua	/^local function CPH (idx)$/;"	f
+DataMT.__index 	pl\data.lua	/^DataMT.__index = function(self,name)$/;"	f
+DataMT.select_row 	pl\data.lua	/^DataMT.select_row = function(d,condn,context)$/;"	f
+DataMT:write	pl\data.lua	/^function DataMT:write(file)$/;"	f
+DataMT:write_row	pl\data.lua	/^function DataMT:write_row(f,row)$/;"	f
+Date.Format:US_order	pl\Date.lua	/^function Date.Format:US_order(yesno)$/;"	f
+Date.Format:_init	pl\Date.lua	/^function Date.Format:_init(fmt)$/;"	f
+Date.Format:parse	pl\Date.lua	/^function Date.Format:parse(str)$/;"	f
+Date.Format:tostring	pl\Date.lua	/^function Date.Format:tostring(d)$/;"	f
+Date.tzone 	pl\Date.lua	/^function Date.tzone ()$/;"	f
+Date:__eq	pl\Date.lua	/^function Date:__eq(other)$/;"	f
+Date:__lt	pl\Date.lua	/^function Date:__lt(other)$/;"	f
+Date:__tostring	pl\Date.lua	/^function Date:__tostring()$/;"	f
+Date:_init	pl\Date.lua	/^function Date:_init(t,...)$/;"	f
+Date:add	pl\Date.lua	/^function Date:add(t)$/;"	f
+Date:diff	pl\Date.lua	/^function Date:diff(other)$/;"	f
+Date:is_weekend	pl\Date.lua	/^function Date:is_weekend()$/;"	f
+Date:last_day	pl\Date.lua	/^function Date:last_day()$/;"	f
+Date:month_name	pl\Date.lua	/^function Date:month_name(full)$/;"	f
+Date:set	pl\Date.lua	/^function Date:set(t)$/;"	f
+Date:toLocal 	pl\Date.lua	/^function Date:toLocal ()$/;"	f
+Date:toUTC 	pl\Date.lua	/^function Date:toUTC ()$/;"	f
+Date:weekday_name	pl\Date.lua	/^function Date:weekday_name(full)$/;"	f
+Date[c] 	pl\Date.lua	/^    Date[c] = function(self,val)$/;"	f
+Doc.subst	pl\xml.lua	/^function Doc.subst(templ, data)$/;"	f
+Doc:add_child	pl\xml.lua	/^function Doc:add_child(child)$/;"	f
+Doc:add_direct_child	pl\xml.lua	/^function Doc:add_direct_child(child)$/;"	f
+Doc:addtag	pl\xml.lua	/^function Doc:addtag(tag, attrs)$/;"	f
+Doc:child_with_name	pl\xml.lua	/^function Doc:child_with_name(tag)$/;"	f
+Doc:children	pl\xml.lua	/^function Doc:children()$/;"	f
+Doc:childtags	pl\xml.lua	/^function Doc:childtags()$/;"	f
+Doc:first_childtag	pl\xml.lua	/^function Doc:first_childtag()$/;"	f
+Doc:get_attribs	pl\xml.lua	/^function Doc:get_attribs()$/;"	f
+Doc:get_elements_with_name	pl\xml.lua	/^function Doc:get_elements_with_name(tag,dont_recurse)$/;"	f
+Doc:get_text	pl\xml.lua	/^function Doc:get_text()$/;"	f
+Doc:maptags	pl\xml.lua	/^function Doc:maptags(callback)$/;"	f
+Doc:match	pl\xml.lua	/^function Doc:match(pat)$/;"	f
+Doc:matching_tags	pl\xml.lua	/^function Doc:matching_tags(tag, xmlns)$/;"	f
+Doc:reset	pl\xml.lua	/^function Doc:reset()$/;"	f
+Doc:set_attrib	pl\xml.lua	/^function Doc:set_attrib(a,v)$/;"	f
+Doc:set_attribs 	pl\xml.lua	/^function Doc:set_attribs (t)$/;"	f
+Doc:text	pl\xml.lua	/^function Doc:text(text)$/;"	f
+Doc:up	pl\xml.lua	/^function Doc:up()$/;"	f
+List.__call	pl\List.lua	/^function List.__call(t,v,i)$/;"	f
+List.default_map_with	pl\List.lua	/^function List.default_map_with(T)$/;"	f
+List.iterate	pl\List.lua	/^function List.iterate(seq)$/;"	f
+List.new	pl\List.lua	/^function List.new(t)$/;"	f
+List.range	pl\List.lua	/^function List.range(start,finish,incr)$/;"	f
+List.split 	pl\List.lua	/^function List.split (s,delim)$/;"	f
+List:__call	pl\List.lua	/^function List:__call()$/;"	f
+List:__concat	pl\List.lua	/^function List:__concat(L)$/;"	f
+List:__eq	pl\List.lua	/^function List:__eq(L)$/;"	f
+List:__tostring	pl\List.lua	/^function List:__tostring()$/;"	f
+List:_init 	pl\List.lua	/^function List:_init (src)$/;"	f
+List:append	pl\List.lua	/^function List:append(i)$/;"	f
+List:chop	pl\List.lua	/^function List:chop(i1,i2)$/;"	f
+List:clear	pl\List.lua	/^function List:clear()$/;"	f
+List:clone	pl\List.lua	/^function List:clone()$/;"	f
+List:contains	pl\List.lua	/^function List:contains(x)$/;"	f
+List:count	pl\List.lua	/^function List:count(x)$/;"	f
+List:extend	pl\List.lua	/^function List:extend(L)$/;"	f
+List:filter 	pl\List.lua	/^function List:filter (fun,arg)$/;"	f
+List:foreach 	pl\List.lua	/^function List:foreach (fun,...)$/;"	f
+List:foreachm 	pl\List.lua	/^function List:foreachm (name,...)$/;"	f
+List:insert	pl\List.lua	/^function List:insert(i, x)$/;"	f
+List:iter 	pl\List.lua	/^function List:iter ()$/;"	f
+List:join 	pl\List.lua	/^function List:join (delim)$/;"	f
+List:len	pl\List.lua	/^function List:len()$/;"	f
+List:map 	pl\List.lua	/^function List:map (fun,...)$/;"	f
+List:map2 	pl\List.lua	/^function List:map2 (fun,ls,...)$/;"	f
+List:mapm 	pl\List.lua	/^function List:mapm (name,...)$/;"	f
+List:minmax	pl\List.lua	/^function List:minmax()$/;"	f
+List:partition 	pl\List.lua	/^function List:partition (fun,...)$/;"	f
+List:pop	pl\List.lua	/^function List:pop(i)$/;"	f
+List:put 	pl\List.lua	/^function List:put (x)$/;"	f
+List:reduce 	pl\List.lua	/^function List:reduce (fun)$/;"	f
+List:remove 	pl\List.lua	/^function List:remove (i)$/;"	f
+List:remove_value	pl\List.lua	/^function List:remove_value(x)$/;"	f
+List:reverse	pl\List.lua	/^function List:reverse()$/;"	f
+List:slice	pl\List.lua	/^function List:slice(first,last)$/;"	f
+List:slice_assign	pl\List.lua	/^function List:slice_assign(i1,i2,seq)$/;"	f
+List:sort	pl\List.lua	/^function List:sort(cmp)$/;"	f
+List:sorted	pl\List.lua	/^function List:sorted(cmp)$/;"	f
+List:splice	pl\List.lua	/^function List:splice(idx,list)$/;"	f
+List:transform 	pl\List.lua	/^function List:transform (fun,...)$/;"	f
+Map:__eq 	pl\Map.lua	/^function Map:__eq (m)$/;"	f
+Map:__tostring 	pl\Map.lua	/^function Map:__tostring ()$/;"	f
+Map:_init 	pl\Map.lua	/^function Map:_init (t)$/;"	f
+Map:get 	pl\Map.lua	/^function Map:get (key)$/;"	f
+Map:getvalues 	pl\Map.lua	/^function Map:getvalues (keys)$/;"	f
+Map:items	pl\Map.lua	/^function Map:items()$/;"	f
+Map:iter 	pl\Map.lua	/^function Map:iter ()$/;"	f
+Map:set 	pl\Map.lua	/^function Map:set (key,val)$/;"	f
+Map:setdefault	pl\Map.lua	/^function Map:setdefault(key, defaultval)$/;"	f
+MethodIter:__index 	pl\List.lua	/^function MethodIter:__index (name)$/;"	f
+MethodMapper:__index 	pl\List.lua	/^function MethodMapper:__index (name)$/;"	f
+MultiMap:_init 	pl\MultiMap.lua	/^function MultiMap:_init (t)$/;"	f
+MultiMap:set 	pl\MultiMap.lua	/^function MultiMap:set (key,val)$/;"	f
+MultiMap:update 	pl\MultiMap.lua	/^function MultiMap:update (t)$/;"	f
+OrderedMap:__tostring 	pl\OrderedMap.lua	/^function OrderedMap:__tostring ()$/;"	f
+OrderedMap:_init 	pl\OrderedMap.lua	/^function OrderedMap:_init (t)$/;"	f
+OrderedMap:insert 	pl\OrderedMap.lua	/^function OrderedMap:insert (pos,key,val)$/;"	f
+OrderedMap:iter 	pl\OrderedMap.lua	/^function OrderedMap:iter ()$/;"	f
+OrderedMap:keys 	pl\OrderedMap.lua	/^function OrderedMap:keys ()$/;"	f
+OrderedMap:set 	pl\OrderedMap.lua	/^function OrderedMap:set (key,val)$/;"	f
+OrderedMap:sort 	pl\OrderedMap.lua	/^function OrderedMap:sort (cmp)$/;"	f
+OrderedMap:update 	pl\OrderedMap.lua	/^function OrderedMap:update (t)$/;"	f
+OrderedMap:values 	pl\OrderedMap.lua	/^function OrderedMap:values ()$/;"	f
+P 	pl\func.lua	/^local function P (t)$/;"	f
+PH 	pl\func.lua	/^local function PH (idx)$/;"	f
+SR:_read	pl\stringio.lua	/^function SR:_read(fmt)$/;"	f
+SR:close	pl\stringio.lua	/^function SR:close() -- for compatibility only$/;"	f
+SR:lines	pl\stringio.lua	/^function SR:lines(...)$/;"	f
+SR:read	pl\stringio.lua	/^function SR:read(...)$/;"	f
+SR:seek	pl\stringio.lua	/^function SR:seek(whence,offset)$/;"	f
+SW 	pl\seq.lua	/^local function SW (iter,...)$/;"	f
+SW:__tostring	pl\stringio.lua	/^function SW:__tostring()$/;"	f
+SW:close	pl\stringio.lua	/^function SW:close() -- for compatibility only$/;"	f
+SW:seek	pl\stringio.lua	/^function SW:seek()$/;"	f
+SW:value	pl\stringio.lua	/^function SW:value()$/;"	f
+SW:write	pl\stringio.lua	/^function SW:write(arg1,arg2,...)$/;"	f
+SW:writef	pl\stringio.lua	/^function SW:writef(fmt,...)$/;"	f
+Set.__eq 	pl\Set.lua	/^function Set.__eq (s1,s2)$/;"	f
+Set.difference 	pl\Set.lua	/^function Set.difference (self,set)$/;"	f
+Set.intersection 	pl\Set.lua	/^function Set.intersection (self,set)$/;"	f
+Set.isdisjoint 	pl\Set.lua	/^function Set.isdisjoint (s1,s2)$/;"	f
+Set.isempty 	pl\Set.lua	/^function Set.isempty (self)$/;"	f
+Set.issubset 	pl\Set.lua	/^function Set.issubset (self,set)$/;"	f
+Set.map 	pl\Set.lua	/^function Set.map (self,fn,...)$/;"	f
+Set.symmetric_difference 	pl\Set.lua	/^function Set.symmetric_difference (self,set)$/;"	f
+Set.union 	pl\Set.lua	/^function Set.union (self,set)$/;"	f
+Set:__tostring 	pl\Set.lua	/^function Set:__tostring ()$/;"	f
+Set:_init 	pl\Set.lua	/^function Set:_init (t)$/;"	f
+Template.new	pl\text.lua	/^function Template.new(tmpl)$/;"	f
+Template:indent_substitute	pl\text.lua	/^function Template:indent_substitute(tbl)$/;"	f
+Template:safe_substitute	pl\text.lua	/^function Template:safe_substitute(tbl)$/;"	f
+Template:substitute	pl\text.lua	/^function Template:substitute(tbl)$/;"	f
+["false"] 	pl\lexer.lua	/^            ["false"] = true, ["for"] = true, ["function"] = true,$/;"	f
+_M.basic_parse	pl\xml.lua	/^function _M.basic_parse(s,all_text)$/;"	f
+_M.clone	pl\xml.lua	/^function _M.clone(doc, strsubst)$/;"	f
+_M.compare	pl\xml.lua	/^function _M.compare(t1,t2)$/;"	f
+_M.elem	pl\xml.lua	/^function _M.elem(tag,items)$/;"	f
+_M.is_tag	pl\xml.lua	/^function _M.is_tag(d)$/;"	f
+_M.new	pl\xml.lua	/^function _M.new(tag, attr)$/;"	f
+_M.parse	pl\xml.lua	/^function _M.parse(text_or_file, is_file, use_basic)$/;"	f
+_M.tags	pl\xml.lua	/^function _M.tags(list)$/;"	f
+_M.tostring	pl\xml.lua	/^function _M.tostring(t,idn,indent, attr_indent)$/;"	f
+_M.walk 	pl\xml.lua	/^function _M.walk (doc, depth_first, operation)$/;"	f
+_PEMT.__call	pl\func.lua	/^function _PEMT.__call(fun,...)$/;"	f
+_PEMT.__index	pl\func.lua	/^function _PEMT.__index(obj,key)$/;"	f
+_PEMT.__tostring 	pl\func.lua	/^function _PEMT.__tostring (e)$/;"	f
+_PEMT.__unm	pl\func.lua	/^function _PEMT.__unm(arg)$/;"	f
+__call 	pl\List.lua	/^    __call = function (tbl,arg)$/;"	f
+__call 	pl\class.lua	/^    __call = function(fun,...)$/;"	f
+__call 	pl\lapp.lua	/^    __call = function(tbl,str,args) return lapp.process_options_string(str,args) end,$/;"	f
+__call 	pl\seq.lua	/^    __call = function (sw)$/;"	f
+__call 	pl\seq.lua	/^    __call = function(tbl,iter)$/;"	f
+__call 	pl\text.lua	/^    __call = function(obj,tmpl)$/;"	f
+__call 	pl\utils.lua	/^        __call = function(self, k) return self[k] end$/;"	f
+__index 	pl\class.lua	/^        __index = function(tbl,key)$/;"	f
+__index 	pl\class.lua	/^    __index = function(tbl,key)$/;"	f
+__index 	pl\data.lua	/^            __index = function(tbl,key)$/;"	f
+__index 	pl\seq.lua	/^        __index = function(tbl,key)$/;"	f
+__index 	pl\seq.lua	/^    __index = function (tbl,key)$/;"	f
+__index 	pl\utils.lua	/^        __index = function(self, k, ...)$/;"	f
+__ipairs	pl\tablex.lua	/^        __ipairs=function() return ipairs(t) end,$/;"	f
+__len	pl\tablex.lua	/^        __len=function() return #t end,$/;"	f
+__newindex	pl\tablex.lua	/^        __newindex=function(t, k, v) error("Attempt to modify read-only table", 2) end,$/;"	f
+__pairs	pl\tablex.lua	/^        __pairs=function() return pairs(t) end,$/;"	f
+_arg	pl\func.lua	/^local function _arg(...) return ... end$/;"	f
+_children_with_name	pl\xml.lua	/^function _children_with_name(self,tag,list,recurse)$/;"	f
+_class	pl\class.lua	/^local function _class(base,c_arg,c)$/;"	f
+_class_tostring 	pl\class.lua	/^local function _class_tostring (obj)$/;"	f
+_copy	pl\xml.lua	/^    local function _copy(object)$/;"	f
+_copy 	pl\tablex.lua	/^function _copy (dest,src,idest,isrc,nsrc,clean_tail)$/;"	f
+_dirfiles	pl\dir.lua	/^local function _dirfiles(dir,attrib)$/;"	f
+_dostring	pl\xml.lua	/^local function _dostring(t, buf, self, xml_escape, parentns, idn, indent, attr_indent)$/;"	f
+_find 	pl\tablex.lua	/^_find = function (t,value,tables)$/;"	f
+_find_all	pl\stringx.lua	/^local function _find_all(s,sub,first,last)$/;"	f
+_function_factories[mt] 	pl\utils.lua	/^    _function_factories[mt] = fun$/;"	f
+_indent 	pl\text.lua	/^local function _indent (s,sp)$/;"	f
+_just	pl\stringx.lua	/^local function _just(s,w,ch,left,right)$/;"	f
+_listfiles	pl\dir.lua	/^local function _listfiles(dir,filemode,match)$/;"	f
+_makepath	pl\dir.lua	/^function _makepath(p)$/;"	f
+_parse 	pl\array2d.lua	/^local function _parse (s)$/;"	f
+_partition	pl\stringx.lua	/^local function _partition(p,delim,fn)$/;"	f
+_string_lambda	pl\utils.lua	/^local function _string_lambda(f)$/;"	f
+_strip	pl\stringx.lua	/^local function _strip(s,left,right,chrs)$/;"	f
+_subst	pl\xml.lua	/^    local function _subst(item)$/;"	f
+_substitute	pl\text.lua	/^local function _substitute(s,tbl,safe)$/;"	f
+_walker	pl\dir.lua	/^local function _walker(root,bottom_up,attrib)$/;"	f
+addfield 	pl\sip.lua	/^    local function addfield (name,type)$/;"	f
+all_n 	pl\data.lua	/^local function all_n ()$/;"	f
+and (v 	pl\pretty.lua	/^                and (v == 'for' or v == 'repeat' or v == 'function' or v == 'goto')$/;"	f
+app.appfile 	pl\app.lua	/^function app.appfile (file)$/;"	f
+app.lua 	pl\app.lua	/^function app.lua ()$/;"	f
+app.parse_args 	pl\app.lua	/^function app.parse_args (args,flags_with_values)$/;"	f
+app.platform	pl\app.lua	/^function app.platform()$/;"	f
+app.require_here 	pl\app.lua	/^function app.require_here (base)$/;"	f
+append_capture	pl\xml.lua	/^local function append_capture(res,tbl)$/;"	f
+append_conversion 	pl\data.lua	/^    local function append_conversion (idx,conv)$/;"	f
+apply_tonumber 	pl\input.lua	/^local function apply_tonumber (no_fail,...)$/;"	f
+array2d.column 	pl\array2d.lua	/^function array2d.column (a,key)$/;"	f
+array2d.columns 	pl\array2d.lua	/^function array2d.columns (a)$/;"	f
+array2d.extract_cols 	pl\array2d.lua	/^function array2d.extract_cols (t,cidx)$/;"	f
+array2d.extract_rows 	pl\array2d.lua	/^function array2d.extract_rows (t,ridx)$/;"	f
+array2d.flatten 	pl\array2d.lua	/^function array2d.flatten (t)$/;"	f
+array2d.forall 	pl\array2d.lua	/^function array2d.forall (t,row_op,end_row_op,i1,j1,i2,j2)$/;"	f
+array2d.iter 	pl\array2d.lua	/^function array2d.iter (a,indices,i1,j1,i2,j2)$/;"	f
+array2d.map 	pl\array2d.lua	/^function array2d.map (f,a,arg)$/;"	f
+array2d.map2 	pl\array2d.lua	/^function array2d.map2 (f,ad,bd,a,b,arg)$/;"	f
+array2d.move 	pl\array2d.lua	/^function array2d.move (dest,di,dj,src,i1,j1,i2,j2)$/;"	f
+array2d.new	pl\array2d.lua	/^function array2d.new(rows,cols,val)$/;"	f
+array2d.parse_range 	pl\array2d.lua	/^function array2d.parse_range (s)$/;"	f
+array2d.product 	pl\array2d.lua	/^function array2d.product (f,t1,t2)$/;"	f
+array2d.range 	pl\array2d.lua	/^function array2d.range (t,rstr)$/;"	f
+array2d.reduce2 	pl\array2d.lua	/^function array2d.reduce2 (opc,opr,a)$/;"	f
+array2d.reduce_cols 	pl\array2d.lua	/^function array2d.reduce_cols (f,a)$/;"	f
+array2d.reduce_rows 	pl\array2d.lua	/^function array2d.reduce_rows (f,a)$/;"	f
+array2d.remove_col 	pl\array2d.lua	/^function array2d.remove_col (t,j)$/;"	f
+array2d.reshape 	pl\array2d.lua	/^function array2d.reshape (t,nrows,co)$/;"	f
+array2d.set 	pl\array2d.lua	/^function array2d.set (t,value,i1,j1,i2,j2)$/;"	f
+array2d.size 	pl\array2d.lua	/^function array2d.size (t)$/;"	f
+array2d.slice 	pl\array2d.lua	/^function array2d.slice (t,i1,j1,i2,j2)$/;"	f
+array2d.swap_cols 	pl\array2d.lua	/^function array2d.swap_cols (t,j1,j2)$/;"	f
+array2d.swap_rows 	pl\array2d.lua	/^function array2d.swap_rows (t,i1,i2)$/;"	f
+array2d.write 	pl\array2d.lua	/^function array2d.write (t,f,fmt,i1,j1,i2,j2)$/;"	f
+assert_arg	pl\lexer.lua	/^local function assert_arg(idx,val,tp)$/;"	f
+assert_arg	pl\sip.lua	/^local function assert_arg(idx,val,tp)$/;"	f
+assert_arg_indexable 	pl\tablex.lua	/^local function assert_arg_indexable (idx,val)$/;"	f
+assert_arg_iterable 	pl\tablex.lua	/^local function assert_arg_iterable (idx,val)$/;"	f
+assert_arg_writeable 	pl\tablex.lua	/^local function assert_arg_writeable (idx,val)$/;"	f
+assert_dir 	pl\dir.lua	/^local function assert_dir (n,val)$/;"	f
+assert_file 	pl\dir.lua	/^local function assert_file (n,val)$/;"	f
+assert_nonempty_string	pl\stringx.lua	/^local function assert_nonempty_string(n,s)$/;"	f
+assert_string 	pl\stringx.lua	/^local function assert_string (n,s)$/;"	f
+at	pl\lapp.lua	/^local function at(s,k)  return s:sub(k,k) end$/;"	f
+at	pl\path.lua	/^local function at(s,i)$/;"	f
+base_method	pl\class.lua	/^local function base_method(self,method,...)$/;"	f
+basic_subst	pl\text.lua	/^    local function basic_subst(s,t)$/;"	f
+binreg	pl\func.lua	/^local function binreg(context,t)$/;"	f
+build_comprehension	pl\comprehension.lua	/^local function build_comprehension(expr, env)$/;"	f
+c) return reduce	pl\array2d.lua	/^    return tmap(function(c) return reduce(f,column(a,c)) end, keys(a[1]))$/;"	f
+c.catch 	pl\class.lua	/^    c.catch = function(handler)$/;"	f
+call_ctor 	pl\class.lua	/^local function call_ctor (c,obj,...)$/;"	f
+capture_attrib	pl\xml.lua	/^local function capture_attrib(res,pat,value)$/;"	f
+cdump	pl\lexer.lua	/^local function cdump(tok)$/;"	f
+chdump	pl\lexer.lua	/^local function chdump(tok,options)$/;"	f
+check	pl\lapp.lua	/^        local function check(str)$/;"	f
+check_cnfg 	pl\config.lua	/^    local function check_cnfg (var,def)$/;"	f
+check_meta 	pl\tablex.lua	/^local function check_meta (val)$/;"	f
+check_parm 	pl\lapp.lua	/^    local function check_parm (parm)$/;"	f
+check_script_name 	pl\app.lua	/^local function check_script_name ()$/;"	f
+check_varargs	pl\lapp.lua	/^    local function check_varargs(s)$/;"	f
+class.properties._class_init	pl\class.lua	/^function class.properties._class_init(klass)$/;"	f
+class_of	pl\class.lua	/^local function class_of(klass,obj)$/;"	f
+cmp 	pl\tablex.lua	/^    cmp = function_arg(2,cmp)$/;"	f
+cmp 	pl\tablex.lua	/^    cmp = function_arg(3,cmp)$/;"	f
+code_comprehension	pl\comprehension.lua	/^local function code_comprehension($/;"	f
+collect_values 	pl\func.lua	/^function collect_values (e,vlist)$/;"	f
+column_by_name 	pl\data.lua	/^    column_by_name = function(self,name)$/;"	f
+column_names 	pl\data.lua	/^    column_names = function(self)$/;"	f
+comma 	pl\pretty.lua	/^function comma (val)$/;"	f
+complain 	pl\tablex.lua	/^local function complain (idx,msg)$/;"	f
+complain 	pl\test.lua	/^local function complain (x,y,msg)$/;"	f
+compress_spaces 	pl\sip.lua	/^local function compress_spaces (s)$/;"	f
+condn.where 	pl\data.lua	/^       condn.where = function_arg(0,condn.where,'condition.where must be callable')$/;"	f
+config.lines	pl\config.lua	/^function config.lines(file)$/;"	f
+config.read	pl\config.lua	/^function config.read(file,cnfg)$/;"	f
+constraint 	pl\lapp.lua	/^                        constraint = function(s)$/;"	f
+constraint 	pl\lapp.lua	/^                        constraint = function(x)$/;"	f
+convert_parameter	pl\lapp.lua	/^local function convert_parameter(ps,val)$/;"	f
+copy	pl\stringx.lua	/^local function copy(self)$/;"	f
+copy_select 	pl\data.lua	/^    copy_select = function(self,condn)$/;"	f
+count	pl\data.lua	/^local function count(s,chr)$/;"	f
+cpp_vdump	pl\lexer.lua	/^local function cpp_vdump(tok)$/;"	f
+data.filter 	pl\data.lua	/^function data.filter (Q,infile,outfile,dont_fail)$/;"	f
+data.new 	pl\data.lua	/^function data.new (d,fieldnames)$/;"	f
+data.query	pl\data.lua	/^function data.query(data,condn,context,return_row)$/;"	f
+data.read	pl\data.lua	/^function data.read(file,cnfg)$/;"	f
+data.write 	pl\data.lua	/^function data.write (data,file,fieldnames,delim)$/;"	f
+default_iter	pl\seq.lua	/^local function default_iter(iter)$/;"	f
+default_range 	pl\array2d.lua	/^local function default_range (t,i1,j1,i2,j2)$/;"	f
+dimension 	pl\array2d.lua	/^local function dimension (t)$/;"	f
+dir.clonetree 	pl\dir.lua	/^function dir.clonetree (path1,path2,file_fun,verbose)$/;"	f
+dir.copyfile 	pl\dir.lua	/^function dir.copyfile (src,dest,flag)$/;"	f
+dir.dirtree	pl\dir.lua	/^function dir.dirtree( d )$/;"	f
+dir.filter	pl\dir.lua	/^function dir.filter(files,pattern)$/;"	f
+dir.fnmatch	pl\dir.lua	/^function dir.fnmatch(file,pattern)$/;"	f
+dir.getallfiles	pl\dir.lua	/^function dir.getallfiles( start_path, pattern )$/;"	f
+dir.getdirectories	pl\dir.lua	/^function dir.getdirectories(dir)$/;"	f
+dir.getfiles	pl\dir.lua	/^function dir.getfiles(dir,mask)$/;"	f
+dir.makepath 	pl\dir.lua	/^function dir.makepath (p)$/;"	f
+dir.movefile 	pl\dir.lua	/^function dir.movefile (src,dest)$/;"	f
+dir.rmtree	pl\dir.lua	/^function dir.rmtree(fullpath)$/;"	f
+dir.walk	pl\dir.lua	/^function dir.walk(root,bottom_up,follow_links)$/;"	f
+dump	pl\test.lua	/^local function dump(x)$/;"	f
+e.__PE_function 	pl\func.lua	/^    e.__PE_function = fun$/;"	f
+eat_last_comma 	pl\pretty.lua	/^    local function eat_last_comma ()$/;"	f
+elseif type(a1) 	pl\lexer.lua	/^    elseif type(a1) == 'function' then$/;"	f
+elseif type(b) 	pl\text.lua	/^        elseif type(b) == 'function' then$/;"	f
+elseif type(e) 	pl\func.lua	/^    elseif type(e) == 'function' then$/;"	f
+elseif type(seq) 	pl\List.lua	/^    elseif type(seq) == 'function' then$/;"	f
+empty	pl\xml.lua	/^local function empty(attr) return not attr or not next(attr) end$/;"	f
+escape 	pl\sip.lua	/^local function escape (spec)$/;"	f
+execute_command	pl\dir.lua	/^local function execute_command(cmd,parms)$/;"	f
+f 	pl\array2d.lua	/^    f = utils.function_arg(1,f)$/;"	f
+f 	pl\utils.lua	/^        f = (type(f) == 'function' and f or debug.getinfo(f + 1, 'f').func)$/;"	f
+factory	pl\func.lua	/^utils.add_function_factory(_PEMT,func.I)$/;"	f
+fieldnames_as_string 	pl\data.lua	/^local function fieldnames_as_string (data)$/;"	f
+file_op 	pl\dir.lua	/^local function file_op (is_copy,src,dest,flag)$/;"	f
+filemask	pl\dir.lua	/^local function filemask(mask)$/;"	f
+find	pl\data.lua	/^local function find(t,v)$/;"	f
+find_ffi_copyfile 	pl\dir.lua	/^local function find_ffi_copyfile ()$/;"	f
+fmt 	pl\seq.lua	/^    fmt = function(v) return format(fstr,v) end$/;"	f
+fn 	pl\Set.lua	/^    fn = utils.function_arg(1,fn)$/;"	f
+fn 	pl\data.lua	/^    fn = fn() -- get the function$/;"	f
+fn 	pl\seq.lua	/^    fn = function_arg(1,fn)$/;"	f
+fn 	pl\seq.lua	/^    fn = function_arg(2,fn)$/;"	f
+fn 	pl\utils.lua	/^    fn = utils.function_arg(1,fn)$/;"	f
+force_short	pl\lapp.lua	/^local function force_short(short)$/;"	f
+formatx 	pl\text.lua	/^    local function formatx (fmt,...)$/;"	f
+fun 	pl\List.lua	/^    fun = function_arg(1,fun)$/;"	f
+fun 	pl\seq.lua	/^   fun = function_arg(1,fun)$/;"	f
+fun 	pl\tablex.lua	/^    fun = function_arg(1,fun)$/;"	f
+fun 	pl\tablex.lua	/^    fun = function_arg(2,fun)$/;"	f
+func.Args 	pl\func.lua	/^function func.Args (...)$/;"	f
+func.I	pl\func.lua	/^function func.I(e)$/;"	f
+func.Len 	pl\func.lua	/^function func.Len (arg)$/;"	f
+func.Not 	pl\func.lua	/^function func.Not (arg)$/;"	f
+func.Var 	pl\func.lua	/^function func.Var (name)$/;"	f
+func._ 	pl\func.lua	/^function func._ (value)$/;"	f
+func.bind	pl\func.lua	/^function func.bind(fn,...)$/;"	f
+func.compose 	pl\func.lua	/^function func.compose (f,g)$/;"	f
+func.import	pl\func.lua	/^function func.import(tname,context)$/;"	f
+func.instantiate 	pl\func.lua	/^function func.instantiate (e)$/;"	f
+func.lookup_imported_name 	pl\func.lua	/^function func.lookup_imported_name (fun)$/;"	f
+func.register 	pl\func.lua	/^function func.register (fun,name)$/;"	f
+func.tail 	pl\func.lua	/^function func.tail (ls)$/;"	f
+getfenv	pl\utils.lua	/^    function getfenv(f)$/;"	f
+getmetatable("").__mod 	pl\text.lua	/^    getmetatable("").__mod = function(a, b)$/;"	f
+gmt.__index	pl\import_into.lua	/^	function gmt.__index(t,name)$/;"	f
+gmt.__newindex	pl\import_into.lua	/^        function gmt.__newindex(t,name,value)$/;"	f
+gmt.hook	pl\import_into.lua	/^	function gmt.hook(handler)$/;"	f
+group	pl\sip.lua	/^local function group(s)$/;"	f
+gsub	pl\luabalanced.lua	/^local function gsub(s, f)$/;"	f
+guess_delim 	pl\data.lua	/^local function guess_delim (line)$/;"	f
+has_one_element	pl\xml.lua	/^local function has_one_element(t)$/;"	f
+if cmp then cmp 	pl\List.lua	/^    if cmp then cmp = function_arg(1,cmp) end$/;"	f
+if cmp then cmp 	pl\tablex.lua	/^    if cmp then cmp = function_arg(3,cmp) end$/;"	f
+if tp 	pl\utils.lua	/^    if tp == 'function' then return f end  -- no worries!$/;"	f
+imap	pl\text.lua	/^local function imap(f,t,...)$/;"	f
+imcompressible 	pl\sip.lua	/^local function imcompressible (s)$/;"	f
+import_name 	pl\func.lua	/^local function import_name (name,fun,context)$/;"	f
+import_symbol	pl\utils.lua	/^local function import_symbol(T,k,v,libname)$/;"	f
+imported_functions[fun] 	pl\func.lua	/^        imported_functions[fun] = name$/;"	f
+index 	pl\array2d.lua	/^local function index (t,k)$/;"	f
+index 	pl\pretty.lua	/^local function index (numkey,key)$/;"	f
+index_map_op 	pl\tablex.lua	/^local function index_map_op (i,v) return i,v end$/;"	f
+input.alltokens 	pl\input.lua	/^function input.alltokens (getter,pattern,fn)$/;"	f
+input.create_getter	pl\input.lua	/^function input.create_getter(f)$/;"	f
+input.fields 	pl\input.lua	/^function input.fields (ids,delim,f,opts)$/;"	f
+input.numbers	pl\input.lua	/^function input.numbers(f)$/;"	f
+input.words	pl\input.lua	/^function input.words(f)$/;"	f
+isPE 	pl\func.lua	/^local function isPE (obj)$/;"	f
+is_a	pl\class.lua	/^local function is_a(self,klass)$/;"	f
+is_data	pl\xml.lua	/^local function is_data(data)$/;"	f
+is_end 	pl\lexer.lua	/^        is_end = function (t)$/;"	f
+is_end 	pl\lexer.lua	/^        is_end = function(t,val)$/;"	f
+is_global_table 	pl\func.lua	/^local function is_global_table (n)$/;"	f
+is_identifier 	pl\pretty.lua	/^local function is_identifier (s)$/;"	f
+is_list	pl\List.lua	/^local function is_list(t)$/;"	f
+is_string 	pl\data.lua	/^local function is_string (s)$/;"	f
+isstring 	pl\lexer.lua	/^local function isstring (s)$/;"	f
+iter 	pl\seq.lua	/^        iter = function() return lines(file) end$/;"	f
+keys_op	pl\tablex.lua	/^local function keys_op(i,v) return i end$/;"	f
+klass.__index 	pl\class.lua	/^    klass.__index = function(t,key)$/;"	f
+klass.__index 	pl\import_into.lua	/^	    klass.__index = function(t,key)$/;"	f
+klass.__newindex 	pl\class.lua	/^    klass.__newindex = function (t,key,value)$/;"	f
+lapp.add_type 	pl\lapp.lua	/^function lapp.add_type (name,converter,constraint)$/;"	f
+lapp.assert	pl\lapp.lua	/^function lapp.assert(condn,msg)$/;"	f
+lapp.error	pl\lapp.lua	/^function lapp.error(msg,no_usage)$/;"	f
+lapp.open 	pl\lapp.lua	/^function lapp.open (file,opt)$/;"	f
+lapp.process_options_string	pl\lapp.lua	/^function lapp.process_options_string(str,args)$/;"	f
+lapp.quit	pl\lapp.lua	/^function lapp.quit(msg,no_usage)$/;"	f
+lex 	pl\lexer.lua	/^    local function lex ()$/;"	f
+lexer.cpp	pl\lexer.lua	/^function lexer.cpp(s,filter,options)$/;"	f
+lexer.expecting 	pl\lexer.lua	/^function lexer.expecting (tok,expected_type,no_skip_ws)$/;"	f
+lexer.get_keywords 	pl\lexer.lua	/^function lexer.get_keywords ()$/;"	f
+lexer.get_separated_list	pl\lexer.lua	/^function lexer.get_separated_list(tok,endtoken,delim)$/;"	f
+lexer.getline 	pl\lexer.lua	/^function lexer.getline (tok)$/;"	f
+lexer.getrest 	pl\lexer.lua	/^function lexer.getrest (tok)$/;"	f
+lexer.insert 	pl\lexer.lua	/^function lexer.insert (tok,a1,a2)$/;"	f
+lexer.lineno 	pl\lexer.lua	/^function lexer.lineno (tok)$/;"	f
+lexer.lua	pl\lexer.lua	/^function lexer.lua(s,filter,options)$/;"	f
+lexer.scan 	pl\lexer.lua	/^function lexer.scan (s,matches,filter,options)$/;"	f
+lexer.skipws 	pl\lexer.lua	/^function lexer.skipws (tok)$/;"	f
+line 	pl\data.lua	/^        line = line:gsub('"([^"]+)"',function(str)$/;"	f
+lines	pl\lapp.lua	/^local function lines(s) return s:gmatch('([^\\n]*)\\n') end$/;"	f
+local  pieces, s 	pl\template.lua	/^    local  pieces, s = {"return function(_put) ", n = 1}, 1$/;"	f
+local _function_factories 	pl\utils.lua	/^local _function_factories = {}$/;"	f
+local array_tostring,split,is_type,assert_arg,function_arg 	pl\List.lua	/^local array_tostring,split,is_type,assert_arg,function_arg = utils.array_tostring,utils.split,utils.is_type,utils.assert_arg,utils.function_arg$/;"	f
+local co 	pl\permute.lua	/^    local co = coroutine.create(function () permgen(a, n, coroutine.yield) end)$/;"	f
+local ctor 	pl\xml.lua	/^        local ctor = function(items) return _M.elem(tag,items) end$/;"	f
+local ff 	pl\utils.lua	/^        local ff = _function_factories[mt]$/;"	f
+local fstr 	pl\func.lua	/^    local fstr = ('return function(%s) return function(%s) return %s end end'):format(consts,parms,rep)$/;"	f
+local fstr 	pl\utils.lua	/^        local fstr = 'return function('..args..') return '..body..' end'$/;"	f
+local fun 	pl\sip.lua	/^    local fun = ('return (function(s,res)\\n\\tlocal %s = s:match(%q)\\n'):format(concat(ls,','),spec)$/;"	f
+local function is_element(d) return type(d) 	pl\xml.lua	/^local function is_element(d) return type(d) == 'table' and d.tag ~= nil end$/;"	f
+local function is_text(s) return type(s) 	pl\xml.lua	/^local function is_text(s) return type(s) == 'string' end$/;"	f
+local function isdigit(s) return s:find('^%d+$') 	pl\lapp.lua	/^local function isdigit(s) return s:find('^%d+$') == 1 end$/;"	f
+local function nextp() i 	pl\Date.lua	/^    local function nextp() i = i + 1; p = parts[i] end$/;"	f
+local function_arg 	pl\seq.lua	/^local function_arg = utils.function_arg$/;"	f
+local function_arg 	pl\tablex.lua	/^local function_arg = utils.function_arg$/;"	f
+local imported_functions 	pl\func.lua	/^local imported_functions = {}$/;"	f
+local ls 	pl\Map.lua	/^    local ls = makelist(tablex.pairmap (function (k,v) return makelist {k,v} end, self))$/;"	f
+local max_param 	pl\comprehension.lua	/^  local max_param = 0; stmp:gsub('[%a_][%w_]*', function(s)$/;"	f
+local patterns,function_arg,usplit,array_tostring 	pl\data.lua	/^local patterns,function_arg,usplit,array_tostring = utils.patterns,utils.function_arg,utils.split,utils.array_tostring$/;"	f
+local r 	pl\sip.lua	/^    local r = (spec:gsub(pattern,function(s)$/;"	f
+local res,err 	pl\template.lua	/^    local res,err = xpcall(function() fn(function(s)$/;"	f
+local stmp 	pl\comprehension.lua	/^  local stmp = ''; lb.gsub(expr, function(u, sin)  -- strip comments\/strings$/;"	f
+lookup_lib	pl\utils.lua	/^local function lookup_lib(T,t)$/;"	f
+lstrip	pl\lapp.lua	/^local function lstrip(str)  return str:gsub('^%s+','')  end$/;"	f
+lstrip	pl\text.lua	/^local function lstrip(str)  return (str:gsub('^%s+',''))  end$/;"	f
+lua_vdump	pl\lexer.lua	/^local function lua_vdump(tok)$/;"	f
+make_list	pl\data.lua	/^local function make_list(l)$/;"	f
+make_list	pl\text.lua	/^local function make_list(l)  return setmetatable(l,utils.stdmt.List) end$/;"	f
+make_number	pl\xml.lua	/^local function make_number(pat)$/;"	f
+makelist	pl\Map.lua	/^local function makelist(t)$/;"	f
+makelist 	pl\List.lua	/^local function makelist (t,obj)$/;"	f
+makelist 	pl\array2d.lua	/^local function makelist (res)$/;"	f
+makelist 	pl\tablex.lua	/^local function makelist (res)$/;"	f
+makemap 	pl\Map.lua	/^local function makemap (m)$/;"	f
+makeset 	pl\Set.lua	/^local function makeset (t)$/;"	f
+map	pl\data.lua	/^local function map(fun,t)$/;"	f
+map 	pl\seq.lua	/^    map = function(self,fun,arg)$/;"	f
+massage 	pl\data.lua	/^            massage = function(s) return (s:gsub('\\001',',')) end$/;"	f
+massage_fieldnames 	pl\data.lua	/^local function massage_fieldnames (fields,copy)$/;"	f
+massage_fields	pl\data.lua	/^local function massage_fields(data,f)$/;"	f
+match	pl\xml.lua	/^function match(d,pat,res,keep_going)$/;"	f
+match 	pl\dir.lua	/^        match = function(f)$/;"	f
+match_bracketed	pl\luabalanced.lua	/^local function match_bracketed(s, pos)$/;"	f
+match_comment	pl\luabalanced.lua	/^local function match_comment(s, pos)$/;"	f
+match_explist	pl\luabalanced.lua	/^local function match_explist(s, pos)$/;"	f
+match_expression	pl\luabalanced.lua	/^local function match_expression(s, pos)$/;"	f
+match_namelist	pl\luabalanced.lua	/^local function match_namelist(s, pos)$/;"	f
+match_string	pl\luabalanced.lua	/^local function match_string(s, pos)$/;"	f
+mt.__call 	pl\class.lua	/^    mt.__call = function(class_tbl,...)$/;"	f
+mt.__index 	pl\strict.lua	/^    mt.__index = function(t,n)$/;"	f
+mt.__newindex 	pl\strict.lua	/^    mt.__newindex = function(t, n, v)$/;"	f
+mt.__newindex 	pl\strict.lua	/^    mt.__newindex = function(t,k,v)$/;"	f
+mt:__index	pl\comprehension.lua	/^  function mt:__index(expr)$/;"	f
+ndump	pl\lexer.lua	/^local function ndump(tok,options)$/;"	f
+new	pl\comprehension.lua	/^local function new(env)$/;"	f
+newline	pl\array2d.lua	/^    local function newline()$/;"	f
+next_elem	pl\xml.lua	/^                local function next_elem()$/;"	f
+non_empty	pl\stringx.lua	/^local function non_empty(s)$/;"	f
+obj 	pl\array2d.lua	/^local function obj (int,out)$/;"	f
+open_file 	pl\data.lua	/^local function open_file (f,mode)$/;"	f
+operator.add	pl\operator.lua	/^function  operator.add(a,b)$/;"	f
+operator.call	pl\operator.lua	/^function operator.call(fn,...)$/;"	f
+operator.concat	pl\operator.lua	/^function  operator.concat(a,b)$/;"	f
+operator.div	pl\operator.lua	/^function  operator.div(a,b)$/;"	f
+operator.eq	pl\operator.lua	/^function  operator.eq(a,b)$/;"	f
+operator.ge	pl\operator.lua	/^function  operator.ge(a,b)$/;"	f
+operator.gt	pl\operator.lua	/^function  operator.gt(a,b)$/;"	f
+operator.index	pl\operator.lua	/^function  operator.index(t,k)$/;"	f
+operator.land	pl\operator.lua	/^function  operator.land(a,b)$/;"	f
+operator.le	pl\operator.lua	/^function  operator.le(a,b)$/;"	f
+operator.len	pl\operator.lua	/^function  operator.len(a)$/;"	f
+operator.lnot	pl\operator.lua	/^function  operator.lnot(a)$/;"	f
+operator.lor	pl\operator.lua	/^function  operator.lor(a,b)$/;"	f
+operator.lt	pl\operator.lua	/^function  operator.lt(a,b)$/;"	f
+operator.match 	pl\operator.lua	/^function  operator.match (a,b)$/;"	f
+operator.mod	pl\operator.lua	/^function  operator.mod(a,b)$/;"	f
+operator.mul	pl\operator.lua	/^function  operator.mul(a,b)$/;"	f
+operator.neq	pl\operator.lua	/^function  operator.neq(a,b)$/;"	f
+operator.nop 	pl\operator.lua	/^function  operator.nop (...)$/;"	f
+operator.pow	pl\operator.lua	/^function  operator.pow(a,b)$/;"	f
+operator.sub	pl\operator.lua	/^function  operator.sub(a,b)$/;"	f
+operator.table 	pl\operator.lua	/^function  operator.table (...)$/;"	f
+operator.unm	pl\operator.lua	/^function  operator.unm(a)$/;"	f
+package.searchpath 	pl\utils.lua	/^    function package.searchpath (mod,path)$/;"	f
+parseDollarParen	pl\template.lua	/^    local function parseDollarParen(pieces, chunk, s, e)$/;"	f
+parseHashLines	pl\template.lua	/^local function parseHashLines(chunk,brackets,esc)$/;"	f
+parse_comprehension	pl\comprehension.lua	/^local function parse_comprehension(expr)$/;"	f
+parse_date 	pl\Date.lua	/^function parse_date (s)$/;"	f
+parse_date_unsafe 	pl\Date.lua	/^local function parse_date_unsafe (s,US)$/;"	f
+parse_iso_end	pl\Date.lua	/^local function  parse_iso_end(p,ns,sec)$/;"	f
+parse_select 	pl\data.lua	/^parse_select = function(s,data)$/;"	f
+parseargs	pl\xml.lua	/^local function parseargs(s)$/;"	f
+path.abspath	pl\path.lua	/^function path.abspath(P,pwd)$/;"	f
+path.basename	pl\path.lua	/^function path.basename(P)$/;"	f
+path.common_prefix 	pl\path.lua	/^function path.common_prefix (path1,path2)$/;"	f
+path.dirname	pl\path.lua	/^function path.dirname(P)$/;"	f
+path.exists	pl\path.lua	/^function path.exists(P)$/;"	f
+path.expanduser	pl\path.lua	/^function path.expanduser(P)$/;"	f
+path.extension	pl\path.lua	/^function path.extension(P)$/;"	f
+path.getatime	pl\path.lua	/^function path.getatime(P)$/;"	f
+path.getctime	pl\path.lua	/^function path.getctime(P)$/;"	f
+path.getmtime	pl\path.lua	/^function path.getmtime(P)$/;"	f
+path.getsize	pl\path.lua	/^function path.getsize(P)$/;"	f
+path.isabs	pl\path.lua	/^function path.isabs(P)$/;"	f
+path.isdir	pl\path.lua	/^function path.isdir(P)$/;"	f
+path.isfile	pl\path.lua	/^function path.isfile(P)$/;"	f
+path.islink	pl\path.lua	/^function path.islink(P)$/;"	f
+path.join	pl\path.lua	/^function path.join(p1,p2,...)$/;"	f
+path.normcase	pl\path.lua	/^function path.normcase(P)$/;"	f
+path.normpath	pl\path.lua	/^function path.normpath(P)$/;"	f
+path.package_path	pl\path.lua	/^function path.package_path(mod)$/;"	f
+path.relpath 	pl\path.lua	/^function path.relpath (P,start)$/;"	f
+path.splitext	pl\path.lua	/^function path.splitext(P)$/;"	f
+path.splitpath	pl\path.lua	/^function path.splitpath(P)$/;"	f
+path.tmpname 	pl\path.lua	/^function path.tmpname ()$/;"	f
+pdump 	pl\lexer.lua	/^local function pdump (tok)$/;"	f
+permgen 	pl\permute.lua	/^permgen = function (a, n, fn)$/;"	f
+permute.iter 	pl\permute.lua	/^function permute.iter (a)$/;"	f
+permute.table 	pl\permute.lua	/^function permute.table (a)$/;"	f
+plain_vdump	pl\lexer.lua	/^local function plain_vdump(tok)$/;"	f
+pred 	pl\seq.lua	/^    pred = function_arg(2,pred)$/;"	f
+pred 	pl\tablex.lua	/^    pred = function_arg(2,pred)$/;"	f
+prepare_data	pl\xml.lua	/^local function prepare_data(data)$/;"	f
+pretty.dump 	pl\pretty.lua	/^function pretty.dump (t,...)$/;"	f
+pretty.load 	pl\pretty.lua	/^function pretty.load (s, env, paranoid)$/;"	f
+pretty.number 	pl\pretty.lua	/^function pretty.number (num,kind,prec)$/;"	f
+pretty.read	pl\pretty.lua	/^function pretty.read(s)$/;"	f
+pretty.write 	pl\pretty.lua	/^function pretty.write (tbl,space,not_clever)$/;"	f
+process_default 	pl\lapp.lua	/^local function process_default (sval,vtype)$/;"	f
+process_name	pl\config.lua	/^    local function process_name(key)$/;"	f
+process_select 	pl\data.lua	/^local function process_select (data,parms)$/;"	f
+process_value	pl\config.lua	/^    local function process_value(value)$/;"	f
+put	pl\pretty.lua	/^    local function put(s)$/;"	f
+putln 	pl\pretty.lua	/^    local function putln (s)$/;"	f
+query 	pl\data.lua	/^        query = 'return function(_condn) '..query..' end'$/;"	f
+quote 	pl\pretty.lua	/^local function quote (s)$/;"	f
+quote_argument 	pl\dir.lua	/^local function quote_argument (f)$/;"	f
+quote_if_necessary 	pl\pretty.lua	/^local function quote_if_necessary (v)$/;"	f
+rand 	pl\seq.lua	/^     rand = function() return mrandom(l) end$/;"	f
+rand 	pl\seq.lua	/^     rand = function() return mrandom(l,u) end$/;"	f
+range_check	pl\lapp.lua	/^local function range_check(x,min,max,parm)$/;"	f
+reduce 	pl\seq.lua	/^    reduce = function(self,fun)$/;"	f
+repr 	pl\func.lua	/^function repr (e,lastpred)$/;"	f
+restore_string_index 	pl\pretty.lua	/^local function restore_string_index (SMT)$/;"	f
+return type(obj) 	pl\utils.lua	/^    return type(obj) == 'function' or getmetatable(obj) and getmetatable(obj).__call$/;"	f
+row) return imap	pl\array2d.lua	/^    return obj(a,imap(function(row) return imap(f,row,arg) end, a))$/;"	f
+row) return reduce	pl\array2d.lua	/^    return tmap(function(row) return reduce(f,row) end, a)$/;"	f
+rowop 	pl\array2d.lua	/^        rowop = function(row,j) f:write(tostring(row[j]),' ') end$/;"	f
+rowop 	pl\array2d.lua	/^        rowop = function(row,j) fprintf(f,fmt,row[j]) end$/;"	f
+rstrip	pl\data.lua	/^local function rstrip(s)$/;"	f
+s,...) return seq.mapmethod	pl\seq.lua	/^                return function(s,...) return seq.mapmethod(s,key,...) end$/;"	f
+s:gsub("([%w:]+)%s*	pl\xml.lua	/^    s:gsub("([%w:]+)%s*=%s*([^\\"']+)%s*", function (w, a)$/;"	f
+s:gsub("([%w:]+)%s*	pl\xml.lua	/^  s:gsub("([%w:]+)%s*=%s*([\\"'])(.-)%2", function (w, _, a)$/;"	f
+save_string_index 	pl\pretty.lua	/^local function save_string_index ()$/;"	f
+sdump	pl\lexer.lua	/^local function sdump(tok,options)$/;"	f
+sdump_l	pl\lexer.lua	/^local function sdump_l(tok,options)$/;"	f
+seq.copy	pl\seq.lua	/^function seq.copy(iter)$/;"	f
+seq.copy2 	pl\seq.lua	/^function seq.copy2 (iter,i1,i2)$/;"	f
+seq.copy_tuples 	pl\seq.lua	/^function seq.copy_tuples (iter)$/;"	f
+seq.count	pl\seq.lua	/^function seq.count(iter,condn,arg)$/;"	f
+seq.count_map	pl\seq.lua	/^function seq.count_map(iter)$/;"	f
+seq.enum 	pl\seq.lua	/^function seq.enum (iter)$/;"	f
+seq.equal_to	pl\seq.lua	/^function seq.equal_to(x)$/;"	f
+seq.filter 	pl\seq.lua	/^function seq.filter (iter,pred,arg)$/;"	f
+seq.foreach	pl\seq.lua	/^function seq.foreach(iter,fn)$/;"	f
+seq.greater_than	pl\seq.lua	/^function seq.greater_than(x)$/;"	f
+seq.import 	pl\seq.lua	/^function seq.import ()$/;"	f
+seq.keys	pl\seq.lua	/^function seq.keys(t)$/;"	f
+seq.last 	pl\seq.lua	/^function seq.last (iter)$/;"	f
+seq.less_than	pl\seq.lua	/^function seq.less_than(x)$/;"	f
+seq.lines 	pl\seq.lua	/^function seq.lines (f,...)$/;"	f
+seq.list	pl\seq.lua	/^function seq.list(t)$/;"	f
+seq.map	pl\seq.lua	/^function seq.map(fn,iter,arg)$/;"	f
+seq.mapmethod 	pl\seq.lua	/^function seq.mapmethod (iter,name,arg1,arg2)$/;"	f
+seq.matching	pl\seq.lua	/^function seq.matching(s)$/;"	f
+seq.minmax	pl\seq.lua	/^function seq.minmax(iter)$/;"	f
+seq.printall	pl\seq.lua	/^function seq.printall(iter,sep,nfields,fmt)$/;"	f
+seq.random	pl\seq.lua	/^function seq.random(n,l,u)$/;"	f
+seq.range	pl\seq.lua	/^function seq.range(start,finish)$/;"	f
+seq.reduce 	pl\seq.lua	/^function seq.reduce (fun,iter,oldval)$/;"	f
+seq.skip 	pl\seq.lua	/^function seq.skip (iter,n)$/;"	f
+seq.sort	pl\seq.lua	/^function seq.sort(iter,comp)$/;"	f
+seq.splice	pl\seq.lua	/^function seq.splice(iter1,iter2)$/;"	f
+seq.sum	pl\seq.lua	/^function seq.sum(iter,fn)$/;"	f
+seq.take 	pl\seq.lua	/^function seq.take (iter,n)$/;"	f
+seq.unique	pl\seq.lua	/^function seq.unique(iter,returns_table)$/;"	f
+seq.zip	pl\seq.lua	/^function seq.zip(iter1,iter2)$/;"	f
+set_op	pl\tablex.lua	/^local function set_op(i,v) return true,v end$/;"	f
+set_result	pl\lapp.lua	/^    local function set_result(ps,parm,val)$/;"	f
+setfenv	pl\utils.lua	/^    function setfenv(f, t)$/;"	f
+setmeta 	pl\tablex.lua	/^local function setmeta (res,tbl,def)$/;"	f
+simple_table	pl\List.lua	/^local function simple_table(t)$/;"	f
+sip.compile	pl\sip.lua	/^function sip.compile(spec,options)$/;"	f
+sip.create_pattern 	pl\sip.lua	/^function sip.create_pattern (spec,options)$/;"	f
+sip.create_spec_fun	pl\sip.lua	/^function sip.create_spec_fun(spec,options)$/;"	f
+sip.custom_pattern	pl\sip.lua	/^function sip.custom_pattern(flag,patt)$/;"	f
+sip.fields 	pl\sip.lua	/^function sip.fields (spec,f)$/;"	f
+sip.match 	pl\sip.lua	/^function sip.match (spec,line,res,options)$/;"	f
+sip.match_at_start 	pl\sip.lua	/^function sip.match_at_start (spec,line,res)$/;"	f
+sip.pattern 	pl\sip.lua	/^function sip.pattern (spec,fun)$/;"	f
+sip.read 	pl\sip.lua	/^function sip.read (f)$/;"	f
+spec 	pl\sip.lua	/^        spec = spec:gsub('{(%a+)}',function(name)$/;"	f
+split	pl\config.lua	/^local function split(s,re)$/;"	f
+split	pl\data.lua	/^local function split(line,delim,csv,n)$/;"	f
+split	pl\text.lua	/^local function split(s,delim)  return make_list(usplit(s,delim)) end$/;"	f
+strict.closed_module 	pl\strict.lua	/^function strict.closed_module (mod,name)$/;"	f
+strict.make_all_strict 	pl\strict.lua	/^function strict.make_all_strict (T)$/;"	f
+strict.module 	pl\strict.lua	/^function strict.module (name,mod,predeclared)$/;"	f
+stringio.create	pl\stringio.lua	/^function stringio.create()$/;"	f
+stringio.lines	pl\stringio.lua	/^function stringio.lines(s,...)$/;"	f
+stringio.open	pl\stringio.lua	/^function stringio.open(s)$/;"	f
+stringx.at	pl\stringx.lua	/^function stringx.at(self,idx)$/;"	f
+stringx.center	pl\stringx.lua	/^function stringx.center(s,w,ch)$/;"	f
+stringx.count	pl\stringx.lua	/^function stringx.count(self,sub)$/;"	f
+stringx.endswith	pl\stringx.lua	/^function stringx.endswith(s,send)$/;"	f
+stringx.expandtabs	pl\stringx.lua	/^function stringx.expandtabs(self,n)$/;"	f
+stringx.import	pl\stringx.lua	/^function stringx.import(dont_overload)$/;"	f
+stringx.isalnum	pl\stringx.lua	/^function stringx.isalnum(s)$/;"	f
+stringx.isalpha	pl\stringx.lua	/^function stringx.isalpha(s)$/;"	f
+stringx.isdigit	pl\stringx.lua	/^function stringx.isdigit(s)$/;"	f
+stringx.islower	pl\stringx.lua	/^function stringx.islower(s)$/;"	f
+stringx.isspace	pl\stringx.lua	/^function stringx.isspace(s)$/;"	f
+stringx.isupper	pl\stringx.lua	/^function stringx.isupper(s)$/;"	f
+stringx.join 	pl\stringx.lua	/^function stringx.join (self,seq)$/;"	f
+stringx.lfind	pl\stringx.lua	/^function stringx.lfind(self,sub,i1)$/;"	f
+stringx.lines 	pl\stringx.lua	/^function stringx.lines (self)$/;"	f
+stringx.ljust	pl\stringx.lua	/^function stringx.ljust(self,w,ch)$/;"	f
+stringx.lstrip	pl\stringx.lua	/^function stringx.lstrip(self,chrs)$/;"	f
+stringx.partition	pl\stringx.lua	/^function stringx.partition(self,ch)$/;"	f
+stringx.replace	pl\stringx.lua	/^function stringx.replace(s,old,new,n)$/;"	f
+stringx.rfind	pl\stringx.lua	/^function stringx.rfind(self,sub,first,last)$/;"	f
+stringx.rjust	pl\stringx.lua	/^function stringx.rjust(s,w,ch)$/;"	f
+stringx.rpartition	pl\stringx.lua	/^function stringx.rpartition(self,ch)$/;"	f
+stringx.rstrip	pl\stringx.lua	/^function stringx.rstrip(s,chrs)$/;"	f
+stringx.shorten	pl\stringx.lua	/^function stringx.shorten(self,sz,tail)$/;"	f
+stringx.split	pl\stringx.lua	/^function stringx.split(self,re,n)$/;"	f
+stringx.splitlines 	pl\stringx.lua	/^function stringx.splitlines (self,keepends)$/;"	f
+stringx.splitv 	pl\stringx.lua	/^function stringx.splitv (self,re)$/;"	f
+stringx.startswith	pl\stringx.lua	/^function stringx.startswith(self,s2)$/;"	f
+stringx.strip	pl\stringx.lua	/^function stringx.strip(self,chrs)$/;"	f
+stringx.title	pl\stringx.lua	/^function stringx.title(self)$/;"	f
+strip	pl\config.lua	/^local function strip(s)$/;"	f
+strip	pl\lapp.lua	/^local function strip(str)  return lstrip(str):gsub('%s+$','') end$/;"	f
+strip	pl\text.lua	/^local function strip(str)  return (lstrip(str):gsub('%s+$','')) end$/;"	f
+strip 	pl\data.lua	/^local function strip (s)$/;"	f
+strip_quotes 	pl\config.lua	/^local function strip_quotes (s)$/;"	f
+stripper 	pl\data.lua	/^        stripper = function(s)  return s:gsub('^%s+','') end$/;"	f
+subst	pl\text.lua	/^        function subst(f)$/;"	f
+subst	pl\text.lua	/^    local function subst(line)$/;"	f
+sw,...) return SW	pl\seq.lua	/^            return function(sw,...) return SW(fn(sw.iter,...)) end$/;"	f
+sw,...) return SW	pl\seq.lua	/^            return function(sw,...) return SW(mapmethod(sw.iter,key,...)) end$/;"	f
+t) append	pl\permute.lua	/^    permgen(a,n,function(t) append(res,copy(t)) end)$/;"	f
+tab_expand 	pl\stringx.lua	/^local function tab_expand (self,n)$/;"	f
+table.pack 	pl\utils.lua	/^    function table.pack (...)$/;"	f
+tablex._normalize_slice	pl\tablex.lua	/^function tablex._normalize_slice(self,first,last)$/;"	f
+tablex.clear	pl\tablex.lua	/^function tablex.clear(t,istart)$/;"	f
+tablex.compare 	pl\tablex.lua	/^function tablex.compare (t1,t2,cmp)$/;"	f
+tablex.compare_no_order 	pl\tablex.lua	/^function tablex.compare_no_order (t1,t2,cmp)$/;"	f
+tablex.copy 	pl\tablex.lua	/^function tablex.copy (t)$/;"	f
+tablex.count_map 	pl\tablex.lua	/^function tablex.count_map (t,cmp)$/;"	f
+tablex.deepcompare	pl\tablex.lua	/^function tablex.deepcompare(t1,t2,ignore_mt,eps)$/;"	f
+tablex.deepcopy	pl\tablex.lua	/^function tablex.deepcopy(t)$/;"	f
+tablex.difference 	pl\tablex.lua	/^function tablex.difference (s1,s2,symm)$/;"	f
+tablex.filter 	pl\tablex.lua	/^function tablex.filter (t,pred,arg)$/;"	f
+tablex.find	pl\tablex.lua	/^function tablex.find(t,val,idx)$/;"	f
+tablex.find_if	pl\tablex.lua	/^function tablex.find_if(t,cmp,arg)$/;"	f
+tablex.foreach	pl\tablex.lua	/^function tablex.foreach(t,fun,...)$/;"	f
+tablex.foreachi	pl\tablex.lua	/^function tablex.foreachi(t,fun,...)$/;"	f
+tablex.icopy 	pl\tablex.lua	/^function tablex.icopy (dest,src,idest,isrc,nsrc)$/;"	f
+tablex.imap	pl\tablex.lua	/^function tablex.imap(fun,t,...)$/;"	f
+tablex.imap2 	pl\tablex.lua	/^function tablex.imap2 (fun,t1,t2,...)$/;"	f
+tablex.index_by	pl\tablex.lua	/^function tablex.index_by(tbl,idx)$/;"	f
+tablex.index_map 	pl\tablex.lua	/^function tablex.index_map (t)$/;"	f
+tablex.insertvalues	pl\tablex.lua	/^function tablex.insertvalues(t, ...)$/;"	f
+tablex.keys	pl\tablex.lua	/^function tablex.keys(t)$/;"	f
+tablex.makeset 	pl\tablex.lua	/^function tablex.makeset (t)$/;"	f
+tablex.map	pl\tablex.lua	/^function tablex.map(fun,t,...)$/;"	f
+tablex.map2 	pl\tablex.lua	/^function tablex.map2 (fun,t1,t2,...)$/;"	f
+tablex.map_named_method 	pl\tablex.lua	/^function tablex.map_named_method (name,t,...)$/;"	f
+tablex.mapn	pl\tablex.lua	/^function tablex.mapn(fun,...)$/;"	f
+tablex.merge 	pl\tablex.lua	/^function tablex.merge (t1,t2,dup)$/;"	f
+tablex.move 	pl\tablex.lua	/^function tablex.move (dest,src,idest,isrc,nsrc)$/;"	f
+tablex.new 	pl\tablex.lua	/^function tablex.new (n,val)$/;"	f
+tablex.pairmap	pl\tablex.lua	/^function tablex.pairmap(fun,t,...)$/;"	f
+tablex.range 	pl\tablex.lua	/^function tablex.range (start,finish,step)$/;"	f
+tablex.readonly	pl\tablex.lua	/^function tablex.readonly(t)$/;"	f
+tablex.reduce 	pl\tablex.lua	/^function tablex.reduce (fun,t)$/;"	f
+tablex.removevalues 	pl\tablex.lua	/^function tablex.removevalues (t,i1,i2)$/;"	f
+tablex.rfind	pl\tablex.lua	/^function tablex.rfind(t,val,idx)$/;"	f
+tablex.search 	pl\tablex.lua	/^function tablex.search (t,value,exclude)$/;"	f
+tablex.set 	pl\tablex.lua	/^function tablex.set (t,val,i1,i2)$/;"	f
+tablex.size 	pl\tablex.lua	/^function tablex.size (t)$/;"	f
+tablex.sort	pl\tablex.lua	/^function tablex.sort(t,f)$/;"	f
+tablex.sortv	pl\tablex.lua	/^function tablex.sortv(t,f)$/;"	f
+tablex.sub	pl\tablex.lua	/^function tablex.sub(t,first,last)$/;"	f
+tablex.transform 	pl\tablex.lua	/^function tablex.transform (fun,t,...)$/;"	f
+tablex.update 	pl\tablex.lua	/^function tablex.update (t1,t2)$/;"	f
+tablex.values	pl\tablex.lua	/^function tablex.values(t)$/;"	f
+tablex.zip	pl\tablex.lua	/^function tablex.zip(...)$/;"	f
+tappend 	pl\lexer.lua	/^    local function tappend (tl,t,val)$/;"	f
+tdump	pl\lexer.lua	/^local function tdump(tok)$/;"	f
+template.substitute	pl\template.lua	/^function template.substitute(str,env)$/;"	f
+test.asserteq 	pl\test.lua	/^function test.asserteq (x,y,eps)$/;"	f
+test.asserteq2 	pl\test.lua	/^function test.asserteq2 (x1,x2,y1,y2)$/;"	f
+test.assertmatch 	pl\test.lua	/^function test.assertmatch (s1,s2)$/;"	f
+test.assertraise	pl\test.lua	/^function test.assertraise(fn,e)$/;"	f
+test.timer	pl\test.lua	/^function test.timer(msg,n,fun,...)$/;"	f
+test.tuple	pl\test.lua	/^function test.tuple(...)$/;"	f
+text.dedent 	pl\text.lua	/^function text.dedent (s)$/;"	f
+text.fill 	pl\text.lua	/^function text.fill (s,width)$/;"	f
+text.format_operator	pl\text.lua	/^function text.format_operator()$/;"	f
+text.indent 	pl\text.lua	/^function text.indent (s,n,ch)$/;"	f
+text.wrap 	pl\text.lua	/^function text.wrap (s,width)$/;"	f
+tnumber 	pl\sip.lua	/^local function tnumber (s)$/;"	f
+tonum	pl\Date.lua	/^local function tonum(s,l1,l2,kind)$/;"	f
+tostring_q	pl\List.lua	/^local function tostring_q(val)$/;"	f
+try_number	pl\data.lua	/^    local function try_number(x)$/;"	f
+tupdate	pl\class.lua	/^local function tupdate(td,ts)$/;"	f
+tuple_mt.__eq	pl\test.lua	/^function tuple_mt.__eq(a, b)$/;"	f
+tuple_mt.__tostring	pl\test.lua	/^function tuple_mt.__tostring(self)$/;"	f
+two_arguments 	pl\dir.lua	/^local function two_arguments (f1,f2)$/;"	f
+unescape	pl\xml.lua	/^local function unescape(str) return (str:gsub( "&(%a+);", escapes)); end$/;"	f
+utils.add_function_factory 	pl\utils.lua	/^function utils.add_function_factory (mt,fun)$/;"	f
+utils.array_tostring 	pl\utils.lua	/^function utils.array_tostring (t,temp,tostr)$/;"	f
+utils.assert_arg 	pl\utils.lua	/^function utils.assert_arg (n,val,tp,verify,msg,lev)$/;"	f
+utils.assert_string 	pl\utils.lua	/^function utils.assert_string (n,val)$/;"	f
+utils.bind1 	pl\utils.lua	/^function utils.bind1 (fn,p)$/;"	f
+utils.bind2 	pl\utils.lua	/^function utils.bind2 (fn,p)$/;"	f
+utils.choose	pl\utils.lua	/^function utils.choose(cond,value1,value2)$/;"	f
+utils.escape	pl\utils.lua	/^function utils.escape(s)$/;"	f
+utils.execute 	pl\utils.lua	/^function utils.execute (cmd)$/;"	f
+utils.executeex	pl\utils.lua	/^function utils.executeex(cmd, bin)$/;"	f
+utils.fprintf	pl\utils.lua	/^function utils.fprintf(f,fmt,...)$/;"	f
+utils.function_arg 	pl\utils.lua	/^function utils.function_arg (idx,f,msg)$/;"	f
+utils.import	pl\utils.lua	/^function utils.import(t,T)$/;"	f
+utils.is_callable 	pl\utils.lua	/^function utils.is_callable (obj)$/;"	f
+utils.is_empty	pl\utils.lua	/^function utils.is_empty(o, ignore_spaces)$/;"	f
+utils.is_integer 	pl\utils.lua	/^function utils.is_integer (x)$/;"	f
+utils.is_type 	pl\utils.lua	/^function utils.is_type (obj,tp)$/;"	f
+utils.load	pl\utils.lua	/^    function utils.load(str,src,mode,env)$/;"	f
+utils.memoize	pl\utils.lua	/^function utils.memoize(func)$/;"	f
+utils.on_error 	pl\utils.lua	/^function utils.on_error (mode)$/;"	f
+utils.printf	pl\utils.lua	/^function utils.printf(fmt,...)$/;"	f
+utils.quit	pl\utils.lua	/^function utils.quit(code,...)$/;"	f
+utils.raise 	pl\utils.lua	/^function utils.raise (err)$/;"	f
+utils.readfile	pl\utils.lua	/^function utils.readfile(filename,is_bin)$/;"	f
+utils.readlines	pl\utils.lua	/^function utils.readlines(filename)$/;"	f
+utils.split	pl\utils.lua	/^function utils.split(s,re,plain,n)$/;"	f
+utils.splitv 	pl\utils.lua	/^function utils.splitv (s,re)$/;"	f
+utils.type 	pl\utils.lua	/^function utils.type (obj)$/;"	f
+utils.writefile	pl\utils.lua	/^function utils.writefile(filename,str)$/;"	f
+values_op	pl\tablex.lua	/^local function values_op(i,v) return v end$/;"	f
+what 	pl\strict.lua	/^local function what ()$/;"	f
+wrap_comprehension	pl\comprehension.lua	/^local function wrap_comprehension(code, ninputs, max_param, invallists, env)$/;"	f
+write_attr	pl\xml.lua	/^    local function write_attr(k,v)$/;"	f
+write_row 	pl\data.lua	/^local function write_row (data,f,row,delim)$/;"	f
+writeit 	pl\pretty.lua	/^    writeit = function (t,oldindent,indent)$/;"	f
+wsdump 	pl\lexer.lua	/^local function wsdump (tok)$/;"	f
+x,...) return fn	pl\utils.lua	/^    return function(x,...) return fn(x,p,...) end$/;"	f
+xml_escape	pl\xml.lua	/^    function xml_escape(str) return (s_gsub(str, "['&<>\\"]", escape_table)); end$/;"	f
+xtonumber	pl\lapp.lua	/^local function xtonumber(s)$/;"	f
+xwrite	pl\stringio.lua	/^local function xwrite(self,...)$/;"	f
+yieldtree	pl\dir.lua	/^    local function yieldtree( dir )$/;"	f
