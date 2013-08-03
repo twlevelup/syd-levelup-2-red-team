@@ -1,7 +1,7 @@
 require 'input'
 
-function Player(sound)
-    
+function Player(sound, animation)
+
     local self = {
         size = 20,
         x = 400,
@@ -9,10 +9,11 @@ function Player(sound)
         speed = 5,
         _sprites = "assets/images/nyancat-sprites.png",
         sprites = nil,
+        spriteFlippedH = false,
         grid = nil,
         animation = nil
     }
-    
+
     local moving = false
 
     function self.draw(g)
@@ -21,11 +22,11 @@ function Player(sound)
         end
 
         if self.grid == nil then
-            self.grid = g.animation.newGrid(100, 70, self.sprites:getWidth(), self.sprites:getHeight())
+            self.grid = animation.newGrid(100, 70, self.sprites:getWidth(), self.sprites:getHeight())
         end
 
         if self.animation == nil then
-            self.animation = g.animation.newAnimation(self.grid("1-6", 1), 0.05)
+            self.animation = animation.newAnimation(self.grid("1-6", 1), 0.05)
         end
 
         self.animation:draw(self.sprites, self.x, self.y)
@@ -37,10 +38,18 @@ function Player(sound)
 
         if i.pressed("left") then
             dx = dx - self.speed
+            if not self.spriteFlippedH then
+              self.spriteFlippedH = true
+              self.animation:flipH()
+            end
         end
 
         if i.pressed("right") then
             dx = dx + self.speed
+            if self.spriteFlippedH then
+              self.spriteFlippedH = false
+              self.animation:flipH()
+            end
         end
 
         if i.pressed("up") then

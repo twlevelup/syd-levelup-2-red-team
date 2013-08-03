@@ -2,10 +2,10 @@ require 'input'
 require 'player'
 
 local sound = require 'vendor/TEsound'
-love.graphics.animation = require 'vendor/anim8'
+local animation = require 'vendor/anim8'
 
 local entities = {}
-local player = Player(sound)
+local player = Player(sound, animation)
 
 function love.load()
     table.insert(entities, player)
