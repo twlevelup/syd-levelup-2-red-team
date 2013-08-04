@@ -21,7 +21,8 @@ describe("Player", function()
         mock_animation = function()
             local animation_spy = {
                 update = spy.new(function(dt) end),
-                flipH = spy.new(function() end)
+                flipH = spy.new(function() end),
+                gotoFrame = spy.new(function() end)
             }
 
             return animation_spy
@@ -54,29 +55,51 @@ describe("Player", function()
             end)
         end)
 
-        describe("changing the sprite direction", function()
-            it("should point to the right by default", function()
-                player = Player(mock_input('none'))
-                assert.is.equal(player.graphics.facing, "right")
+        describe("animating the player", function()
+            describe("the sprite direction", function()
+                it("should point to the right by default", function()
+                    player = Player(mock_input('none'))
+                    assert.is.equal(player.graphics.facing, "right")
+                end)
+
+                it("should point to the right when the right arrow is pressed", function()
+                    player = Player(mock_input('right'))
+                    player.graphics.facing = "left"
+                    player.graphics.animation = mock_animation()
+                    player.update(1)
+
+                    assert.is.equal(player.graphics.facing, "right")
+                    assert.spy(player.graphics.animation.flipH).was.called()
+                end)
+
+                it("should point to the left when the left arrow is pressed", function()
+                    player = Player(mock_input('left'))
+                    player.graphics.animation = mock_animation()
+                    player.update(1)
+
+                    assert.is.equal(player.graphics.facing, "left")
+                    assert.spy(player.graphics.animation.flipH).was.called()
+                end)
             end)
 
-            it("should point to the right when the right arrow is pressed", function()
-                player = Player(mock_input('right'))
-                player.graphics.facing = "left"
-                player.graphics.animation = mock_animation()
-                player.update(1)
+            describe("the animation frame", function()
+                it("should stop updating when the player isn't moving", function()
+                    player = Player(mock_input('none'))
+                    player.graphics.animation = mock_animation()
+                    player.update(1)
 
-                assert.is.equal(player.graphics.facing, "right")
-                assert.spy(player.graphics.animation.flipH).was.called()
-            end)
+                    assert.spy(player.graphics.animation.gotoFrame).was.called()
+                    assert.spy(player.graphics.animation.update).was_not.called()
+                end)
 
-            it("should point to the left when the left arrow is pressed", function()
-                player = Player(mock_input('left'))
-                player.graphics.animation = mock_animation()
-                player.update(1)
+                it("should update the animation state when the player is moving", function()
+                    player = Player(mock_input('up'))
+                    player.graphics.animation = mock_animation()
 
-                assert.is.equal(player.graphics.facing, "left")
-                assert.spy(player.graphics.animation.flipH).was.called()
+                    player.update(1)
+
+                    assert.spy(player.graphics.animation.update).was.called()
+                end)
             end)
         end)
 
@@ -111,15 +134,6 @@ describe("Player", function()
             player.update(1)
 
             assert.is.equal(orig_x + player.speed, player.x)
-        end)
-
-        it("should update the animation state", function()
-            player = Player(mock_input('none'))
-            player.graphics.animation = mock_animation()
-
-            player.update(1)
-
-            assert.spy(player.graphics.animation.update).was.called()
         end)
     end)
 end)

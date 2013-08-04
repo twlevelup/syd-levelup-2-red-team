@@ -73,7 +73,11 @@ function Player(game)
         self.y = self.y + dy
 
         if self.graphics.animation ~= nil then
-            self.graphics.animation:update(dt)
+            if dx ~= 0 or dy ~= 0 then
+                self.graphics.animation:update(dt)
+            else
+                self.graphics.animation:gotoFrame(1)
+            end
         end
 
         if self.sound.moving.sample ~= nil then
