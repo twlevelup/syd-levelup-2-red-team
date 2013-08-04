@@ -9,10 +9,18 @@ function Player(game)
         graphics = {
             source = "assets/images/nyancat-sprites.png",
             facing = "right"
+        },
+        sound = {
+            moving = {
+                source = "assets/sounds/move.wav"
+            }
         }
     }
 
-    local moving = false
+    if game.audio ~= nil then
+        self.sound.moving.sample = game.audio.newSource(self.sound.moving.source)
+        self.sound.moving.sample:setLooping(true)
+    end
 
     if game.graphics ~= nil and game.animation ~= nil then
         self.graphics.sprites = game.graphics.newImage(self.graphics.source)
@@ -66,6 +74,14 @@ function Player(game)
 
         if self.graphics.animation ~= nil then
             self.graphics.animation:update(dt)
+        end
+
+        if self.sound.moving.sample ~= nil then
+            if dx ~= 0 or dy ~= 0 then
+                self.sound.moving.sample:play()
+            else
+                self.sound.moving.sample:stop()
+            end
         end
     end
 

@@ -27,6 +27,33 @@ describe("Player", function()
             return animation_spy
         end
 
+        mock_sound = function()
+            local sound_spy = {
+                play = spy.new(function() end),
+                stop = spy.new(function() end)
+            }
+
+            return sound_spy
+        end
+
+        describe("playing the movement sound", function()
+            it("should play the movement sound when the player is moving", function()
+                player = Player(mock_input('up'))
+                player.sound.moving.sample = mock_sound()
+                player.update(1)
+
+                assert.spy(player.sound.moving.sample.play).was.called()
+            end)
+
+            it("should stop playing the movement sound when the player is stationary", function()
+                player = Player(mock_input('none'))
+                player.sound.moving.sample = mock_sound()
+                player.update(1)
+
+                assert.spy(player.sound.moving.sample.stop).was.called()
+            end)
+        end)
+
         describe("changing the sprite direction", function()
             it("should point to the right by default", function()
                 player = Player(mock_input('none'))
