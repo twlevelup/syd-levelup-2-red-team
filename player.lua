@@ -7,7 +7,8 @@ function Player(game)
         y = 300,
         speed = 5,
         graphics = {
-            source = "assets/images/nyancat-sprites.png"
+            source = "assets/images/nyancat-sprites.png",
+            facing = "right"
         }
     }
 
@@ -36,18 +37,18 @@ function Player(game)
 
         if game.input.pressed("left") then
             dx = dx - self.speed
-            if not self.spriteFlippedH then
-              self.spriteFlippedH = true
-              self.animation:flipH()
-            end
+            --if not self.spriteFlippedH then
+            --  self.spriteFlippedH = true
+            --  self.graphics.animation:flipH()
+            --end
         end
 
         if game.input.pressed("right") then
             dx = dx + self.speed
-            if self.spriteFlippedH then
-              self.spriteFlippedH = false
-              self.animation:flipH()
-            end
+            --if self.spriteFlippedH then
+            --  self.spriteFlippedH = false
+            --  self.graphics.animation:flipH()
+            --end
         end
 
         if game.input.pressed("up") then

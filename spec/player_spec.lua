@@ -18,15 +18,6 @@ describe("Player", function()
             }
         end
 
-        mock_animation = function()
-            return {
-            }
-        end
-
-        before_each(function()
-            player = Player(mock_sound(), mock_animation())
-        end)
-
         pending("animation orientation", function()
             it("should point to the right by default", function()
                 assert.False(player.spriteFlippedH)
