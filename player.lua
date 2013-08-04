@@ -37,18 +37,20 @@ function Player(game)
 
         if game.input.pressed("left") then
             dx = dx - self.speed
-            --if not self.spriteFlippedH then
-            --  self.spriteFlippedH = true
-            --  self.graphics.animation:flipH()
-            --end
+
+            if self.graphics.facing ~= "left" then
+                self.graphics.animation:flipH()
+                self.graphics.facing = "left"
+            end
         end
 
         if game.input.pressed("right") then
             dx = dx + self.speed
-            --if self.spriteFlippedH then
-            --  self.spriteFlippedH = false
-            --  self.graphics.animation:flipH()
-            --end
+
+            if self.graphics.facing ~= "right" then
+                self.graphics.animation:flipH()
+                self.graphics.facing = "right"
+            end
         end
 
         if game.input.pressed("up") then

@@ -18,21 +18,38 @@ describe("Player", function()
             }
         end
 
-        pending("animation orientation", function()
+        mock_animation = function()
+            local animation_spy = {
+                update = spy.new(function(dt) end),
+                flipH = spy.new(function() end)
+            }
+
+            return animation_spy
+        end
+
+        describe("changing the sprite direction", function()
             it("should point to the right by default", function()
-                assert.False(player.spriteFlippedH)
+                player = Player(mock_input('none'))
+                assert.is.equal(player.graphics.facing, "right")
             end)
 
             it("should point to the right when the right arrow is pressed", function()
-                player.update(dt, mock_input('right'))
+                player = Player(mock_input('right'))
+                player.graphics.facing = "left"
+                player.graphics.animation = mock_animation()
+                player.update(1)
 
-                assert.False(player.spriteFlippedH)
+                assert.is.equal(player.graphics.facing, "right")
+                assert.spy(player.graphics.animation.flipH).was.called()
             end)
 
             it("should point to the left when the left arrow is pressed", function()
-                player.update(dt, mock_input('left'))
+                player = Player(mock_input('left'))
+                player.graphics.animation = mock_animation()
+                player.update(1)
 
-                assert.True(player.spriteFlippedH)
+                assert.is.equal(player.graphics.facing, "left")
+                assert.spy(player.graphics.animation.flipH).was.called()
             end)
         end)
 
@@ -54,6 +71,7 @@ describe("Player", function()
 
         it("should decrement the player's x if the left-arrow is pressed", function()
             player = Player(mock_input('left'))
+            player.graphics.animation = mock_animation()
             local orig_x = player.x
             player.update(1)
 
@@ -70,13 +88,11 @@ describe("Player", function()
 
         it("should update the animation state", function()
             player = Player(mock_input('none'))
-            local animation_spy = { update = spy.new(function(dt) end) }
-
-            player.graphics.animation = animation_spy
+            player.graphics.animation = mock_animation()
 
             player.update(1)
 
-            assert.spy(animation_spy.update).was.called()
+            assert.spy(player.graphics.animation.update).was.called()
         end)
     end)
 end)
