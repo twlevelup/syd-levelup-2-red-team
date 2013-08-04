@@ -4,7 +4,7 @@ require 'player'
 love.animation = require 'vendor/anim8'
 
 local entities = {}
-local player = Player()
+local player = Player(love)
 
 function love.load()
     table.insert(entities, player)
@@ -17,12 +17,12 @@ end
 
 function love.update(dt)
     for _, e in pairs(entities) do
-        e.update(dt, love)
+        e.update(dt)
     end
 end
 
 function love.draw()
     for _, e in pairs(entities) do
-        e.draw(love)
+        e.draw()
     end
 end

@@ -46,33 +46,33 @@ describe("Player", function()
         end)
 
         it("should decrement the player's y if the up-arrow is pressed", function()
-            player = Player()
+            player = Player(mock_input('up'))
             local orig_y = player.y
-            player.update(0, mock_input('up'))
+            player.update(0)
 
             assert.is.equal(orig_y - player.speed, player.y)
         end)
 
         it("should increment the player's y if the down-arrow is pressed", function()
-            player = Player()
+            player = Player(mock_input('down'))
             local orig_y = player.y
-            player.update(0, mock_input('down'))
+            player.update(0)
 
             assert.is.equal(orig_y + player.speed, player.y)
         end)
 
         it("should decrement the player's x if the left-arrow is pressed", function()
-            player = Player()
+            player = Player(mock_input('left'))
             local orig_x = player.x
-            player.update(0, mock_input('left'))
+            player.update(0)
 
             assert.is.equal(orig_x - player.speed, player.x)
         end)
 
         it("should increment the player's x if the right-arrow is pressed", function()
-            player = Player()
+            player = Player(mock_input('right'))
             local orig_x = player.x
-            player.update(0, mock_input('right'))
+            player.update(0)
 
             assert.is.equal(orig_x + player.speed, player.x)
         end)
