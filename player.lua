@@ -1,22 +1,23 @@
 require 'input'
+require 'entity'
 
 Player = {}
+Player.__index = Player
+setmetatable(Player, {__index = Entity})
 
 function Player:new(game)
-    newObj = {
-        game = game,
-        size = 20,
-        x = 400,
-        y = 300,
-        speed = 5,
-        graphics = {
-            source = "assets/images/nyancat-sprites.png",
-            facing = "right"
-        },
-        sound = {
-            moving = {
-                source = "assets/sounds/move.wav"
-            }
+    newObj = Entity:new(game)
+    newObj.x = 400
+    newObj.y = 300
+    newObj.size = 20
+    newObj.speed = 5
+    newObj.graphics = {
+        source = "assets/images/nyancat-sprites.png",
+        facing = "right"
+    }
+    newObj.sound = {
+        moving = {
+            source = "assets/sounds/move.wav"
         }
     }
 
@@ -38,12 +39,7 @@ function Player:new(game)
         )
     end
 
-    self.__index = self
     return setmetatable(newObj, self)
-end
-
-function Player:draw()
-    self.graphics.animation:draw(self.graphics.sprites, self.x, self.y)
 end
 
 function Player:update(dt)
