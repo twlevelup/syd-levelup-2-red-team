@@ -5,11 +5,9 @@ source variables.sh
 
 function uninstall_lua() {
   echo "Uninstalling Lua..."
-
-  cd $BUILD_PATH/$LUA_PACKAGE
-  make uninstall
-  rm -rf $BUILD_PATH/$LUA_PACKAGE
-	echo "Bye-bye Lua!"
+  rm $BUILD_PATH/lua52
+  rm /usr/bin/lua
+  echo "Bye-bye Lua!"
 }
 
 
