@@ -30,13 +30,13 @@ function Entity:handleCollision(other)
 end
 
 function Entity:collidingWith(other)
-    local b = self:bounds()
-    local otherb = other:bounds()
+    local bounds = self:bounds()
+    local otherBounds = other:bounds()
 
-    return not (otherb.left > b.right or 
-        otherb.right < b.left or 
-        otherb.top > b.bottom or
-        otherb.bottom < b.top)
+    return not (otherBounds.left > bounds.right or
+        otherBounds.right < bounds.left or
+        otherBounds.top > bounds.bottom or
+        otherBounds.bottom < bounds.top)
 end
 
 function Entity:collide(other)
