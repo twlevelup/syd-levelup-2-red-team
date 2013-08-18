@@ -15,7 +15,7 @@ function install_lua() {
 }
 
 
-install_love() {
+function install_love() {
 	echo "Installing Love..."
 	curl -o $BUILD_PATH/$LOVE_PACKAGE.zip -R -O $LOVE_URL/$LOVE_PACKAGE.zip
 	cd $BUILD_PATH
