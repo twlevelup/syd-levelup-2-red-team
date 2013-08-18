@@ -1,7 +1,7 @@
 require 'player'
 
 describe("Player", function()
-    dt = 1
+    local dt = 1
 
     describe("#update", function()
         mock_input = function(action)
@@ -41,7 +41,7 @@ describe("Player", function()
             it("should play the movement sound when the player is moving", function()
                 player = Player:new(mock_input('up'))
                 player.sound.moving.sample = mock_sound()
-                player:update(1)
+                player:update(dt)
 
                 assert.spy(player.sound.moving.sample.play).was.called()
             end)
@@ -49,7 +49,7 @@ describe("Player", function()
             it("should stop playing the movement sound when the player is stationary", function()
                 player = Player:new(mock_input('none'))
                 player.sound.moving.sample = mock_sound()
-                player:update(1)
+                player:update(dt)
 
                 assert.spy(player.sound.moving.sample.stop).was.called()
             end)
@@ -66,7 +66,7 @@ describe("Player", function()
                     player = Player:new(mock_input('right'))
                     player.graphics.facing = "left"
                     player.graphics.animation = mock_animation()
-                    player:update(1)
+                    player:update(dt)
 
                     assert.is.equal(player.graphics.facing, "right")
                     assert.spy(player.graphics.animation.flipH).was.called()
@@ -75,7 +75,7 @@ describe("Player", function()
                 it("should point to the left when the left arrow is pressed", function()
                     player = Player:new(mock_input('left'))
                     player.graphics.animation = mock_animation()
-                    player:update(1)
+                    player:update(dt)
 
                     assert.is.equal(player.graphics.facing, "left")
                     assert.spy(player.graphics.animation.flipH).was.called()
@@ -86,7 +86,7 @@ describe("Player", function()
                 it("should stop updating when the player isn't moving", function()
                     player = Player:new(mock_input('none'))
                     player.graphics.animation = mock_animation()
-                    player:update(1)
+                    player:update(dt)
 
                     assert.spy(player.graphics.animation.gotoFrame).was.called()
                     assert.spy(player.graphics.animation.update).was_not.called()
@@ -96,7 +96,7 @@ describe("Player", function()
                     player = Player:new(mock_input('up'))
                     player.graphics.animation = mock_animation()
 
-                    player:update(1)
+                    player:update(dt)
 
                     assert.spy(player.graphics.animation.update).was.called()
                 end)
@@ -106,7 +106,7 @@ describe("Player", function()
         it("should decrement the player's y if the up-arrow is pressed", function()
             player = Player:new(mock_input('up'))
             local orig_y = player.y
-            player:update(1)
+            player:update(dt)
 
             assert.is.equal(orig_y - player.speed, player.y)
         end)
@@ -114,7 +114,7 @@ describe("Player", function()
         it("should increment the player's y if the down-arrow is pressed", function()
             player = Player:new(mock_input('down'))
             local orig_y = player.y
-            player:update(1)
+            player:update(dt)
 
             assert.is.equal(orig_y + player.speed, player.y)
         end)
@@ -123,7 +123,7 @@ describe("Player", function()
             player = Player:new(mock_input('left'))
             player.graphics.animation = mock_animation()
             local orig_x = player.x
-            player:update(1)
+            player:update(dt)
 
             assert.is.equal(orig_x - player.speed, player.x)
         end)
@@ -131,7 +131,7 @@ describe("Player", function()
         it("should increment the player's x if the right-arrow is pressed", function()
             player = Player:new(mock_input('right'))
             local orig_x = player.x
-            player:update(1)
+            player:update(dt)
 
             assert.is.equal(orig_x + player.speed, player.x)
         end)
