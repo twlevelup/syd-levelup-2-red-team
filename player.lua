@@ -5,17 +5,19 @@ Player = {}
 Player.__index = Player
 setmetatable(Player, {__index = Entity})
 
-function Player:new(game)
+function Player:new(game, config)
+    local config = config or {}
+
     local newObj = Entity:new(game)
-    newObj.x = 400
-    newObj.y = 300
-    newObj.size = 20
-    newObj.speed = 5
-    newObj.graphics = {
+    newObj.x = config.x or 400
+    newObj.y = config.y or 300
+    newObj.size = config.size or 20
+    newObj.speed = config.speed or 5
+    newObj.graphics = config.graphics or {
         source = "assets/images/nyancat-sprites.png",
         facing = "right"
     }
-    newObj.sound = {
+    newObj.sound = config.sound or {
         moving = {
             source = "assets/sounds/move.wav"
         }
