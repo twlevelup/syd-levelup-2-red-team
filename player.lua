@@ -6,7 +6,7 @@ Player.__index = Player
 setmetatable(Player, {__index = Entity})
 
 function Player:new(game)
-    newObj = Entity:new(game)
+    local newObj = Entity:new(game)
     newObj.x = 400
     newObj.y = 300
     newObj.size = 20
