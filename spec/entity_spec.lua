@@ -20,6 +20,24 @@ describe("Entity", function()
         spy.on(baseEntity, "collide")
     end)
 
+    describe ("#bounds", function()
+        it("should set the top at its vertical position", function()
+            assert.is.equal(baseEntity:bounds().top, 10)
+        end)
+
+        it("should set the left at its horizontal position", function()
+            assert.is.equal(baseEntity:bounds().left, 10)
+        end)
+
+        it("should set the right at its horizontal position plus size", function()
+            assert.is.equal(baseEntity:bounds().right, 20)
+        end)
+
+        it("should set the bottom at its vertical position plus size", function()
+            assert.is.equal(baseEntity:bounds().bottom, 20)
+        end)
+    end)
+
     describe("#handleCollision", function()
         it("should call collide when colliding with another entity", function()
             baseEntity:handleCollision(collidingEntity)
