@@ -1,99 +1,60 @@
 require 'entity'
 
 describe("Entity", function()
-  describe("#handleCollision", function()
-    it("should call collide when colliding with another entity", function()
-      entity1 = Entity:new({})
-      entity1.x = 10
-      entity1.y = 10
-      entity1.size = 10
+    before_each(function()
+        baseEntity = Entity:new({})
+        baseEntity.x = 10
+        baseEntity.y = 10
+        baseEntity.size = 10
 
-      entity2 = Entity:new({})
-      entity2.x = 15
-      entity2.y = 15
-      entity2.size = 10
+        collidingEntity = Entity:new({})
+        collidingEntity.x = 15
+        collidingEntity.y = 15
+        collidingEntity.size = 10
 
-      spy.on(entity1, "collide")
+        nonCollidingEntity = Entity:new({})
+        nonCollidingEntity.x = 30
+        nonCollidingEntity.y = 30
+        nonCollidingEntity.size = 10
 
-      entity1:handleCollision(entity2)
-
-      assert.spy(entity1.collide).was_called()
+        spy.on(baseEntity, "collide")
     end)
 
-    it("should not call collide when not colliding with anything", function()
-      entity1 = Entity:new({})
-      entity1.x = 10
-      entity1.y = 10
-      entity1.size = 10
+    describe("#handleCollision", function()
+        it("should call collide when colliding with another entity", function()
+            baseEntity:handleCollision(collidingEntity)
 
-      entity2 = Entity:new({})
-      entity2.x = 30
-      entity2.y = 30
-      entity2.size = 10
+            assert.spy(baseEntity.collide).was_called()
+        end)
 
-      spy.on(entity1, "collide")
+        it("should not call collide when not colliding with anything", function()
+            baseEntity:handleCollision(nonCollidingEntity)
 
-      entity1:handleCollision(entity2)
-
-      assert.spy(entity1.collide).was_not_called()
-    end)
-  end)
-
-  describe("#collidingWith", function()
-    it("should collide when two entities bounding boxes are intersecting", function()
-        entity1 = Entity:new({})
-        entity1.x = 10
-        entity1.y = 10
-        entity1.size = 10
-
-        entity2 = Entity:new({})
-        entity2.x = 15
-        entity2.y = 15
-        entity2.size = 10
-
-        assert.is.equal(entity1:collidingWith(entity2), true)
+            assert.spy(baseEntity.collide).was_not_called()
+        end)
     end)
 
-    it("should collide when two entities bounding boxes are touching horizontally", function()
-        entity1 = Entity:new({})
-        entity1.x = 10
-        entity1.y = 10
-        entity1.size = 10
+    describe("#collidingWith", function()
+        it("should collide when two entities bounding boxes are intersecting", function()
+            assert.is.equal(baseEntity:collidingWith(collidingEntity), true)
+        end)
 
-        entity2 = Entity:new({})
-        entity2.x = 20
-        entity2.y = 10
-        entity2.size = 10
+        it("should collide when two entities bounding boxes are touching horizontally", function()
+            collidingEntity.x = 20
+            collidingEntity.y = 10
 
-        assert.is.equal(entity1:collidingWith(entity2), true)
+            assert.is.equal(baseEntity:collidingWith(collidingEntity), true)
+        end)
+
+        it("should collide when two entities bounding boxes are touching vertically", function()
+            collidingEntity.x = 10
+            collidingEntity.y = 20
+
+            assert.is.equal(baseEntity:collidingWith(collidingEntity), true)
+        end)
+
+        it("should not collide when two entities bounding boxes are not intersecting", function()
+            assert.is.equal(baseEntity:collidingWith(nonCollidingEntity), false)
+        end)
     end)
-
-    it("should collide when two entities bounding boxes are touching vertically", function()
-        entity1 = Entity:new({})
-        entity1.x = 10
-        entity1.y = 10
-        entity1.size = 10
-
-        entity2 = Entity:new({})
-        entity2.x = 10
-        entity2.y = 20
-        entity2.size = 10
-
-        assert.is.equal(entity1:collidingWith(entity2), true)
-    end)
-
-    it("should not collide when two entities bounding boxes are not intersecting", function()
-        entity1 = Entity:new({})
-        entity1.x = 10
-        entity1.y = 10
-        entity1.size = 10
-
-        entity2 = Entity:new({})
-        entity2.x = 30
-        entity2.y = 30
-        entity2.size = 10
-
-        assert.is.equal(entity1:collidingWith(entity2), false)
-    end)
-  end)
 end)
