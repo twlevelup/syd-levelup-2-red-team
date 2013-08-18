@@ -20,12 +20,7 @@ function install_love() {
 	curl -o $BUILD_PATH/$LOVE_PACKAGE.zip -R -O $LOVE_URL/$LOVE_PACKAGE.zip
 	cd $BUILD_PATH
 	unzip -o $LOVE_PACKAGE.zip
-	if [[$1 == "osx"]]; then
-		mv -r $BUILD_PATH/love.app ~/Applications/
-		ln -s ~/Applications//love.app/Contents/MacOS/love /usr/bin/love
-	else
-		ln -s $BUILD_PATH/love.app/Contents/MacOS/love /usr/bin/love
-	fi
+	ln -s $BUILD_PATH/love.app/Contents/MacOS/love /usr/bin/love
 	echo "Love Installed"
 }
 
