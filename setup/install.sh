@@ -6,8 +6,10 @@ mkdir -p $BUILD_PATH
 
 function install_lua() {
     echo "Installing Lua..."
-	 tar xf $LUA_PACKAGE.tar -C $BUILD_PATH
-	 ln -s $BUILD_PATH/lua52 /usr/bin/lua
+	 tar xzf $LUA_PACKAGE.tar.gz -C $BUILD_PATH
+	 cd $BUILD_PATH/$LUA_PACKAGE
+	 make macosx test
+	 ln -s $BUILD_PATH/$LUA_PACKAGE/src/lua /usr/bin/lua
 	 lua -v
 	 if [[ $? -ne 0 ]]; then
 		echo "Failed"
