@@ -16,6 +16,7 @@ function uninstall_love() {
 
   rm -rf $BUILD_PATH/$LOVE_PACKAGE
 	rm /usr/bin/love 
+	rm /Applications/love.app
 	echo "Bye-bye Love!"
 
 

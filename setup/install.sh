@@ -17,10 +17,11 @@ function install_lua() {
 
 function install_love() {
 	echo "Installing Love..."
-	curl -o $BUILD_PATH/$LOVE_PACKAGE.zip -R -O $LOVE_URL/$LOVE_PACKAGE.zip
+#	curl -o $BUILD_PATH/$LOVE_PACKAGE.zip -R -O $LOVE_URL/$LOVE_PACKAGE.zip
 	cd $BUILD_PATH
 	unzip -o $LOVE_PACKAGE.zip
 	ln -s $BUILD_PATH/love.app/Contents/MacOS/love /usr/bin/love
+	ln -s $BUILD_PATH/love.app /Applications/love.app
 	echo "Love Installed"
 }
 
