@@ -1,7 +1,8 @@
   
 Vagrant::Config.run do |config|
   config.vm.box = 'ubuntu-levelup'
-  config.vm.box_url = 'http://files.vagrantup.com/precise32.box'
+  config.vm.box_url = 'http://www.dropbox.com/sh/tssw2w0wn5imdxh/SjLp5ZGOYb/levelup2-ubuntu_x86.box'
+  #config.vm.box_url = 'http://files.vagrantup.com/precise32.box'
   # CentOS takes a while to boot so we need to wait a whole lot longer
   config.ssh.max_tries = 50
   config.ssh.timeout = 300
