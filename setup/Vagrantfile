@@ -1,0 +1,18 @@
+  
+Vagrant::Config.run do |config|
+  config.vm.box = 'ubuntu-levelup'
+  config.vm.box_url = 'http://files.vagrantup.com/precise32.box'
+  # CentOS takes a while to boot so we need to wait a whole lot longer
+  config.ssh.max_tries = 50
+  config.ssh.timeout = 300
+  config.ssh.forward_x11 = true
+  config.vm.network :bridged 
+
+  config.vm.share_folder "vagrant-share", "/vagrant/share", "share"
+  config.vm.forward_port 80, 9080, :auto => true
+  config.vm.forward_port 443, 9443, :auto => true
+  config.vm.forward_port 9090, 9090, :auto => true
+
+  config.vm.host_name = "levelup2"
+  config.vm.customize ['modifyvm', :id, '--memory', 512 ]
+end
