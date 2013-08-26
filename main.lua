@@ -4,7 +4,19 @@ require 'player'
 love.animation = require 'vendor/anim8'
 
 local entities = {}
-local player = Player:new(love, {x = 100, y = 100})
+local player = Player:new(
+    love,
+    {
+        x = 100,
+        y = 100,
+        keys = {
+            up = 'up',
+            down = 'down',
+            left = 'left',
+            right = 'right'
+        }
+    }
+)
 
 function love.load()
     table.insert(entities, player)

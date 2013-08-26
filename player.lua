@@ -13,6 +13,14 @@ function Player:new(game, config)
     newObj.y = config.y or 300
     newObj.size = config.size or 20
     newObj.speed = config.speed or 5
+
+    newObj.keys = config.keys or {
+        up = "up",
+        down = "down",
+        left = "left",
+        right = "right"
+    }
+
     newObj.graphics = config.graphics or {
         source = "assets/images/nyancat-sprites.png",
         facing = "right"
@@ -48,7 +56,7 @@ function Player:update(dt)
     local dx = 0
     local dy = 0
 
-    if self.game.input.pressed("left") then
+    if self.game.input.pressed(self.keys.left) then
         dx = dx - self.speed
 
         if self.graphics.facing ~= "left" then
@@ -57,7 +65,7 @@ function Player:update(dt)
         end
     end
 
-    if self.game.input.pressed("right") then
+    if self.game.input.pressed(self.keys.right) then
         dx = dx + self.speed
 
         if self.graphics.facing ~= "right" then
@@ -66,11 +74,11 @@ function Player:update(dt)
         end
     end
 
-    if self.game.input.pressed("up") then
+    if self.game.input.pressed(self.keys.up) then
         dy = dy - self.speed
     end
 
-    if self.game.input.pressed("down") then
+    if self.game.input.pressed(self.keys.down) then
         dy = dy + self.speed
     end
 
