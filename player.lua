@@ -25,6 +25,7 @@ function Player:new(game, config)
         source = "assets/images/nyancat-sprites.png",
         facing = "right"
     }
+
     newObj.sound = config.sound or {
         moving = {
             source = "assets/sounds/move.wav"
