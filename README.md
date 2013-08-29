@@ -37,7 +37,7 @@ You may also be able to get set up via our script though it is untested for gene
 
 ### Windows
 
-We don't use Windows, so you're on your own. I recommend checking out the [Lua website](http://www.lua.org), the [Loverocks website](http://luarocks.org/), and the [LÖVE](http://love2d.org/) for more information.
+We don't use Windows, so you're on your own. We recommend checking out the [Lua website](http://www.lua.org), the [Loverocks website](http://luarocks.org/), and the [LÖVE website](http://love2d.org/) for more information. Google is also your friend.
 
 ### Making it go
 
