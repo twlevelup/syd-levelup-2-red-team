@@ -1,4 +1,5 @@
 require 'player'
+require 'entity'
 
 describe("Player", function()
     local dt = 1
@@ -39,7 +40,7 @@ describe("Player", function()
 
         describe("playing the movement sound", function()
             it("should play the movement sound when the player is moving", function()
-                player = Player:new(mock_input('up'))
+                local player = Player:new(mock_input('up'))
                 player.sound.moving.sample = mock_sound()
                 player:update(dt)
 
@@ -47,7 +48,7 @@ describe("Player", function()
             end)
 
             it("should stop playing the movement sound when the player is stationary", function()
-                player = Player:new(mock_input('none'))
+                local player = Player:new(mock_input('none'))
                 player.sound.moving.sample = mock_sound()
                 player:update(dt)
 
@@ -63,7 +64,7 @@ describe("Player", function()
                 end)
 
                 it("should point to the right when the right arrow is pressed", function()
-                    player = Player:new(mock_input('right'))
+                    local player = Player:new(mock_input('right'))
                     player.graphics.facing = "left"
                     player.graphics.animation = mock_animation()
                     player:update(dt)
@@ -73,7 +74,7 @@ describe("Player", function()
                 end)
 
                 it("should point to the left when the left arrow is pressed", function()
-                    player = Player:new(mock_input('left'))
+                    local player = Player:new(mock_input('left'))
                     player.graphics.animation = mock_animation()
                     player:update(dt)
 
@@ -84,7 +85,7 @@ describe("Player", function()
 
             describe("the animation frame", function()
                 it("should stop updating when the player isn't moving", function()
-                    player = Player:new(mock_input('none'))
+                    local player = Player:new(mock_input('none'))
                     player.graphics.animation = mock_animation()
                     player:update(dt)
 
@@ -93,7 +94,7 @@ describe("Player", function()
                 end)
 
                 it("should update the animation state when the player is moving", function()
-                    player = Player:new(mock_input('up'))
+                    local player = Player:new(mock_input('up'))
                     player.graphics.animation = mock_animation()
 
                     player:update(dt)
@@ -103,10 +104,44 @@ describe("Player", function()
             end)
         end)
 
+        describe("collide", function()
+            it("should set block the player movement when colliding on the left side", function()
+                local player = Player:new({})
+                local collidingEntity = Entity:new()
+                player:collide(collidingEntity, "left")
+
+                assert.is_true(player.blocked.left)
+            end)
+
+            it("should set block the player movement when colliding on the right side", function()
+                local player = Player:new({})
+                local collidingEntity = Entity:new()
+                player:collide(collidingEntity, "right")
+
+                assert.is_true(player.blocked.right)
+            end)
+
+            it("should set block the player movement when colliding on the top side", function()
+                local player = Player:new({})
+                local collidingEntity = Entity:new()
+                player:collide(collidingEntity, "top")
+
+                assert.is_true(player.blocked.top)
+            end)
+
+            it("should set block the player movement when colliding on the bottom side", function()
+                local player = Player:new({})
+                local collidingEntity = Entity:new()
+                player:collide(collidingEntity, "bottom")
+
+                assert.is_true(player.blocked.bottom)
+            end)
+        end)
+
         describe("player movement", function()
             describe("when movement is blocked", function()
                 it("should not decrement the player's y if the up-key is pressed", function()
-                    player = Player:new(mock_input('up'))
+                    local player = Player:new(mock_input('up'))
                     player.blocked.up = true
                     local orig_y = player.y
                     player:update(dt)
@@ -115,7 +150,7 @@ describe("Player", function()
                 end)
 
                 it("should not increment the player's y if the down-key is pressed", function()
-                    player = Player:new(mock_input('down'))
+                    local player = Player:new(mock_input('down'))
                     player.blocked.down = true
                     local orig_y = player.y
                     player:update(dt)
@@ -124,7 +159,7 @@ describe("Player", function()
                 end)
 
                 it("should not decrement the player's x if the left-key is pressed", function()
-                    player = Player:new(mock_input('left'))
+                    local player = Player:new(mock_input('left'))
                     player.graphics.animation = mock_animation()
                     player.blocked.left = true
                     local orig_x = player.x
@@ -134,7 +169,7 @@ describe("Player", function()
                 end)
 
                 it("should not increment the player's x if the right-key is pressed", function()
-                    player = Player:new(mock_input('right'))
+                    local player = Player:new(mock_input('right'))
                     player.blocked.right = true
                     local orig_x = player.x
                     player:update(dt)
@@ -144,7 +179,7 @@ describe("Player", function()
             end)
 
             it("should decrement the player's y if the up-arrow is pressed", function()
-                player = Player:new(mock_input('up'))
+                local player = Player:new(mock_input('up'))
                 local orig_y = player.y
                 player:update(dt)
 
@@ -152,7 +187,7 @@ describe("Player", function()
             end)
 
             it("should increment the player's y if the down-arrow is pressed", function()
-                player = Player:new(mock_input('down'))
+                local player = Player:new(mock_input('down'))
                 local orig_y = player.y
                 player:update(dt)
 
@@ -160,7 +195,7 @@ describe("Player", function()
             end)
 
             it("should decrement the player's x if the left-arrow is pressed", function()
-                player = Player:new(mock_input('left'))
+                local player = Player:new(mock_input('left'))
                 player.graphics.animation = mock_animation()
                 local orig_x = player.x
                 player:update(dt)
@@ -169,7 +204,7 @@ describe("Player", function()
             end)
 
             it("should increment the player's x if the right-arrow is pressed", function()
-                player = Player:new(mock_input('right'))
+                local player = Player:new(mock_input('right'))
                 local orig_x = player.x
                 player:update(dt)
 

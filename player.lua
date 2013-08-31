@@ -60,6 +60,10 @@ function Player:new(game, config)
     return setmetatable(newPlayer, self)
 end
 
+function Player:collide(other, collidingSide)
+    self.blocked[collidingSide] = true
+end
+
 function Player:update(dt)
     local dx = 0
     local dy = 0

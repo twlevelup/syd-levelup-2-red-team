@@ -26,7 +26,7 @@ end
 
 function Entity:handleCollision(other)
     if self:collidingWith(other) then
-        self:collide(other)
+        self:collide(other, self:collidingSide(other))
     end
 end
 
@@ -58,5 +58,5 @@ function Entity:collidingWith(other)
         otherBounds.bottom < bounds.top)
 end
 
-function Entity:collide(other)
+function Entity:collide(other, collidingSide)
 end
