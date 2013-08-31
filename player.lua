@@ -35,8 +35,8 @@ function Player:new(game, config)
     newPlayer.blocked = {
         left = false,
         right = false,
-        up = false,
-        down = false
+        top = false,
+        bottom = false
     }
 
     if game.audio ~= nil then
