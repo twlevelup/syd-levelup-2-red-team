@@ -8,49 +8,56 @@ setmetatable(Player, {__index = Entity})
 function Player:new(game, config)
     local config = config or {}
 
-    local newObj = Entity:new(game)
-    newObj.x = config.x or 400
-    newObj.y = config.y or 300
-    newObj.size = config.size or 20
-    newObj.speed = config.speed or 5
+    local newPlayer = Entity:new(game)
+    newPlayer.x = config.x or 400
+    newPlayer.y = config.y or 300
+    newPlayer.size = config.size or 20
+    newPlayer.speed = config.speed or 5
 
-    newObj.keys = config.keys or {
+    newPlayer.keys = config.keys or {
         up = "up",
         down = "down",
         left = "left",
         right = "right"
     }
 
-    newObj.graphics = config.graphics or {
+    newPlayer.graphics = config.graphics or {
         source = "assets/images/nyancat-sprites.png",
         facing = "right"
     }
 
-    newObj.sound = config.sound or {
+    newPlayer.sound = config.sound or {
         moving = {
             source = "assets/sounds/move.wav"
         }
     }
 
+    newPlayer.blocked = {
+        left = false,
+        right = false,
+        up = false,
+        down = false
+    }
+
     if game.audio ~= nil then
-        newObj.sound.moving.sample = game.audio.newSource(newObj.sound.moving.source)
-        newObj.sound.moving.sample:setLooping(true)
+        newPlayer.sound.moving.sample = game.audio.newSource(newPlayer.sound.moving.source)
+        newPlayer.sound.moving.sample:setLooping(true)
     end
 
     if game.graphics ~= nil and game.animation ~= nil then
-        newObj.graphics.sprites = game.graphics.newImage(newObj.graphics.source)
-        newObj.graphics.grid = game.animation.newGrid(
+        newPlayer.graphics.sprites = game.graphics.newImage(newPlayer.graphics.source)
+        newPlayer.graphics.grid = game.animation.newGrid(
             100, 70,
-            newObj.graphics.sprites:getWidth(),
-            newObj.graphics.sprites:getHeight()
+            newPlayer.graphics.sprites:getWidth(),
+            newPlayer.graphics.sprites:getHeight()
         )
-        newObj.graphics.animation = game.animation.newAnimation(
-            newObj.graphics.grid("1-6", 1),
+        newPlayer.graphics.animation = game.animation.newAnimation(
+            newPlayer.graphics.grid("1-6", 1),
             0.05
         )
     end
 
-    return setmetatable(newObj, self)
+    return setmetatable(newPlayer, self)
 end
 
 function Player:update(dt)
@@ -58,7 +65,9 @@ function Player:update(dt)
     local dy = 0
 
     if self.game.input.pressed(self.keys.left) then
-        dx = dx - self.speed
+        if not self.blocked.left then
+            dx = dx - self.speed
+        end
 
         if self.graphics.facing ~= "left" then
             self.graphics.animation:flipH()
@@ -67,7 +76,9 @@ function Player:update(dt)
     end
 
     if self.game.input.pressed(self.keys.right) then
-        dx = dx + self.speed
+        if not self.blocked.right then
+            dx = dx + self.speed
+        end
 
         if self.graphics.facing ~= "right" then
             self.graphics.animation:flipH()
@@ -76,11 +87,15 @@ function Player:update(dt)
     end
 
     if self.game.input.pressed(self.keys.up) then
-        dy = dy - self.speed
+        if not self.blocked.up then
+            dy = dy - self.speed
+        end
     end
 
     if self.game.input.pressed(self.keys.down) then
-        dy = dy + self.speed
+        if not self.blocked.down then
+            dy = dy + self.speed
+        end
     end
 
     self.x = self.x + dx

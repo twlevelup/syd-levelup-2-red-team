@@ -103,37 +103,78 @@ describe("Player", function()
             end)
         end)
 
-        it("should decrement the player's y if the up-arrow is pressed", function()
-            player = Player:new(mock_input('up'))
-            local orig_y = player.y
-            player:update(dt)
+        describe("player movement", function()
+            describe("when movement is blocked", function()
+                it("should not decrement the player's y if the up-key is pressed", function()
+                    player = Player:new(mock_input('up'))
+                    player.blocked.up = true
+                    local orig_y = player.y
+                    player:update(dt)
 
-            assert.is.equal(orig_y - player.speed, player.y)
-        end)
+                    assert.is.equal(orig_y, player.y)
+                end)
 
-        it("should increment the player's y if the down-arrow is pressed", function()
-            player = Player:new(mock_input('down'))
-            local orig_y = player.y
-            player:update(dt)
+                it("should not increment the player's y if the down-key is pressed", function()
+                    player = Player:new(mock_input('down'))
+                    player.blocked.down = true
+                    local orig_y = player.y
+                    player:update(dt)
 
-            assert.is.equal(orig_y + player.speed, player.y)
-        end)
+                    assert.is.equal(orig_y, player.y)
+                end)
 
-        it("should decrement the player's x if the left-arrow is pressed", function()
-            player = Player:new(mock_input('left'))
-            player.graphics.animation = mock_animation()
-            local orig_x = player.x
-            player:update(dt)
+                it("should not decrement the player's x if the left-key is pressed", function()
+                    player = Player:new(mock_input('left'))
+                    player.graphics.animation = mock_animation()
+                    player.blocked.left = true
+                    local orig_x = player.x
+                    player:update(dt)
 
-            assert.is.equal(orig_x - player.speed, player.x)
-        end)
+                    assert.is.equal(orig_x, player.x)
+                end)
 
-        it("should increment the player's x if the right-arrow is pressed", function()
-            player = Player:new(mock_input('right'))
-            local orig_x = player.x
-            player:update(dt)
+                it("should not increment the player's x if the right-key is pressed", function()
+                    player = Player:new(mock_input('right'))
+                    player.blocked.right = true
+                    local orig_x = player.x
+                    player:update(dt)
 
-            assert.is.equal(orig_x + player.speed, player.x)
+                    assert.is.equal(orig_x, player.x)
+                end)
+            end)
+
+            it("should decrement the player's y if the up-arrow is pressed", function()
+                player = Player:new(mock_input('up'))
+                local orig_y = player.y
+                player:update(dt)
+
+                assert.is.equal(orig_y - player.speed, player.y)
+            end)
+
+            it("should increment the player's y if the down-arrow is pressed", function()
+                player = Player:new(mock_input('down'))
+                local orig_y = player.y
+                player:update(dt)
+
+                assert.is.equal(orig_y + player.speed, player.y)
+            end)
+
+            it("should decrement the player's x if the left-arrow is pressed", function()
+                player = Player:new(mock_input('left'))
+                player.graphics.animation = mock_animation()
+                local orig_x = player.x
+                player:update(dt)
+
+                assert.is.equal(orig_x - player.speed, player.x)
+            end)
+
+            it("should increment the player's x if the right-arrow is pressed", function()
+                player = Player:new(mock_input('right'))
+                local orig_x = player.x
+                player:update(dt)
+
+                assert.is.equal(orig_x + player.speed, player.x)
+            end)
         end)
     end)
 end)
