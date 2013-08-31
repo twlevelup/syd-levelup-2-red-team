@@ -2,12 +2,13 @@ Entity = {}
 Entity.__index = Entity
 
 function Entity:new(game)
-    local newObj = {
+    local newEntity = {
         game = game,
         x = 0,
         y = 0
     }
-    return setmetatable(newObj, self)
+
+    return setmetatable(newEntity, self)
 end
 
 function Entity:draw()
@@ -27,6 +28,24 @@ function Entity:handleCollision(other)
     if self:collidingWith(other) then
         self:collide(other)
     end
+end
+
+function Entity:collidingSide(other)
+    local bounds = self:bounds()
+    local otherBounds = other:bounds()
+
+    local collidingSide = nil
+    if otherBounds.right <= bounds.left then
+        collidingSide = "left"
+    elseif otherBounds.left >= bounds.right then
+        collidingSide = "right"
+    elseif otherBounds.bottom <= bounds.top then
+        collidingSide = "top"
+    elseif otherBounds.top >= bounds.bottom then
+        collidingSide = "bottom"
+    end
+
+    return collidingSide
 end
 
 function Entity:collidingWith(other)

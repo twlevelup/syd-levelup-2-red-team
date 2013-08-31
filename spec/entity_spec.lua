@@ -20,7 +20,7 @@ describe("Entity", function()
         spy.on(baseEntity, "collide")
     end)
 
-    describe ("#bounds", function()
+    describe ("bounds", function()
         it("should set the top at its vertical position", function()
             assert.is.equal(baseEntity:bounds().top, 10)
         end)
@@ -38,7 +38,37 @@ describe("Entity", function()
         end)
     end)
 
-    describe("#handleCollision", function()
+    describe("collidingSide", function()
+        it("should be left when the collision is with its left side", function()
+            collidingEntity.x = 0
+            collidingEntity.y = 10
+
+            assert.is.equal(baseEntity:collidingSide(collidingEntity), "left")
+        end)
+
+        it("should be right when the collision is with its right side", function()
+            collidingEntity.x = 20
+            collidingEntity.y = 10
+
+            assert.is.equal(baseEntity:collidingSide(collidingEntity), "right")
+        end)
+
+        it("should be top when the collision is with its top side", function()
+            collidingEntity.x = 10
+            collidingEntity.y = 0
+
+            assert.is.equal(baseEntity:collidingSide(collidingEntity), "top")
+        end)
+
+        it("should be bottom when the collision is with its bottom side", function()
+            collidingEntity.x = 10
+            collidingEntity.y = 20
+
+            assert.is.equal(baseEntity:collidingSide(collidingEntity), "bottom")
+        end)
+    end)
+
+    describe("handleCollision", function()
         it("should call collide when colliding with another entity", function()
             baseEntity:handleCollision(collidingEntity)
 
@@ -52,7 +82,7 @@ describe("Entity", function()
         end)
     end)
 
-    describe("#collidingWith", function()
+    describe("collidingWith", function()
         it("should collide when two entities bounding boxes are intersecting", function()
             assert.is.equal(baseEntity:collidingWith(collidingEntity), true)
         end)
