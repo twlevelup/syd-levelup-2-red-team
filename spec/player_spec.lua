@@ -105,33 +105,30 @@ describe("Player", function()
         end)
 
         describe("collide", function()
-            it("should set block the player movement when colliding on the left side", function()
+            before_each(function()
                 local player = Player:new({})
                 local collidingEntity = Entity:new()
+            end)
+
+            it("should set block the player movement when colliding on the left side", function()
                 player:collide(collidingEntity, "left")
 
                 assert.is_true(player.blocked.left)
             end)
 
             it("should set block the player movement when colliding on the right side", function()
-                local player = Player:new({})
-                local collidingEntity = Entity:new()
                 player:collide(collidingEntity, "right")
 
                 assert.is_true(player.blocked.right)
             end)
 
             it("should set block the player movement when colliding on the top side", function()
-                local player = Player:new({})
-                local collidingEntity = Entity:new()
                 player:collide(collidingEntity, "top")
 
                 assert.is_true(player.blocked.top)
             end)
 
             it("should set block the player movement when colliding on the bottom side", function()
-                local player = Player:new({})
-                local collidingEntity = Entity:new()
                 player:collide(collidingEntity, "bottom")
 
                 assert.is_true(player.blocked.bottom)
@@ -144,6 +141,7 @@ describe("Player", function()
                     local player = Player:new(mock_input('up'))
                     player.blocked.up = true
                     local orig_y = player.y
+
                     player:update(dt)
 
                     assert.is.equal(orig_y, player.y)
@@ -153,6 +151,7 @@ describe("Player", function()
                     local player = Player:new(mock_input('down'))
                     player.blocked.down = true
                     local orig_y = player.y
+
                     player:update(dt)
 
                     assert.is.equal(orig_y, player.y)
@@ -163,6 +162,7 @@ describe("Player", function()
                     player.graphics.animation = mock_animation()
                     player.blocked.left = true
                     local orig_x = player.x
+
                     player:update(dt)
 
                     assert.is.equal(orig_x, player.x)
@@ -172,6 +172,7 @@ describe("Player", function()
                     local player = Player:new(mock_input('right'))
                     player.blocked.right = true
                     local orig_x = player.x
+
                     player:update(dt)
 
                     assert.is.equal(orig_x, player.x)
@@ -181,6 +182,7 @@ describe("Player", function()
             it("should decrement the player's y if the up-arrow is pressed", function()
                 local player = Player:new(mock_input('up'))
                 local orig_y = player.y
+
                 player:update(dt)
 
                 assert.is.equal(orig_y - player.speed, player.y)
@@ -189,6 +191,7 @@ describe("Player", function()
             it("should increment the player's y if the down-arrow is pressed", function()
                 local player = Player:new(mock_input('down'))
                 local orig_y = player.y
+
                 player:update(dt)
 
                 assert.is.equal(orig_y + player.speed, player.y)
@@ -198,6 +201,7 @@ describe("Player", function()
                 local player = Player:new(mock_input('left'))
                 player.graphics.animation = mock_animation()
                 local orig_x = player.x
+
                 player:update(dt)
 
                 assert.is.equal(orig_x - player.speed, player.x)
@@ -206,6 +210,7 @@ describe("Player", function()
             it("should increment the player's x if the right-arrow is pressed", function()
                 local player = Player:new(mock_input('right'))
                 local orig_x = player.x
+
                 player:update(dt)
 
                 assert.is.equal(orig_x + player.speed, player.x)
