@@ -56,10 +56,84 @@ describe("Player", function()
             end)
         end)
 
+        describe("lastPosition", function()
+            it("should store the last position before moving vertically", function()
+                orig_x = 10
+                orig_y = 10
+                local player = Player:new(
+                    mock_input('up'),
+                    {
+                        x = orig_x,
+                        y = orig_y,
+                        speed = 1
+                    }
+                )
+                player:update(dt)
+
+                assert.are.same(player.lastPosition, {x = orig_x, y = orig_y})
+            end)
+
+            it("should store the last position before moving vertically", function()
+                orig_x = 10
+                orig_y = 10
+                local player = Player:new(
+                    mock_input('left'),
+                    {
+                        x = orig_x,
+                        y = orig_y,
+                        speed = 1
+                    }
+                )
+                player.graphics.animation = mock_animation()
+
+                player:update(dt)
+
+                assert.are.same(player.lastPosition, {x = orig_x, y = orig_y})
+            end)
+        end)
+
+        describe("currentDirection", function()
+            it("should be up when moving up", function()
+                local player = Player:new(mock_input('up'))
+                player:update(dt)
+
+                assert.are.equal(player:currentDirection(), 'top')
+            end)
+
+            it("should be down when moving down", function()
+                local player = Player:new(mock_input('down'))
+                player:update(dt)
+
+                assert.are.equal(player:currentDirection(), 'bottom')
+            end)
+
+            it("should be left when moving left", function()
+                local player = Player:new(mock_input('left'))
+                player.graphics.animation = mock_animation()
+                player:update(dt)
+
+                assert.are.equal(player:currentDirection(), 'left')
+            end)
+
+            it("should be right when moving right", function()
+                local player = Player:new(mock_input('right'))
+                player:update(dt)
+
+                assert.are.equal(player:currentDirection(), 'right')
+            end)
+
+            it("should be nil when the lastPosition is nil", function()
+                local player = Player:new(mock_input('none'))
+                player:update(dt)
+
+                assert.is_falsy(player:currentDirection())
+            end)
+        end)
+
         describe("animating the player", function()
             describe("the sprite direction", function()
                 it("should point to the right by default", function()
-                    player = Player:new(mock_input('none'))
+                    local player = Player:new(mock_input('none'))
                     assert.is.equal(player.graphics.facing, "right")
                 end)
 
@@ -105,31 +179,69 @@ describe("Player", function()
         end)
 
         describe("collide", function()
+            local player, collidingEntity
+
             before_each(function()
-                local player = Player:new({})
-                local collidingEntity = Entity:new()
+                player = Player:new({})
+                player.size = {
+                    x = 10,
+                    y = 10
+                }
+
+                collidingEntity = Entity:new({})
+                collidingEntity.x = 10
+                collidingEntity.y = 10
+                collidingEntity.size = {
+                    x = 10,
+                    y = 10
+                }
             end)
 
             it("should set block the player movement when colliding on the left side", function()
-                player:collide(collidingEntity, "left")
+                player.lastPosition = {x = 21, y = 10}
+                player.x = 20
+                player.y = 10
+                player.graphics.animation = mock_animation()
+
+                assert.is_false(player.blocked.left)
+
+                player:collide(collidingEntity)
 
                 assert.is_true(player.blocked.left)
             end)
 
             it("should set block the player movement when colliding on the right side", function()
-                player:collide(collidingEntity, "right")
+                player.lastPosition = {x = 9, y = 10}
+                player.x = 20
+                player.y = 10
+
+                assert.is_false(player.blocked.right)
+
+                player:collide(obstacle, "right")
 
                 assert.is_true(player.blocked.right)
             end)
 
             it("should set block the player movement when colliding on the top side", function()
-                player:collide(collidingEntity, "top")
+                player.lastPosition = {x = 10, y = 11}
+                player.x = 20
+                player.y = 10
+
+                assert.is_false(player.blocked.top)
+
+                player:collide(obstacle, "top")
 
                 assert.is_true(player.blocked.top)
             end)
 
             it("should set block the player movement when colliding on the bottom side", function()
-                player:collide(collidingEntity, "bottom")
+                player.lastPosition = {x = 10, y = 9}
+                player.x = 20
+                player.y = 10
+
+                assert.is_false(player.blocked.bottom)
+
+                player:collide(obstacle, "bottom")
 
                 assert.is_true(player.blocked.bottom)
             end)

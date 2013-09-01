@@ -9,6 +9,7 @@ function Player:new(game, config)
     local config = config or {}
 
     local newPlayer = Entity:new(game)
+    newPlayer.type = "player"
     newPlayer.x = config.x or 400
     newPlayer.y = config.y or 300
     newPlayer.size = config.size or {
@@ -43,6 +44,11 @@ function Player:new(game, config)
         bottom = false
     }
 
+    newPlayer.lastPosition = {
+        x = nil,
+        y = nil
+    }
+
     if game.audio ~= nil then
         newPlayer.sound.moving.sample = game.audio.newSource(newPlayer.sound.moving.source)
         newPlayer.sound.moving.sample:setLooping(true)
@@ -64,8 +70,27 @@ function Player:new(game, config)
     return setmetatable(newPlayer, self)
 end
 
-function Player:collide(other, collidingSide)
-    self.blocked[collidingSide] = true
+function Player:currentDirection()
+    if self.lastPosition.x == nil or self.lastPosition.y == nil then
+        return nil
+    end
+
+    if self.y > self.lastPosition.y then
+        return "bottom"
+    elseif self.y < self.lastPosition.y then
+        return "top"
+    elseif self.x > self.lastPosition.x then
+        return "right"
+    elseif self.x < self.lastPosition.x then
+        return "left"
+    end
+end
+
+function Player:collide(other)
+    local collidingSide = self:currentDirection()
+    if collidingSide ~= nil then
+        self.blocked[collidingSide] = true
+    end
 end
 
 function Player:update(dt)
@@ -106,6 +131,11 @@ function Player:update(dt)
         end
     end
 
+    self.lastPosition = {
+        x = self.x,
+        y = self.y
+    }
+
     self.x = self.x + dx
     self.y = self.y + dy
 
@@ -124,4 +154,18 @@ function Player:update(dt)
             self.sound.moving.sample:stop()
         end
     end
+
+    print("before reset up: " .. tostring(self.blocked.up))
+    print("before reset down: " .. tostring(self.blocked.down))
+    print("before reset left: " .. tostring(self.blocked.left))
+    print("before reset right: " .. tostring(self.blocked.right))
+
+    for _, edge in pairs(self.blocked) do
+        edge = false
+    end
+
+    print("after reset up: " .. tostring(self.blocked.up))
+    print("after reset down: " .. tostring(self.blocked.down))
+    print("after reset left: " .. tostring(self.blocked.left))
+    print("after reset right: " .. tostring(self.blocked.right))
 end

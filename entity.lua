@@ -43,7 +43,8 @@ function Entity:collidingWith(other)
     return (left or right) and (top or bottom)
 end
 
+function Entity:collide(other)
 end
 
-function Entity:collide(other, collidingSide)
+function Entity:currentDirection()
 end

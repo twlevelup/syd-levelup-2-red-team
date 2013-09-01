@@ -1,6 +1,8 @@
 require 'entity'
 
 describe("Entity", function()
+    local baseEntity, collidingEntity, nonCollidingEntity
+
     before_each(function()
         baseEntity = Entity:new({})
         baseEntity.x = 10
