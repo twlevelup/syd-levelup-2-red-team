@@ -53,10 +53,14 @@ function Entity:collidingWith(other)
     local bounds = self:bounds()
     local otherBounds = other:bounds()
 
-    return not (otherBounds.left > bounds.right or
-        otherBounds.right < bounds.left or
-        otherBounds.top > bounds.bottom or
-        otherBounds.bottom < bounds.top)
+    local left = bounds.left <= otherBounds.left and bounds.right >= otherBounds.left
+    local right = bounds.left >= otherBounds.left and bounds.left <= otherBounds.right
+    local top = bounds.top <= otherBounds.top and bounds.bottom >= otherBounds.top
+    local bottom = bounds.top >= otherBounds.top and bounds.top <= otherBounds.bottom
+
+    return (left or right) and (top or bottom)
+end
+
 end
 
 function Entity:collide(other, collidingSide)
