@@ -47,36 +47,6 @@ describe("Entity", function()
         end)
     end)
 
-    describe("collidingSide", function()
-        it("should be left when the collision is with its left side", function()
-            collidingEntity.x = 0
-            collidingEntity.y = 10
-
-            assert.is.equal(baseEntity:collidingSide(collidingEntity), "left")
-        end)
-
-        it("should be right when the collision is with its right side", function()
-            collidingEntity.x = 20
-            collidingEntity.y = 10
-
-            assert.is.equal(baseEntity:collidingSide(collidingEntity), "right")
-        end)
-
-        it("should be top when the collision is with its top side", function()
-            collidingEntity.x = 10
-            collidingEntity.y = 0
-
-            assert.is.equal(baseEntity:collidingSide(collidingEntity), "top")
-        end)
-
-        it("should be bottom when the collision is with its bottom side", function()
-            collidingEntity.x = 10
-            collidingEntity.y = 20
-
-            assert.is.equal(baseEntity:collidingSide(collidingEntity), "bottom")
-        end)
-    end)
-
     describe("handleCollision", function()
         it("should call collide when colliding with another entity", function()
             baseEntity:handleCollision(collidingEntity)
