@@ -5,17 +5,26 @@ describe("Entity", function()
         baseEntity = Entity:new({})
         baseEntity.x = 10
         baseEntity.y = 10
-        baseEntity.size = 10
+        baseEntity.size = {
+            x = 10,
+            y = 10
+        }
 
         collidingEntity = Entity:new({})
         collidingEntity.x = 15
         collidingEntity.y = 15
-        collidingEntity.size = 10
+        collidingEntity.size = {
+            x = 10,
+            y = 10
+        }
 
         nonCollidingEntity = Entity:new({})
         nonCollidingEntity.x = 30
         nonCollidingEntity.y = 30
-        nonCollidingEntity.size = 10
+        nonCollidingEntity.size = {
+            x = 10,
+            y = 10
+        }
 
         spy.on(baseEntity, "collide")
     end)

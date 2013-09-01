@@ -13,14 +13,15 @@ end
 
 function Entity:draw()
     self.graphics.animation:draw(self.graphics.sprites, self.x, self.y)
+    self.game.graphics.rectangle("line", self.x, self.y, self.size.x, self.size.y)
 end
 
 function Entity:bounds()
     return {
         top = self.y,
         left = self.x,
-        bottom = self.y + self.size,
-        right = self.x + self.size
+        bottom = self.y + self.size.x,
+        right = self.x + self.size.y
     }
 end
 

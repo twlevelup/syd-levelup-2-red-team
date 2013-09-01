@@ -11,7 +11,11 @@ function Player:new(game, config)
     local newPlayer = Entity:new(game)
     newPlayer.x = config.x or 400
     newPlayer.y = config.y or 300
-    newPlayer.size = config.size or 20
+    newPlayer.size = config.size or {
+        x = 98,
+        y = 60
+    }
+
     newPlayer.speed = config.speed or 5
 
     newPlayer.keys = config.keys or {
@@ -47,7 +51,7 @@ function Player:new(game, config)
     if game.graphics ~= nil and game.animation ~= nil then
         newPlayer.graphics.sprites = game.graphics.newImage(newPlayer.graphics.source)
         newPlayer.graphics.grid = game.animation.newGrid(
-            100, 70,
+            newPlayer.size.x, newPlayer.size.y,
             newPlayer.graphics.sprites:getWidth(),
             newPlayer.graphics.sprites:getHeight()
         )
