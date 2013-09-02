@@ -70,27 +70,9 @@ function Player:new(game, config)
     return setmetatable(newPlayer, self)
 end
 
-function Player:currentDirection()
-    if self.lastPosition.x == nil or self.lastPosition.y == nil then
-        return nil
-    end
-
-    if self.y > self.lastPosition.y then
-        return "bottom"
-    elseif self.y < self.lastPosition.y then
-        return "top"
-    elseif self.x > self.lastPosition.x then
-        return "right"
-    elseif self.x < self.lastPosition.x then
-        return "left"
-    end
-end
-
 function Player:collide(other)
-    local collidingSide = self:currentDirection()
-    if collidingSide ~= nil then
-        self.blocked[collidingSide] = true
-    end
+    self.x = self.lastPosition.x
+    self.y = self.lastPosition.y
 end
 
 function Player:update(dt)
@@ -154,18 +136,4 @@ function Player:update(dt)
             self.sound.moving.sample:stop()
         end
     end
-
-    print("before reset up: " .. tostring(self.blocked.up))
-    print("before reset down: " .. tostring(self.blocked.down))
-    print("before reset left: " .. tostring(self.blocked.left))
-    print("before reset right: " .. tostring(self.blocked.right))
-
-    for _, edge in pairs(self.blocked) do
-        edge = false
-    end
-
-    print("after reset up: " .. tostring(self.blocked.up))
-    print("after reset down: " .. tostring(self.blocked.down))
-    print("after reset left: " .. tostring(self.blocked.left))
-    print("after reset right: " .. tostring(self.blocked.right))
 end

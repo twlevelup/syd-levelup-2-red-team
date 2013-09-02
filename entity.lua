@@ -45,6 +45,3 @@ end
 
 function Entity:collide(other)
 end
-
-function Entity:currentDirection()
-end

@@ -73,7 +73,7 @@ describe("Player", function()
                 assert.are.same(player.lastPosition, {x = orig_x, y = orig_y})
             end)
 
-            it("should store the last position before moving vertically", function()
+            it("should store the last position before moving horizonally", function()
                 orig_x = 10
                 orig_y = 10
                 local player = Player:new(
@@ -89,44 +89,6 @@ describe("Player", function()
                 player:update(dt)
 
                 assert.are.same(player.lastPosition, {x = orig_x, y = orig_y})
-            end)
-        end)
-
-        describe("currentDirection", function()
-            it("should be up when moving up", function()
-                local player = Player:new(mock_input('up'))
-                player:update(dt)
-
-                assert.are.equal(player:currentDirection(), 'top')
-            end)
-
-            it("should be down when moving down", function()
-                local player = Player:new(mock_input('down'))
-                player:update(dt)
-
-                assert.are.equal(player:currentDirection(), 'bottom')
-            end)
-
-            it("should be left when moving left", function()
-                local player = Player:new(mock_input('left'))
-                player.graphics.animation = mock_animation()
-                player:update(dt)
-
-                assert.are.equal(player:currentDirection(), 'left')
-            end)
-
-            it("should be right when moving right", function()
-                local player = Player:new(mock_input('right'))
-                player:update(dt)
-
-                assert.are.equal(player:currentDirection(), 'right')
-            end)
-
-            it("should be nil when the lastPosition is nil", function()
-                local player = Player:new(mock_input('none'))
-                player:update(dt)
-
-                assert.is_falsy(player:currentDirection())
             end)
         end)
 
@@ -197,17 +159,16 @@ describe("Player", function()
                 }
             end)
 
-            it("should set block the player movement when colliding on the left side", function()
+            it("should move the player to its last position when colliding on the left side", function()
                 player.lastPosition = {x = 21, y = 10}
                 player.x = 20
                 player.y = 10
                 player.graphics.animation = mock_animation()
 
-                assert.is_false(player.blocked.left)
-
                 player:collide(collidingEntity)
 
-                assert.is_true(player.blocked.left)
+                assert.is.equal(player.x, 21)
+                assert.is.equal(player.y, 10)
             end)
 
             it("should set block the player movement when colliding on the right side", function()
@@ -215,11 +176,10 @@ describe("Player", function()
                 player.x = 20
                 player.y = 10
 
-                assert.is_false(player.blocked.right)
+                player:collide(collidingEntity)
 
-                player:collide(obstacle, "right")
-
-                assert.is_true(player.blocked.right)
+                assert.is.equal(player.x, 9)
+                assert.is.equal(player.y, 10)
             end)
 
             it("should set block the player movement when colliding on the top side", function()
@@ -227,11 +187,10 @@ describe("Player", function()
                 player.x = 20
                 player.y = 10
 
-                assert.is_false(player.blocked.top)
+                player:collide(collidingEntity)
 
-                player:collide(obstacle, "top")
-
-                assert.is_true(player.blocked.top)
+                assert.is.equal(player.x, 10)
+                assert.is.equal(player.y, 11)
             end)
 
             it("should set block the player movement when colliding on the bottom side", function()
@@ -239,11 +198,10 @@ describe("Player", function()
                 player.x = 20
                 player.y = 10
 
-                assert.is_false(player.blocked.bottom)
+                player:collide(collidingEntity)
 
-                player:collide(obstacle, "bottom")
-
-                assert.is_true(player.blocked.bottom)
+                assert.is.equal(player.x, 10)
+                assert.is.equal(player.y, 9)
             end)
         end)
 
