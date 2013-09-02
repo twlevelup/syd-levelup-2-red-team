@@ -13,7 +13,9 @@ end
 
 function Entity:draw()
     self.graphics.animation:draw(self.graphics.sprites, self.x, self.y)
-    self.game.graphics.rectangle("line", self.x, self.y, self.size.x, self.size.y)
+    if DEBUG_MODE then
+        self.game.graphics.rectangle("line", self.x, self.y, self.size.x, self.size.y)
+    end
 end
 
 function Entity:bounds()
