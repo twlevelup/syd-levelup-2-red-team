@@ -20,8 +20,8 @@ function Entity:bounds()
     return {
         top = self.y,
         left = self.x,
-        bottom = self.y + self.size.x,
-        right = self.x + self.size.y
+        bottom = self.y + self.size.y,
+        right = self.x + self.size.x
     }
 end
 
@@ -33,14 +33,16 @@ end
 
 function Entity:collidingWith(other)
     local bounds = self:bounds()
-    local otherBounds = other:bounds()
+    local other = other:bounds()
 
-    local left = bounds.left <= otherBounds.left and bounds.right >= otherBounds.left
-    local right = bounds.left >= otherBounds.left and bounds.left <= otherBounds.right
-    local top = bounds.top <= otherBounds.top and bounds.bottom >= otherBounds.top
-    local bottom = bounds.top >= otherBounds.top and bounds.top <= otherBounds.bottom
+    local my_left_overlaps_their_right = bounds.left <= other.right and bounds.right >= other.right
+    local my_right_overlaps_their_left = bounds.right >= other.left and bounds.left <= other.left
 
-    return (left or right) and (top or bottom)
+    local my_top_overlaps_their_bottom = bounds.top <= other.bottom and bounds.bottom >= other.bottom
+    local my_bottom_overlaps_their_top = bounds.bottom >= other.top and bounds.top <= other.top
+
+    return (my_left_overlaps_their_right or my_right_overlaps_their_left) and
+            (my_top_overlaps_their_bottom or my_bottom_overlaps_their_top)
 end
 
 function Entity:collide(other)
