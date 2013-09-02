@@ -19,12 +19,14 @@ function love.load()
 end
 
 function love.update(dt)
-    for _, e in pairs(entities) do
-        e:update(dt)
+    for _, entity in pairs(entities) do
+        entity:update(dt)
 
         for _, other in pairs(entities) do
-            if other ~= e then
-                e:handleCollision(other)
+            if other ~= entity then
+                if entity:collidingWith(other) then
+                    entity:collide(other)
+                end
             end
         end
     end

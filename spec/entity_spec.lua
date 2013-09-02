@@ -61,20 +61,6 @@ describe("Entity", function()
         end)
     end)
 
-    describe("handleCollision", function()
-        it("should call collide when colliding with another entity", function()
-            baseEntity:handleCollision(collidingEntity)
-
-            assert.spy(baseEntity.collide).was_called()
-        end)
-
-        it("should not call collide when not colliding with anything", function()
-            baseEntity:handleCollision(nonCollidingEntity)
-
-            assert.spy(baseEntity.collide).was_not_called()
-        end)
-    end)
-
     describe("collidingWith", function()
         it("should collide when two entities bounding boxes are intersecting", function()
             assert.is.equal(baseEntity:collidingWith(collidingEntity), true)

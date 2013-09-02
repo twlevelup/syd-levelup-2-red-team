@@ -25,12 +25,6 @@ function Entity:bounds()
     }
 end
 
-function Entity:handleCollision(other)
-    if self:collidingWith(other) then
-        self:collide(other)
-    end
-end
-
 function Entity:collidingWith(other)
     local bounds = self:bounds()
     local other = other:bounds()
