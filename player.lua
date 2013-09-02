@@ -37,13 +37,6 @@ function Player:new(game, config)
         }
     }
 
-    newPlayer.blocked = {
-        left = false,
-        right = false,
-        top = false,
-        bottom = false
-    }
-
     newPlayer.lastPosition = {
         x = nil,
         y = nil
@@ -80,9 +73,7 @@ function Player:update(dt)
     local dy = 0
 
     if self.game.input.pressed(self.keys.left) then
-        if not self.blocked.left then
-            dx = dx - self.speed
-        end
+        dx = dx - self.speed
 
         if self.graphics.facing ~= "left" then
             self.graphics.animation:flipH()
@@ -91,9 +82,7 @@ function Player:update(dt)
     end
 
     if self.game.input.pressed(self.keys.right) then
-        if not self.blocked.right then
-            dx = dx + self.speed
-        end
+        dx = dx + self.speed
 
         if self.graphics.facing ~= "right" then
             self.graphics.animation:flipH()
@@ -102,15 +91,11 @@ function Player:update(dt)
     end
 
     if self.game.input.pressed(self.keys.up) then
-        if not self.blocked.up then
-            dy = dy - self.speed
-        end
+        dy = dy - self.speed
     end
 
     if self.game.input.pressed(self.keys.down) then
-        if not self.blocked.down then
-            dy = dy + self.speed
-        end
+        dy = dy + self.speed
     end
 
     self.lastPosition = {
