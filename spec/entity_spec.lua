@@ -32,20 +32,32 @@ describe("Entity", function()
     end)
 
     describe ("bounds", function()
+        local entity
+
+        before_each(function()
+            entity= Entity:new({})
+            entity.x = 10
+            entity.y = 10
+            entity.size = {
+                x = 10,
+                y = 15
+            }
+        end)
+
         it("should set the top at its vertical position", function()
-            assert.is.equal(baseEntity:bounds().top, 10)
+            assert.is.equal(entity:bounds().top, 10)
         end)
 
         it("should set the left at its horizontal position", function()
-            assert.is.equal(baseEntity:bounds().left, 10)
+            assert.is.equal(entity:bounds().left, 10)
         end)
 
         it("should set the right at its horizontal position plus size", function()
-            assert.is.equal(baseEntity:bounds().right, 20)
+            assert.is.equal(entity:bounds().right, 20)
         end)
 
         it("should set the bottom at its vertical position plus size", function()
-            assert.is.equal(baseEntity:bounds().bottom, 20)
+            assert.is.equal(entity:bounds().bottom, 25)
         end)
     end)
 
