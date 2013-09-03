@@ -171,7 +171,7 @@ describe("Player", function()
                 assert.is.equal(player.y, 10)
             end)
 
-            it("should set block the player movement when colliding on the right side", function()
+            it("should move the player to its last position when colliding on the right side", function()
                 player.lastPosition = {x = 9, y = 10}
                 player.x = 20
                 player.y = 10
@@ -182,7 +182,7 @@ describe("Player", function()
                 assert.is.equal(player.y, 10)
             end)
 
-            it("should set block the player movement when colliding on the top side", function()
+            it("should move the player to its last position when colliding on the top side", function()
                 player.lastPosition = {x = 10, y = 11}
                 player.x = 20
                 player.y = 10
@@ -193,7 +193,7 @@ describe("Player", function()
                 assert.is.equal(player.y, 11)
             end)
 
-            it("should set block the player movement when colliding on the bottom side", function()
+            it("should move the player to its last position when colliding on the bottom side", function()
                 player.lastPosition = {x = 10, y = 9}
                 player.x = 20
                 player.y = 10
