@@ -70,6 +70,8 @@ describe("Player", function()
                 )
                 player:update(dt)
 
+                assert.is.equal(player.x, 10)
+                assert.is.equal(player.y, 9)
                 assert.are.same(player.lastPosition, {x = orig_x, y = orig_y})
             end)
 
@@ -88,6 +90,8 @@ describe("Player", function()
 
                 player:update(dt)
 
+                assert.is.equal(player.x, 9)
+                assert.is.equal(player.y, 10)
                 assert.are.same(player.lastPosition, {x = orig_x, y = orig_y})
             end)
         end)
