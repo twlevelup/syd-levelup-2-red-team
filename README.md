@@ -11,12 +11,12 @@ ThoughtWorks LevelUp project starter kit
 2. Now get the code
 
         git clone git@github.com:twlevelup/lu-lua.git
-        
+
 2. You'll also need a version of gcc installed, so you'll need to install XCode with it's command line tools.
-2. Install [Lua](http://www.lua.org/) & [Loverocks](http://luarocks.org/) via [homebrew](http://brew.sh/) (if you're not using homebrew, you probably should be): 
+2. Install [Lua](http://www.lua.org/) & [Luarocks](http://luarocks.org/) via [homebrew](http://brew.sh/) (if you're not using homebrew, you probably should be):
 
         brew install lua
-        brew install loverocks
+        brew install luarocks
 
 3. Install [LÖVE](http://love2d.org/) to your applications folder.
 4. Add an alias in your ~/.bash_profile (or your shell of choice's config) to LÖVE:
@@ -29,12 +29,12 @@ ThoughtWorks LevelUp project starter kit
 
 ### Ubuntu (or other debian derived system)
 
-1. Install [Lua](http://www.lua.org/), [Loverocks](http://luarocks.org/), [LÖVE](http://love2d.org/) and [git](http://git-scm.com/):
+1. Install [Lua](http://www.lua.org/), [Luarocks](http://luarocks.org/), [LÖVE](http://love2d.org/) and [git](http://git-scm.com/):
 
         sudo apt-get install git lua5.1 luarocks love
 
   If you're not on a recent version of your distro, you probably should install luarocks manually - check out [the luarocks site](http://luarocks.org/en/Download) for instructions.
-  
+
 2. Now get the code
 
         git clone git@github.com:twlevelup/lu-lua.git
