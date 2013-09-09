@@ -13,3 +13,5 @@ cp -r vendor bin/vendor
 cp -r assets bin/assets
 cd bin/
 zip -9 -q -r ../dist/levelup.love .
+
+echo "hello world"
