@@ -4,7 +4,15 @@ ThoughtWorks LevelUp project starter kit
 ## Getting started
 ### OSX
 
-1. You'll need a version of gcc installed, so you'll need to install XCode with it's command line tools.
+1. First up, to get the code, you'll need git installed.
+
+        brew install git
+
+2. Now get the code
+
+        git clone git@github.com:twlevelup/lu-lua.git
+        
+2. You'll also need a version of gcc installed, so you'll need to install XCode with it's command line tools.
 2. Install [Lua](http://www.lua.org/) & [Loverocks](http://luarocks.org/) via [homebrew](http://brew.sh/) (if you're not using homebrew, you probably should be): 
 
         brew install lua
@@ -21,11 +29,15 @@ ThoughtWorks LevelUp project starter kit
 
 ### Ubuntu (or other debian derived system)
 
-1. Install [Lua](http://www.lua.org/), [Loverocks](http://luarocks.org/), and [LÖVE](http://love2d.org/):
+1. Install [Lua](http://www.lua.org/), [Loverocks](http://luarocks.org/), [LÖVE](http://love2d.org/) and [git](http://git-scm.com/):
 
-        sudo apt-get install lua5.1 luarocks love
+        sudo apt-get install git lua5.1 luarocks love
 
   If you're not on a recent version of your distro, you probably should install luarocks manually - check out [the luarocks site](http://luarocks.org/en/Download) for instructions.
+  
+2. Now get the code
+
+        git clone git@github.com:twlevelup/lu-lua.git
 
 2. Install [Busted](http://olivinelabs.com/busted/):
 
