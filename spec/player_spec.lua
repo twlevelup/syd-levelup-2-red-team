@@ -38,6 +38,10 @@ describe("Player", function()
             return sound_spy
         end
 
+        describe("it should fail", function()
+            assert.is_true(false)
+        end)
+
         describe("playing the movement sound", function()
             it("should play the movement sound when the player is moving", function()
                 local player = Player:new(mock_input('up'))
