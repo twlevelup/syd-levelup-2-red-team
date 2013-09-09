@@ -153,6 +153,9 @@ describe("Player", function()
                     x = 10,
                     y = 10
                 }
+                player.x = 20
+                player.y = 10
+                player.graphics.animation = mock_animation()
 
                 collidingEntity = Entity:new({})
                 collidingEntity.x = 10
@@ -165,9 +168,6 @@ describe("Player", function()
 
             it("should move the player to its last position when colliding on the left side", function()
                 player.lastPosition = {x = 21, y = 10}
-                player.x = 20
-                player.y = 10
-                player.graphics.animation = mock_animation()
 
                 player:collide(collidingEntity)
 
@@ -177,8 +177,6 @@ describe("Player", function()
 
             it("should move the player to its last position when colliding on the right side", function()
                 player.lastPosition = {x = 9, y = 10}
-                player.x = 20
-                player.y = 10
 
                 player:collide(collidingEntity)
 
@@ -188,8 +186,6 @@ describe("Player", function()
 
             it("should move the player to its last position when colliding on the top side", function()
                 player.lastPosition = {x = 10, y = 11}
-                player.x = 20
-                player.y = 10
 
                 player:collide(collidingEntity)
 
@@ -199,8 +195,6 @@ describe("Player", function()
 
             it("should move the player to its last position when colliding on the bottom side", function()
                 player.lastPosition = {x = 10, y = 9}
-                player.x = 20
-                player.y = 10
 
                 player:collide(collidingEntity)
 
