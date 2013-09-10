@@ -20,7 +20,7 @@ function Obstacle:new(game, config)
         source = "assets/images/cactus-sprites.png"
     }
 
-    if game.graphics ~=nil and game.animation ~= nil then
+    if game.graphics ~= nil and game.animation ~= nil then
         newObstacle.graphics.sprites = game.graphics.newImage(newObstacle.graphics.source)
         newObstacle.graphics.grid = game.animation.newGrid(
             newObstacle.size.x, newObstacle.size.y,
