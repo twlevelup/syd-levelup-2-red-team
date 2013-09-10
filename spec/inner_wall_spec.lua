@@ -1,12 +1,12 @@
 require 'inner_wall'
 
-describe("Inner_Wall", function()
+describe("InnerWall", function()
 
 	describe("new", function()
 		local inner_wall
 
 		before_each(function()
-			inner_wall = Inner_Wall:new({})
+			inner_wall = InnerWall:new({})
 		end)
 
 		it("should have x value of 0 by default", function()
@@ -23,6 +23,5 @@ describe("Inner_Wall", function()
 		end)
 
 	end)
-
 
 end)
