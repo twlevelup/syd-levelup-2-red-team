@@ -5,7 +5,7 @@ require 'obstacle'
 love.animation = require 'vendor/anim8'
 
 local entities = {}
-local player = Player:new(love, {x = 100, y = 100})
+local player = Player:new(love, {x = 0, y = 0})
 local obstacle = Obstacle:new(love, {x = 200, y = 200})
 
 function love.load()

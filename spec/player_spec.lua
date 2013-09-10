@@ -56,6 +56,26 @@ describe("Player", function()
             end)
         end)
 
+        describe("initial position", function()
+            it("should be in the overriden position if it is provided", function()
+                local overridden_x = 0
+                local overridden_y = 0
+                local player = Player:new({}, {x = overridden_x, y = overridden_y})
+
+                assert.is.equal(player.x, overridden_x)
+                assert.is.equal(player.y, overridden_y)
+            end)
+
+            it("should be in the default position if no override is given", function()
+                local default_x = 400
+                local default_y = 300
+                local player = Player:new({})
+
+                assert.is.equal(player.x, default_x)
+                assert.is.equal(player.y, default_y)
+            end)
+        end)
+
         describe("lastPosition", function()
             it("should store the last position before moving vertically", function()
                 orig_x = 10
