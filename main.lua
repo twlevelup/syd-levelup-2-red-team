@@ -2,6 +2,7 @@ require 'input'
 require 'player'
 require 'obstacle'
 require 'inner_wall'
+require 'outer_wall'
 
 love.animation = require 'vendor/anim8'
 
@@ -10,6 +11,7 @@ local player = Player:new(love, {x = 0, y = 0})
 local wall_1 = InnerWall:new(love, {x = 100, y = 200})
 local wall_2 = InnerWall:new(love, {x = 100, y = 400})
 local wall_3 = InnerWall:new(love, {x = 100, y = 600})
+local outer_wall = OuterWall:new(love, {})
 
 function love.load()
     table.insert(entities, player)
@@ -17,6 +19,7 @@ function love.load()
     table.insert(entities, wall_1)
     table.insert(entities, wall_2)
     table.insert(entities, wall_3)
+    table.insert(entities, outer_wall)
 
     love.input.bind('up', 'up')
     love.input.bind('left', 'left')
