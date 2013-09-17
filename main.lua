@@ -7,9 +7,9 @@ love.animation = require 'vendor/anim8'
 
 local entities = {}
 local player = Player:new(love, {x = 0, y = 0})
-local wall_1 = InnerWall:new(love, {x = 100, y = 200})
-local wall_2 = InnerWall:new(love, {x = 100, y = 400})
-local wall_3 = InnerWall:new(love, {x = 100, y = 600})
+local wall_1 = InnerWall:new(love, {x = 212, y = 155})
+local wall_2 = InnerWall:new(love, {x = 212, y = 360})
+local wall_3 = InnerWall:new(love, {x = 212, y = 560})
 
 function love.load()
     table.insert(entities, player)
