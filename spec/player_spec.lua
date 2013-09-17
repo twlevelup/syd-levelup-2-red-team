@@ -62,8 +62,8 @@ describe("Player", function()
                 local overridden_y = 0
                 local player = Player:new({}, {x = overridden_x, y = overridden_y})
 
-                assert.is.equal(player.x, overridden_x)
-                assert.is.equal(player.y, overridden_y)
+                assert.is.equal(overridden_x, player.x)
+                assert.is.equal(overridden_y, player.y)
             end)
 
             it("should be in the default position if no override is given", function()
@@ -71,8 +71,8 @@ describe("Player", function()
                 local default_y = 300
                 local player = Player:new({})
 
-                assert.is.equal(player.x, default_x)
-                assert.is.equal(player.y, default_y)
+                assert.is.equal(default_x, player.x)
+                assert.is.equal(default_y, player.y)
             end)
         end)
 
@@ -90,8 +90,8 @@ describe("Player", function()
                 )
                 player:update(dt)
 
-                assert.is.equal(player.x, 10)
-                assert.is.equal(player.y, 9)
+                assert.is.equal(10, player.x)
+                assert.is.equal(9, player.y)
                 assert.are.same(player.lastPosition, {x = orig_x, y = orig_y})
             end)
 
@@ -110,8 +110,8 @@ describe("Player", function()
 
                 player:update(dt)
 
-                assert.is.equal(player.x, 9)
-                assert.is.equal(player.y, 10)
+                assert.is.equal(9, player.x)
+                assert.is.equal(10, player.y)
                 assert.are.same(player.lastPosition, {x = orig_x, y = orig_y})
             end)
         end)
@@ -120,7 +120,7 @@ describe("Player", function()
             describe("the sprite direction", function()
                 it("should point to the right by default", function()
                     local player = Player:new(mock_input('none'))
-                    assert.is.equal(player.graphics.facing, "right")
+                    assert.is.equal("right", player.graphics.facing)
                 end)
 
                 it("should point to the right when the right arrow is pressed", function()
@@ -129,7 +129,7 @@ describe("Player", function()
                     player.graphics.animation = mock_animation()
                     player:update(dt)
 
-                    assert.is.equal(player.graphics.facing, "right")
+                    assert.is.equal("right", player.graphics.facing)
                     assert.spy(player.graphics.animation.flipH).was.called()
                 end)
 
@@ -138,7 +138,7 @@ describe("Player", function()
                     player.graphics.animation = mock_animation()
                     player:update(dt)
 
-                    assert.is.equal(player.graphics.facing, "left")
+                    assert.is.equal("left", player.graphics.facing)
                     assert.spy(player.graphics.animation.flipH).was.called()
                 end)
             end)
@@ -191,8 +191,8 @@ describe("Player", function()
 
                 player:collide(collidingEntity)
 
-                assert.is.equal(player.x, 21)
-                assert.is.equal(player.y, 10)
+                assert.is.equal(21, player.x)
+                assert.is.equal(10, player.y)
             end)
 
             it("should move the player to its last position when colliding on the right side", function()

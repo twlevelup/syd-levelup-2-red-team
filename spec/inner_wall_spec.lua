@@ -1,4 +1,5 @@
 require 'inner_wall'
+require 'player'
 
 describe("InnerWall", function()
 

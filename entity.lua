@@ -31,14 +31,14 @@ function Entity:collidingWith(other)
     local bounds = self:bounds()
     local other = other:bounds()
 
-    local my_left_overlaps_their_right = bounds.left <= other.right and bounds.right >= other.right
-    local my_right_overlaps_their_left = bounds.right >= other.left and bounds.left <= other.left
+    local my_left_overlaps_their_right = bounds.left <= other.right
+    local my_right_overlaps_their_left = bounds.right >= other.left
 
-    local my_top_overlaps_their_bottom = bounds.top <= other.bottom and bounds.bottom >= other.bottom
-    local my_bottom_overlaps_their_top = bounds.bottom >= other.top and bounds.top <= other.top
+    local my_top_overlaps_their_bottom = bounds.top <= other.bottom
+    local my_bottom_overlaps_their_top = bounds.bottom >= other.top
 
-    return (my_left_overlaps_their_right or my_right_overlaps_their_left) and
-            (my_top_overlaps_their_bottom or my_bottom_overlaps_their_top)
+    return my_left_overlaps_their_right and my_right_overlaps_their_left and
+            my_top_overlaps_their_bottom and my_bottom_overlaps_their_top
 end
 
 function Entity:collide(other)
