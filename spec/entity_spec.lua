@@ -83,5 +83,15 @@ describe("Entity", function()
         it("should not collide when two entities bounding boxes are not intersecting", function()
             assert.is.equal(baseEntity:collidingWith(nonCollidingEntity), false)
         end)
+
+        it("should collide in middle of large entities", function()
+            baseEntity.size.x = 100
+
+            collidingEntity.x = 50
+            collidingEntity.y = 1
+
+            assert.is.equal(collidingEntity:collidingWith(baseEntity), true)
+        end)
+
     end)
 end)
