@@ -7,11 +7,13 @@ require 'outer_wall'
 love.animation = require 'vendor/anim8'
 
 local entities = {}
-local player = Player:new(love, {x = 0, y = 0})
-local wall_1 = InnerWall:new(love, {x = 100, y = 200})
-local wall_2 = InnerWall:new(love, {x = 100, y = 400})
-local wall_3 = InnerWall:new(love, {x = 100, y = 600})
-local outer_wall = OuterWall:new(love, {})
+local player = Player:new(love, {x = 10, y = 10})
+local wall_1 = InnerWall:new(love, {x = 200, y = 200})
+local wall_2 = InnerWall:new(love, {x = 200, y = 400})
+local wall_3 = InnerWall:new(love, {x = 200, y = 600})
+
+-- Outer Walls render all 4 render
+local outerWalls = OuterWall:createWalls(love)
 
 function love.load()
     table.insert(entities, player)
@@ -19,8 +21,15 @@ function love.load()
     table.insert(entities, wall_1)
     table.insert(entities, wall_2)
     table.insert(entities, wall_3)
-    table.insert(entities, outer_wall)
 
+    -- Loop insert OuterWalls
+    i = 0
+    while i < 5 do
+        table.insert(entities, outerWalls[i])
+        i = i + 1
+    end
+
+    -- Bind keystroke commands
     love.input.bind('up', 'up')
     love.input.bind('left', 'left')
     love.input.bind('right', 'right')
