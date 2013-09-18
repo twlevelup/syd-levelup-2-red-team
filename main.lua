@@ -22,11 +22,9 @@ function love.load()
     table.insert(entities, wall_2)
     table.insert(entities, wall_3)
 
-    -- Loop insert OuterWalls
-    i = 0
-    while i < 5 do
+    -- Loop insert OuterWalls, "#<tablename>" returns number of elements in table
+    for i = 0, #outerWalls do
         table.insert(entities, outerWalls[i])
-        i = i + 1
     end
 
     -- Bind keystroke commands
