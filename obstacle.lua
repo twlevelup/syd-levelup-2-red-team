@@ -41,7 +41,3 @@ function Obstacle:update(dt)
         self.graphics.animation:update(dt)
     end
 end
-
-function OuterWall:draw()
-    self.game.graphics.rectangle("line", self.x, self.y, self.size.x, self.size.y)
-end
