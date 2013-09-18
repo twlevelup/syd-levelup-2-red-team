@@ -1,92 +1,81 @@
-require 'entity'
 require 'obstacle'
 
 OuterWall = {}
 OuterWall.__index = OuterWall
 setmetatable(OuterWall, {__index = Obstacle})
 
-function OuterWall:new(game, config)
-    local leftWall = OuterWall:createWall(game, {
-        x = 0,
-        y = 0,
-        size = {
-            x = 1,
-            y = 764
-        }
-    })
 
-    local rightWall = OuterWall:createWall(game, {
-        x = 1023,
-        y = 1,
-        size = {
-            x = 1,
-            y = 764
-        }
-    })
+function OuterWall:createWalls(game)
 
-    local topWall = OuterWall:createWall(game, {
-        x = 2,
-        y = 1,
-        size = {
-            x = 1024,
-            y = 1
-        }
-    })
+    local walls = {}
 
-    local bottomWall = OuterWall:createWall(game, {
-        x = 1,
-        y = 763,
-        size = {
-            x = 1024,
-            y = 1
-        }
-    })
+    -- Create the 4 walls
+    local leftWall = OuterWall:new(game, {position = "left"})
+    local rightWall = OuterWall:new(game, {position = "right"})
+    local topWall = OuterWall:new(game, {position = "top"})
+    local bottomWall = OuterWall:new(game, {position = "bottom"})
 
-    local newOuterWalls = {topWall, rightWall, bottomWall, leftWall}
-    return setmetatable(newOuterWalls, self)
+    -- Add them to return table
+    table.insert(walls, leftWall)
+    table.insert(walls, rightWall)
+    table.insert(walls, topWall)
+    table.insert(walls, bottomWall)
+
+    return walls
+
 end
 
-function OuterWall:createWall(game, config)
+
+function OuterWall:new(game, config)
     local config = config or {}
 
+    local screenHeight = 768
+    local screenWidth = 1024
+
     local newOuterWall = Obstacle:new(game)
-    newOuterWall.type = "outerWall"
-    -- newOtherWall.place = config.place or "top"
+    newOuterWall.type = "outer-wall"
+    newOuterWall.position = "top" or config.position
     newOuterWall.x = config.x or 0
     newOuterWall.y = config.y or 0
     newOuterWall.size = config.size or {
         x = 1,
-        y = 768
+        y = screenHeight
     }
 
-    -- newOuterWall.graphics = config.graphics or {
-    --     source = "assets/images/cactus-sprites.png"
-    -- }
+    -- Based on the position, it sets the size.
+    if config.position == "bottom" then
+        newOuterWall.x = 0
+        newOuterWall.y = screenHeight
+        newOuterWall.size = {
+            x = screenWidth,
+            y = 1
+        }
+    elseif config.position == "left" then
+        newOuterWall.x = 0
+        newOuterWall.y = 0
+        newOuterWall.size = {
+            x = 1,
+            y = screenHeight
+        }
+    elseif config.position == "right" then
+        newOuterWall.x = screenWidth
+        newOuterWall.y = 0
+        newOuterWall.size = {
+            x = 1,
+            y = screenHeight
+        }
+    elseif config.position == "top" then
+        newOuterWall.x = 0
+        newOuterWall.y = 0
+        newOuterWall.size = {
+            x = screenWidth,
+            y = 1
+        }
+    end
 
-    -- if game.graphics ~= nil and game.animation ~= nil then
-    --     newOuterWall.graphics.sprites = game.graphics.newImage(newOuterWall.graphics.source)
-    --     newOuterWall.graphics.grid = game.animation.newGrid(
-    --         newOuterWall.size.x, newOuterWall.size.y,
-    --         newOuterWall.graphics.sprites:getWidth() * (newOuterWall.size.x / newOuterWall.graphics.sprites:getWidth() + 1),
-    --         newOuterWall.graphics.sprites:getHeight() * (newOuterWall.size.y / newOuterWall.graphics.sprites:getHeight() + 1)
-    --     )
-    --     newOuterWall.graphics.animation = game.animation.newAnimation(
-    --         newOuterWall.graphics.grid("1-1", 1),
-    --         0.5
-    --     )
-    -- end
-
-    return newOuterWall
+    return setmetatable(newOuterWall, self)
 end
 
 function OuterWall:draw()
-    for _, wall in pairs(self) do
-        wall.draw()
-    end
-end
-
-function OuterWall:update(dt)
-    if self.graphics.animation ~= nil then
-        self.graphics.animation:update(dt)
-    end
+    self.game.graphics.rectangle("line", self.x, self.y, self.size.x, self.size.y)
 end
