@@ -3,14 +3,15 @@ require 'player'
 require 'obstacle'
 require 'fruit'
 require 'inner_wall'
+require 'outer_wall'
 
 love.animation = require 'vendor/anim8'
 
 local entities = {}
-local player = Player:new(love, {x = 0, y = 0})
-local wall_1 = InnerWall:new(love, {x = 212, y = 155})
-local wall_2 = InnerWall:new(love, {x = 212, y = 360})
-local wall_3 = InnerWall:new(love, {x = 212, y = 560})
+local player = Player:new(love, {x = 10, y = 10})
+local wall_1 = InnerWall:new(love, {x = 200, y = 200})
+local wall_2 = InnerWall:new(love, {x = 200, y = 400})
+local wall_3 = InnerWall:new(love, {x = 200, y = 600})
 
 
 local MAPSCALE_X = 128;
@@ -27,6 +28,9 @@ local fruit_at_grid_45 = Fruit:new(love, {x = 4*MAPSCALE_X, y = 5*MAPSCALE_Y})
 local fruit_at_grid_37 = Fruit:new(love, {x = 3*MAPSCALE_X, y = 7*MAPSCALE_Y}) 
 local fruit_at_grid_77 = Fruit:new(love, {x = 7*MAPSCALE_X, y = 7*MAPSCALE_Y}) 
 
+
+-- Outer Walls render all 4 render
+local outerWalls = OuterWall:createWalls(love)
 
 function love.load()
     table.insert(entities, player)
@@ -47,6 +51,12 @@ function love.load()
     table.insert(entities, fruit_at_grid_77)
 
 
+    -- Loop insert OuterWalls, "#<tablename>" returns number of elements in table
+    for i = 0, #outerWalls do
+        table.insert(entities, outerWalls[i])
+    end
+
+    -- Bind keystroke commands
     love.input.bind('up', 'up')
     love.input.bind('left', 'left')
     love.input.bind('right', 'right')
