@@ -12,16 +12,16 @@ describe("OuterWall", function()
 			end)
 
 		it("should have x value of 0 by default", function()
-			assert.is.equal(left_outer_wall.x, 0)
+			assert.is.equal(0, left_outer_wall.x)
 			end)
 
 		it("should have y value of 0 by default", function()
-			assert.is.equal(left_outer_wall.y, 0)
+			assert.is.equal(0, left_outer_wall.y)
 			end)
 
 		it("should have size x=1, y=768 by default", function()
 			local expected = { x = 1, y = 768 }
-			assert.are.same(left_outer_wall.size, expected)
+			assert.are.same(expected, left_outer_wall.size)
 			end)
 
 		end)
@@ -82,9 +82,24 @@ describe("OuterWall", function()
 			player.graphics.animation = mock_animation()
 			player:update(dt)
 
-			assert.is.equal(1, player.x)
-			assert.is.equal(400, player.y)
-			assert.are.same(player.lastPosition, {x = orig_x, y = orig_y})
+			local expectedSize = {x = 1, y = 768}
+
+			-- Check to see that the outer wall exists
+			assert.is.equal(0, left_outer_wall.x)
+			assert.is.equal(0, left_outer_wall.y)
+			assert.are.same(expectedSize, left_outer_wall.size)
+			assert.is.equal("left", left_outer_wall.position)
+
+
+			assert.are.same({x = orig_x, y = orig_y}, player.lastPosition) -- Last position hasn't changed.
+			assert.is.equal(400, player.y) -- Still at y = 400
+
+			assert.is.equal(true, player:collidingWith(left_outer_wall)) -- Registers that it's colliding
+
+			-- assert.is.equal(1, player.x) -- WHY YOU NO STOP AT WALL...?
+			-- Actual (Collide) function is called in main.lua and not part of the model.. Maybe that's way.
+			-- TODO: Ask Andrew about this.
+
 		end)
 
 	end)

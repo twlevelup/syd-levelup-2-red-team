@@ -34,7 +34,7 @@ function OuterWall:new(game, config)
 
     local newOuterWall = Obstacle:new(game)
     newOuterWall.type = "outer-wall"
-    newOuterWall.position = "top" or config.position
+    newOuterWall.position = "left" or config.position
     newOuterWall.x = config.x or 0
     newOuterWall.y = config.y or 0
     newOuterWall.size = config.size or {
