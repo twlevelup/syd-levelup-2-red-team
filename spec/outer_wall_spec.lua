@@ -4,6 +4,9 @@ require 'player'
 describe("OuterWall", function()
 	local dt = 1
 
+	local screenX = 1024
+	local screenY = 768
+
 	describe("new", function()
 		local left_outer_wall
 
@@ -20,7 +23,7 @@ describe("OuterWall", function()
 			end)
 
 		it("should have size x=1, y=768 by default", function()
-			local expected = { x = 1, y = 768 }
+			local expected = { x = 1, y = screenY }
 			assert.are.same(expected, left_outer_wall.size)
 			end)
 
@@ -82,7 +85,7 @@ describe("OuterWall", function()
 			player.graphics.animation = mock_animation()
 			player:update(dt)
 
-			local expectedSize = {x = 1, y = 768}
+			local expectedSize = {x = 1, y = screenY}
 
 			-- Check to see that the outer wall exists
 			assert.is.equal(0, left_outer_wall.x)
