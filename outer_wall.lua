@@ -6,23 +6,19 @@ setmetatable(OuterWall, {__index = Obstacle})
 
 
 function OuterWall:createWalls(game)
-
     local walls = {}
 
-    -- Create the 4 walls
     local leftWall = OuterWall:new(game, {position = "left"})
     local rightWall = OuterWall:new(game, {position = "right"})
     local topWall = OuterWall:new(game, {position = "top"})
     local bottomWall = OuterWall:new(game, {position = "bottom"})
 
-    -- Add them to return table
     table.insert(walls, leftWall)
     table.insert(walls, rightWall)
     table.insert(walls, topWall)
     table.insert(walls, bottomWall)
 
     return walls
-
 end
 
 
@@ -42,7 +38,6 @@ function OuterWall:new(game, config)
         y = screenHeight
     }
 
-    -- Based on the position, it sets the size.
     if newOuterWall.position == "bottom" then
         newOuterWall.x = 0
         newOuterWall.y = screenHeight
