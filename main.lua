@@ -7,6 +7,9 @@ require 'outer_wall'
 
 love.animation = require 'vendor/anim8'
 
+local GAME_TIME_LIMIT_SECONDS = 30
+local timeLeft = GAME_TIME_LIMIT_SECONDS
+
 local entities = {}
 local player = Player:new(love, {x = 10, y = 10})
 local wall_1 = InnerWall:new(love, {x = 200, y = 200})
@@ -33,6 +36,8 @@ local fruit_at_grid_77 = Fruit:new(love, {x = 7*MAPSCALE_X, y = 7*MAPSCALE_Y})
 local outerWalls = OuterWall:createWalls(love)
 
 function love.load()
+    timeStart = os.time()
+    
     table.insert(entities, player)
     table.insert(entities, obstacle)
     table.insert(entities, wall_1)
@@ -64,6 +69,13 @@ function love.load()
 end
 
 function love.update(dt)
+    local currentElapsedTime = os.time() - timeStart
+    timeLeft = os.date("%M:%S", GAME_TIME_LIMIT_SECONDS - currentElapsedTime)
+    
+    if (timeLeft == "00:00") then
+        love.event.push('quit')
+    end
+
     for _, entity in pairs(entities) do
         entity:update(dt)
 
@@ -72,12 +84,14 @@ function love.update(dt)
                 if entity:collidingWith(other) then
                     entity:collide(other)
                 end
-            end
+            end;
         end
     end
 end
 
 function love.draw()
+    love.graphics.printf(timeLeft, 10, 10, 10, "left")
+
     for _, e in pairs(entities) do
         e:draw()
     end
