@@ -34,7 +34,7 @@ function OuterWall:new(game, config)
 
     local newOuterWall = Obstacle:new(game)
     newOuterWall.type = "outer-wall"
-    newOuterWall.position = "left" or config.position
+    newOuterWall.position = config.position or "left"
     newOuterWall.x = config.x or 0
     newOuterWall.y = config.y or 0
     newOuterWall.size = config.size or {
@@ -43,28 +43,28 @@ function OuterWall:new(game, config)
     }
 
     -- Based on the position, it sets the size.
-    if config.position == "bottom" then
+    if newOuterWall.position == "bottom" then
         newOuterWall.x = 0
         newOuterWall.y = screenHeight
         newOuterWall.size = {
             x = screenWidth,
             y = 1
         }
-    elseif config.position == "left" then
+    elseif newOuterWall.position == "left" then
         newOuterWall.x = 0
         newOuterWall.y = 0
         newOuterWall.size = {
             x = 1,
             y = screenHeight
         }
-    elseif config.position == "right" then
+    elseif newOuterWall.position == "right" then
         newOuterWall.x = screenWidth
         newOuterWall.y = 0
         newOuterWall.size = {
             x = 1,
             y = screenHeight
         }
-    elseif config.position == "top" then
+    elseif newOuterWall.position == "top" then
         newOuterWall.x = 0
         newOuterWall.y = 0
         newOuterWall.size = {
