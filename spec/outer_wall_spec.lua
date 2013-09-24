@@ -71,38 +71,33 @@ describe("OuterWall", function()
             left_outer_wall = OuterWall:new({})
         end)
 
-        it("should not be able to move left when at x=1 y=400", function()
-            orig_x = 1
-            orig_y = 400
+        it("should prevent the player from moving left when it is at position x=1 y=400", function()
             local player = Player:new(
-            mock_input('left'),
-            {
-                x = orig_x,
-                y = orig_y,
-                speed = 1
-            }
+                mock_input('left'),
+                {
+                    x = 0,
+                    y = 400,
+                    speed = 1
+                }
             )
+
+            player.lastPosition = {}
+            player.lastPosition.x = 1
+            player.lastPosition.y = 400
+
             player.graphics.animation = mock_animation()
-            player:update(dt)
 
             local expectedSize = {x = 1, y = screenY}
 
-            -- Check to see that the outer wall exists
             assert.is.equal(0, left_outer_wall.x)
             assert.is.equal(0, left_outer_wall.y)
             assert.are.same(expectedSize, left_outer_wall.size)
             assert.is.equal("left", left_outer_wall.position)
 
+            player:collide(left_outer_wall)
 
-            assert.are.same({x = orig_x, y = orig_y}, player.lastPosition) -- Last position hasn't changed.
-            assert.is.equal(400, player.y) -- Still at y = 400
-
-            assert.is.equal(true, player:collidingWith(left_outer_wall)) -- Registers that it's colliding
-
-            -- assert.is.equal(1, player.x) -- WHY YOU NO STOP AT WALL...?
-            -- Actual (Collide) function is called in main.lua and not part of the model.. Maybe that's way.
-            -- TODO: Ask Andrew about this.
-
+            assert.is.equal(1, player.x)
+            assert.is.equal(400, player.y)
         end)
     end)
 end)
