@@ -46,16 +46,15 @@ function Fruit:randomlyPlace(game, entities, config, count)
     local collides = false
     local randomX = 0
     local randomY = 0
+    local i = 1
 
-    for i = 1, count do
-
-        randomX = math.random(0,7)
-        randomY = math.random(0,7)
+    while i <= count do
+        randomX = math.random(7)
+        randomY = math.random(7)
 
         config.x = randomX * MAPSCALE_X
         config.y = randomY * MAPSCALE_Y
-
-        local fruit = Fruit:new(game, config) 
+        local fruit = Fruit:new(game, config)
 
         collides = false
         for itemNum = 1, #entities do
@@ -66,9 +65,10 @@ function Fruit:randomlyPlace(game, entities, config, count)
 
         if collides == false then
             table.insert(entities, fruit)
-        else
-            count = count + 1
+            table.insert(fruits, fruit)
+            i = i + 1
         end
+
     end
 
     return fruits
