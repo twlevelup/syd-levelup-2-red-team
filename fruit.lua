@@ -36,6 +36,45 @@ function Fruit:new(game, config)
     return setmetatable(newFruit, self)
 end
 
+function Fruit:randomlyPlace(game, entities, config, count)
+
+    local MAPSCALE_X = 128;
+    local MAPSCALE_Y = 96;
+
+    fruits = {}
+    local config = config or {}
+    local collides = false
+    local randomX = 0
+    local randomY = 0
+
+    for i = 1, count do
+
+        randomX = math.random(0,7)
+        randomY = math.random(0,7)
+
+        config.x = randomX * MAPSCALE_X
+        config.y = randomY * MAPSCALE_Y
+
+        local fruit = Fruit:new(game, config) 
+
+        collides = false
+        for itemNum = 1, #entities do
+            if entities[itemNum]:collidingWith(fruit) then
+                collides = true
+            end
+        end
+
+        if collides == false then
+            table.insert(entities, fruit)
+        else
+            count = count + 1
+        end
+    end
+
+    return fruits
+
+end
+
 function Fruit:update(dt)
 
 end
