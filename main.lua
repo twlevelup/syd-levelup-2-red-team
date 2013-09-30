@@ -14,7 +14,6 @@ local wall_2 = InnerWall:new(love, {x = 200, y = 400})
 local wall_3 = InnerWall:new(love, {x = 200, y = 600})
 local fruits = {}
 
--- Outer Walls render all 4 render
 local outerWalls = OuterWall:createWalls(love)
 
 function love.load()
@@ -24,15 +23,12 @@ function love.load()
     table.insert(entities, wall_2)
     table.insert(entities, wall_3)
 
-    -- Loop insert OuterWalls, "#<tablename>" returns number of elements in table
     for i = 1, #outerWalls do
         table.insert(entities, outerWalls[i])
     end
 
-    -- Create fruit
     fruits = Fruit:randomlyPlace(love, entities, {}, 10)
 
-    -- Bind keystroke commands
     love.input.bind('up', 'up')
     love.input.bind('left', 'left')
     love.input.bind('right', 'right')
