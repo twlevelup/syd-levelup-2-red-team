@@ -26,6 +26,7 @@ describe("Time", function()
 		assert.is.equal(expectedFormat, time.remaining)
 	end)
 
+<<<<<<< HEAD
 	it("should count down every second", function()
 		local testLimit = 10
 		local testTimeStart = os.time{year=2000, month=1, day=1, hour=0, sec=0}
@@ -58,6 +59,20 @@ describe("Time", function()
 		time:start(os.time())
 
 		local s = spy.on(time, "draw")
+=======
+	it("should do xyz", function()
+		assert.is.equal(1, 1)
+	end)
+
+	--[[ it should:
+		- display time in 00:00 format
+		- should decrement time left
+		- should count down ever second
+		- quit when time is zero
+		- be on top right of screen
+		- be start at 3 minutes
+	]]
+>>>>>>> 7f2f56c292864e84e3f1e9fec5bbdc3da2c53c5e
 
 		time:draw()
     	assert.spy(time:greet).was.called()
