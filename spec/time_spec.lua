@@ -62,5 +62,4 @@ describe("Time", function()
 		time:draw()
     	assert.spy(time:greet).was.called()
 	end)]]
-
 end)
