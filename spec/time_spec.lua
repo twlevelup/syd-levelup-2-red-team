@@ -15,5 +15,17 @@ describe("Time", function()
 		assert.is.equal(osTime, time.osTime)
 	end)
 
+	it("should do xyz", function()
+		assert.is.equal(1, 1)
+	end)
+
+	--[[ it should:
+		- display time in 00:00 format
+		- should decrement time left
+		- should count down ever second
+		- quit when time is zero
+		- be on top right of screen
+		- be start at 3 minutes
+	]]
 
 end)

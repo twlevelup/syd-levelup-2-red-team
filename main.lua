@@ -90,8 +90,8 @@ function love.update(dt)
 end
 
 function love.draw()
-    love.graphics.printf(timeLeft, 10, 10, 10, "left")
-
+    --love.graphics.printf(timeLeft, 10, 10, 10, "left", 10, 200, 200)
+    love.graphics.print(timeLeft, 920, 10, 0, 2, 2)
     for _, e in pairs(entities) do
         e:draw()
     end
