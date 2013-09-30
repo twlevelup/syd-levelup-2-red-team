@@ -26,7 +26,7 @@ end
 function OuterWall:new(game, config)
     local config = config or {}
 
-    local screenHeight = 768 - GAME_FIELD_BOTTOM_OFFSET
+    local screenHeight = 768 -- - GAME_FIELD_BOTTOM_OFFSET
     local screenWidth = 1024
 
     local newOuterWall = Obstacle:new(game)

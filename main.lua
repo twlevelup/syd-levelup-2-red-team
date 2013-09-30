@@ -103,17 +103,9 @@ function love.update(dt)
 end
 
 function love.draw()
-<<<<<<< HEAD
     for _, e in pairs(entities) do
         e:draw()
     end
 
     time:draw()
-=======
-    --love.graphics.printf(timeLeft, 10, 10, 10, "left", 10, 200, 200)
-    love.graphics.print(timeLeft, 920, 10, 0, 2, 2)
-    for _, e in pairs(entities) do
-        e:draw()
-    end
->>>>>>> 7f2f56c292864e84e3f1e9fec5bbdc3da2c53c5e
 end
