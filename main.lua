@@ -7,7 +7,7 @@ require 'outer_wall'
 
 love.animation = require 'vendor/anim8'
 
-local entities = {}
+entities = {}
 local player = Player:new(love, {x = 10, y = 10})
 local wall_1 = InnerWall:new(love, {x = 200, y = 200})
 local wall_2 = InnerWall:new(love, {x = 200, y = 400})
@@ -48,7 +48,6 @@ table.insert(fruits, fruit_at_grid_75)
 table.insert(fruits, fruit_at_grid_37)
 table.insert(fruits, fruit_at_grid_57)
 
-
 -- Outer Walls render all 4 render
 local outerWalls = OuterWall:createWalls(love)
 
@@ -84,6 +83,7 @@ function love.update(dt)
             if other ~= entity then
                 if entity:collidingWith(other) then
                     entity:collide(other)
+                    other:collide(entity)
                 end
             end
         end
