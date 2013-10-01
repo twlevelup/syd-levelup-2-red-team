@@ -4,8 +4,11 @@ require 'obstacle'
 require 'fruit'
 require 'inner_wall'
 require 'outer_wall'
+require 'time'
 
 love.animation = require 'vendor/anim8'
+
+local GAME_TIME_LIMIT_SECONDS = 180
 
 local entities = {}
 local player = Player:new(love, {x = 10, y = 10})
@@ -17,6 +20,9 @@ local fruits = {}
 local outerWalls = OuterWall:createWalls(love)
 
 function love.load()
+    time = Time:new(GAME_TIME_LIMIT_SECONDS)
+    time:start(os.time());
+
     table.insert(entities, player)
     table.insert(entities, obstacle)
     table.insert(entities, wall_1)
@@ -36,6 +42,12 @@ function love.load()
 end
 
 function love.update(dt)
+    time:tick(os.time())
+
+    if (time.finished) then
+        love.event.push('quit')
+    end
+
     for _, entity in pairs(entities) do
         entity:update(dt)
 
@@ -44,7 +56,7 @@ function love.update(dt)
                 if entity:collidingWith(other) then
                     entity:collide(other)
                 end
-            end
+            end;
         end
     end
 end
@@ -53,4 +65,6 @@ function love.draw()
     for _, e in pairs(entities) do
         e:draw()
     end
+
+    time:draw()
 end
