@@ -26,56 +26,52 @@ describe("OuterWall", function()
                 })
         end)
 
-        it("left outer wall should have x value of 0 by default", function()
-            assert.is.equal(0, left_outer_wall.x)
+        describe("left outer wall", function()
+            it("should have default x,y coordinates", function()
+                assert.is.equal(0, left_outer_wall.x)
+                assert.is.equal(0, left_outer_wall.y)
+            end)
+
+            it("should have default size", function()
+                local expected = { x = 1, y = screenY }
+                assert.are.same(expected, left_outer_wall.size)
+            end)
+        end)
+        
+        describe("right outer wall", function()
+            it("should have default x,y coordinates", function()
+                assert.is.equal(screenX, right_outer_wall.x)
+                assert.is.equal(0, right_outer_wall.y)
+            end)
+
+            it("should have default size", function()
+                local expected = { x = 1, y = screenY }
+                assert.are.same(expected, right_outer_wall.size)
+            end)
         end)
 
-        it("left outer wall should have y value of 0 by default", function()
-            assert.is.equal(0, left_outer_wall.y)
+        describe("top outer wall", function()
+            it("should have default x,y coordinates", function()
+                assert.is.equal(0, top_outer_wall.x)
+                assert.is.equal(0, top_outer_wall.y)
+            end)
+
+            it("should have default size", function()
+                local expected = { x = screenX, y = 1 }
+                assert.are.same(expected, top_outer_wall.size)
+            end)
         end)
 
-        it("left outer wall should have size x=1, y=768 by default", function()
-            local expected = { x = 1, y = screenY }
-            assert.are.same(expected, left_outer_wall.size)
-        end)
+        describe("bottom outer wall", function()
+            it("should have default x,y coordinates", function()
+                assert.is.equal(0, bottom_outer_wall.x)
+                assert.is.equal(screenY, bottom_outer_wall.y)
+            end)
 
-        it("right outer wall should have x value of 1024 by default", function()
-            assert.is.equal(screenX, right_outer_wall.x)
-        end)
-
-        it("right outer wall should have y value of 0 by default", function()
-            assert.is.equal(0, right_outer_wall.y)
-        end)
-
-        it("right outer wall should have size x=1, y=768 by default", function()
-            local expected = { x = 1, y = screenY }
-            assert.are.same(expected, right_outer_wall.size)
-        end)
-
-        it("top outer wall should have x value of 0 by default", function()
-            assert.is.equal(0, top_outer_wall.x)
-        end)
-
-        it("top outer wall should have y value of 0 by default", function()
-            assert.is.equal(0, top_outer_wall.y)
-        end)
-
-        it("top outer wall should have size x=1024, y=1 by default", function()
-            local expected = { x = screenX, y = 1 }
-            assert.are.same(expected, top_outer_wall.size)
-        end)
-
-        it("bottom outer wall should have x value of 0 by default", function()
-            assert.is.equal(0, bottom_outer_wall.x)
-        end)
-
-        it("bottom outer wall should have y value of 0 by default", function()
-            assert.is.equal(screenY, bottom_outer_wall.y)
-        end)
-
-        it("bottom outer wall should have size x=1024, y=1 by default", function()
-            local expected = { x = screenX, y = 1 }
-            assert.are.same(expected, bottom_outer_wall.size)
+            it("should have default size", function()
+                local expected = { x = screenX, y = 1 }
+                assert.are.same(expected, bottom_outer_wall.size)
+            end)
         end)
     end)
 
@@ -119,7 +115,7 @@ describe("OuterWall", function()
             player = Player:new({})
         end)
 
-        it("left outer wall should prevent the player from moving left when it is at position x=1 y=400", function()
+        it("should not move past left wall", function()
             local left_outer_wall = OuterWall:new({})
             local player = Player:new(
                 mock_input('left'),
@@ -149,7 +145,7 @@ describe("OuterWall", function()
             assert.is.equal(400, player.y)
         end)
 
-        it("right outer wall should prevent the player from moving right when it is at position x=1023 y=400", function()
+        it("should not move past right wall", function()
             local right_outer_wall = OuterWall:new({}, {
                     position = "right"
                 })
@@ -181,7 +177,7 @@ describe("OuterWall", function()
             assert.is.equal(400, player.y)
         end)
 
-        it("top outer wall should prevent the player from moving up when it is at position x=350 y=1", function()
+        it("should not move past top wall", function()
             local top_outer_wall = OuterWall:new({}, {
                     position = "top"
                 })
@@ -213,7 +209,7 @@ describe("OuterWall", function()
             assert.is.equal(1, player.y)
         end)
 
-        it("bottom outer wall should prevent the player from moving down when it is at position x=350 y=767", function()
+        it("should not move past bottom wall", function()
             local bottom_outer_wall = OuterWall:new({}, {
                     position = "bottom"
                 })
