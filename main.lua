@@ -10,13 +10,15 @@ love.animation = require 'vendor/anim8'
 
 local GAME_TIME_LIMIT_SECONDS = 180
 
-local entities = {}
+entities = {}
+fruits = {}
+
 local player = Player:new(love, {x = 10, y = 10})
 local wall_1 = InnerWall:new(love, {x = 200, y = 200})
 local wall_2 = InnerWall:new(love, {x = 200, y = 400})
 local wall_3 = InnerWall:new(love, {x = 200, y = 600})
-local fruits = {}
 
+-- Outer Walls render all 4 render
 local outerWalls = OuterWall:createWalls(love)
 
 function love.load()
@@ -55,6 +57,7 @@ function love.update(dt)
             if other ~= entity then
                 if entity:collidingWith(other) then
                     entity:collide(other)
+                    other:collide(entity)
                 end
             end;
         end

@@ -36,6 +36,15 @@ function Fruit:new(game, config)
     return setmetatable(newFruit, self)
 end
 
+function Fruit:collide(other)
+    -- remove fruit when player collides with it
+    for i,v in pairs(entities) do
+        if v == self then
+            table.remove(entities, i)
+        end
+    end
+end
+
 function Fruit:randomlyPlace(game, entities, config, count)
 
     local MAPSCALE_X = 128;
