@@ -68,6 +68,10 @@ function Player:collide(other)
     self.y = self.lastPosition.y
 end
 
+function Player:collect(points)
+    -- TODO: add to score
+end
+
 function Player:update(dt)
     local dx = 0
     local dy = 0

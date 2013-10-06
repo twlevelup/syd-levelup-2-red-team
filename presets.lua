@@ -4,3 +4,4 @@ GAME_NAME = "Fruit Harvest"
 GAME_WIDTH = 1024
 GAME_HEIGHT = 768 + GAME_INFO_OFFSET_Y
 GAME_TIME_FORMAT = "%M:%S"
+GAME_FRUIT_TYPES_NEW = { ["apple"] = 10, ["orange"] = 20, ["banana"] = 30 }

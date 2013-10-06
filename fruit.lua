@@ -4,7 +4,7 @@ Fruit = {}
 Fruit.__index = Fruit
 setmetatable(Fruit, {__index = Entity})
 
-function Fruit:new(game, config)
+function Fruit:new(game, config, flavour)
     local config = config or {}
 
     local newFruit = Entity:new(game)
@@ -15,9 +15,13 @@ function Fruit:new(game, config)
         x = 40,
         y = 40
     }
+    -- if flavour isnt defined, choose a random one
+    local flavour = flavour or Fruit:getRandomFlavour()
+    newFruit.flavour = flavour
+    newFruit.value = GAME_FRUIT_TYPES_NEW[flavour]
 
     newFruit.graphics = config.graphics or {
-        source = "assets/images/apple.png"
+        source = "assets/images/" .. flavour .. ".png"
     }
 
     if game.graphics ~= nil and game.animation ~= nil then
@@ -40,6 +44,7 @@ function Fruit:collide(other)
     -- remove fruit when player collides with it
     for i,v in pairs(entities) do
         if v == self then
+            other:collect(self.value)
             table.remove(entities, i)
         end
     end
@@ -82,6 +87,17 @@ function Fruit:randomlyPlace(game, entities, config, count)
 
     return fruits
 
+end
+
+function Fruit:getRandomFlavour()
+    -- collect just names of fruits (the key collection)
+    local flavours = {}
+    for k,v in pairs(GAME_FRUIT_TYPES_NEW) do
+        table.insert(flavours, k)
+    end
+
+    -- return random flavour
+    return flavours[math.random(#flavours)]
 end
 
 function Fruit:update(dt)
