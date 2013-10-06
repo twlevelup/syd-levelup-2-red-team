@@ -5,11 +5,13 @@
 -- See https://love2d.org/wiki/Config_Files for the full list of configuration
 -- options and defaults.
 
+require 'presets'
+
 function love.conf(config)
-    config.title = "Nyancat to the Rescue"
+    config.title = GAME_NAME
     config.modules.joystick = false
     config.modules.mouse = false
     config.modules.physics = false
-    config.screen.width = 1024
-    config.screen.height = 768
+    config.screen.width = GAME_WIDTH
+    config.screen.height = GAME_HEIGHT
 end

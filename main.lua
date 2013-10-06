@@ -5,10 +5,9 @@ require 'fruit'
 require 'inner_wall'
 require 'outer_wall'
 require 'time'
+require 'presets'
 
 love.animation = require 'vendor/anim8'
-
-local GAME_TIME_LIMIT_SECONDS = 180
 
 entities = {}
 fruits = {}

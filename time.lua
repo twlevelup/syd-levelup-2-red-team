@@ -20,7 +20,7 @@ end
 
 function Time:tick(currentTime)
 	local elapsedTime = currentTime - self.startTime
-	self.remaining = os.date("%M:%S", self.limit - elapsedTime)
+	self.remaining = os.date(GAME_TIME_FORMAT, self.limit - elapsedTime)
 
 	if (self.remaining == "00:00") then
         self.finished = true

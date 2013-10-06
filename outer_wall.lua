@@ -4,8 +4,6 @@ OuterWall = {}
 OuterWall.__index = OuterWall
 setmetatable(OuterWall, {__index = Obstacle})
 
-local GAME_FIELD_BOTTOM_OFFSET = 50
-
 function OuterWall:createWalls(game)
     local walls = {}
 
@@ -26,7 +24,7 @@ end
 function OuterWall:new(game, config)
     local config = config or {}
 
-    local screenHeight = 768 -- - GAME_FIELD_BOTTOM_OFFSET
+    local screenHeight = 768
     local screenWidth = 1024
 
     local newOuterWall = Obstacle:new(game)
@@ -73,5 +71,5 @@ function OuterWall:new(game, config)
 end
 
 function OuterWall:draw()
-    self.game.graphics.rectangle("line", self.x, self.y, self.size.x, self.size.y)
+    self.game.graphics.rectangle("line", self.x, self.y + GAME_INFO_OFFSET_Y, self.size.x, self.size.y)
 end

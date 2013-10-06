@@ -12,9 +12,9 @@ function Entity:new(game)
 end
 
 function Entity:draw()
-    self.graphics.animation:draw(self.graphics.sprites, self.x, self.y)
+    self.graphics.animation:draw(self.graphics.sprites, self.x, self.y + GAME_INFO_OFFSET_Y)
     if DEBUG_MODE then
-        self.game.graphics.rectangle("line", self.x, self.y, self.size.x, self.size.y)
+        self.game.graphics.rectangle("line", self.x, self.y + GAME_INFO_OFFSET_Y, self.size.x, self.size.y)
     end
 end
 
