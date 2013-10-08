@@ -6,6 +6,7 @@ require 'inner_wall'
 require 'outer_wall'
 require 'time'
 require 'presets'
+require 'scoreboard'
 
 love.animation = require 'vendor/anim8'
 
@@ -23,6 +24,7 @@ local outerWalls = OuterWall:createWalls(love)
 function love.load()
     time = Time:new(GAME_TIME_LIMIT_SECONDS)
     time:start(os.time());
+    scoreboard = Scoreboard:new()
 
     table.insert(entities, player)
     table.insert(entities, obstacle)
@@ -69,4 +71,5 @@ function love.draw()
     end
 
     time:draw()
+    scoreboard:draw()
 end

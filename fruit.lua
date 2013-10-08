@@ -95,7 +95,6 @@ function Fruit:getRandomFlavour()
     for k,v in pairs(GAME_FRUIT_TYPES_NEW) do
         table.insert(flavours, k)
     end
-
     -- return random flavour
     return flavours[math.random(#flavours)]
 end

@@ -7,7 +7,9 @@ describe("Fruit", function()
 		it("should assign a fruit flavour if not given", function()
 			-- create new fruit without flavour
 			-- check flavour value after
+
 			local fruit = Fruit:new({}, {})
+
 			assert.is_not(fruit.flavour, nil)
 		end)
 
