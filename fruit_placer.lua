@@ -27,7 +27,7 @@ function FruitPlacer:place(count)
         local fruit = self.fruitFactory:createRandomFruit(self.game)
         collides = self.layoutManager:place(fruit)
 
-        if collides == false then
+        if not collides then
             i = i + 1
         end
     end

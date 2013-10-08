@@ -58,8 +58,14 @@ function love.update(dt)
         for _, other in pairs(entities) do
             if other ~= entity then
                 if entity:collidingWith(other) then
-                    entity:collide(other)
-                    other:collide(entity)
+                    if other.type == 'Fruit' then
+                        entity:collide(other)
+                        other:collide(entity, fruitPlacer)
+                    else
+                        entity:collide(other)
+                        other:collide(entity)
+                    end
+
                 end
             end;
         end

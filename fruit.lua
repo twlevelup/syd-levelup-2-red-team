@@ -1,4 +1,5 @@
 require 'entity'
+require 'presets'
 
 Fruit = {}
 Fruit.__index = Fruit
@@ -40,12 +41,13 @@ function Fruit:new(game, config, flavour)
     return setmetatable(newFruit, self)
 end
 
-function Fruit:collide(other)
+function Fruit:collide(other, fruitPlacer)
     -- remove fruit when player collides with it
     for i,v in pairs(entities) do
         if v == self then
             other:collect(self.value)
             table.remove(entities, i)
+            fruitPlacer:place(1)
         end
     end
 end

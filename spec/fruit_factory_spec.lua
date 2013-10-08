@@ -1,4 +1,5 @@
 require 'fruit_factory'
+require 'presets'
 
 describe("FruitFactory", function()
 	describe("generateFruit", function()
@@ -17,7 +18,7 @@ describe("FruitFactory", function()
 	describe("generateFruit should return randomly positioned fruit", function() 
 		old_random = math.random
 		math.random = function(a, b)
-			return 42
+			return 2
 		end
 		local fruitFactory = FruitFactory:new({})
 		local fruits = {}
@@ -25,8 +26,8 @@ describe("FruitFactory", function()
 		fruit = fruitFactory.createRandomFruit()
 
 
-		assert.is.equal(42, fruit.x)
-		assert.is.equal(42, fruit.y)
+		assert.is.equal(2, fruit.x)
+		assert.is.equal(2, fruit.y)
 
 		math.random = old_random
 	end)

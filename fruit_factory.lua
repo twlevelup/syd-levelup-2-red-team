@@ -1,4 +1,6 @@
 require 'fruit'
+require 'presets'
+
 
 FruitFactory = {}
 FruitFactory.__index = FruitFactory
