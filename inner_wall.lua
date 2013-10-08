@@ -20,5 +20,5 @@ function InnerWall:new(game, config)
 end
 
 function InnerWall:draw()
-    self.game.graphics.rectangle("line", self.x, self.y, self.size.x, self.size.y)
+    self.game.graphics.rectangle("line", self.x, self.y + GAME_INFO_OFFSET_Y, self.size.x, self.size.y)
 end

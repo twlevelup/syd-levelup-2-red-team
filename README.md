@@ -70,3 +70,7 @@ You should also be able to run:
 
 and see a happy little nyancat.
 
+# Useful resources
+
+[Background sprites](http://opengameart.org/content/liberated-pixel-cup-base-assets-sprites-map-tiles)
+
