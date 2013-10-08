@@ -18,7 +18,7 @@ function FruitFactory:createRandomFruit(game)
     local game = game or {}
 
     config.x = math.random(1024)
-    config.y = math.random(768)
+    config.y = math.random(768) + GAME_INFO_OFFSET_Y
     local fruit = Fruit:new(game, config)
 
 	return fruit
