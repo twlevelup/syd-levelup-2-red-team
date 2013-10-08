@@ -7,6 +7,7 @@ require 'outer_wall'
 require 'time'
 require 'presets'
 require 'scoreboard'
+require 'popup'
 
 love.animation = require 'vendor/anim8'
 
@@ -17,6 +18,8 @@ local player = Player:new(love, {x = 10, y = 10})
 local wall_1 = InnerWall:new(love, {x = 200, y = 200})
 local wall_2 = InnerWall:new(love, {x = 200, y = 400})
 local wall_3 = InnerWall:new(love, {x = 200, y = 600})
+
+local popup = Popup:new("Game over!")
 
 -- Outer Walls render all 4 render
 local outerWalls = OuterWall:createWalls(love)
@@ -48,21 +51,33 @@ function love.update(dt)
     time:tick(os.time())
 
     if (time.finished) then
-        love.event.push('quit')
-    end
-
-    for _, entity in pairs(entities) do
-        entity:update(dt)
-
-        for _, other in pairs(entities) do
-            if other ~= entity then
-                if entity:collidingWith(other) then
-                    entity:collide(other)
-                    other:collide(entity)
-                end
-            end;
+        thread = love.thread.getThread("die_thread")
+        if thread then
+             if thread:get('ready') then
+                love.event.push('quit')
+            end
+        else
+            thread = love.thread.newThread("die_thread", "die.lua")
+            thread:start()
         end
+
+    else
+
+        for _, entity in pairs(entities) do
+            entity:update(dt)
+
+            for _, other in pairs(entities) do
+                if other ~= entity then
+                    if entity:collidingWith(other) then
+                        entity:collide(other)
+                        other:collide(entity)
+                    end
+                end;
+            end
+        end
+
     end
+
 end
 
 function love.draw()
@@ -72,4 +87,8 @@ function love.draw()
 
     time:draw()
     scoreboard:draw()
+
+    if time:game_over() then
+        popup:draw()
+    end
 end

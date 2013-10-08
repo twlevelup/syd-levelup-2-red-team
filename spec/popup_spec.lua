@@ -20,7 +20,7 @@ describe("Popup", function()
 		popup:draw()
 
 		assert.spy(love.graphics.print).was.called_with(
-			"another-message", 10, 10, 0, 2, 2)
+			"another-message", (GAME_WIDTH/2)-80, (GAME_HEIGHT/2)-100, 0, 2, 2)
 	end)
 
 end)

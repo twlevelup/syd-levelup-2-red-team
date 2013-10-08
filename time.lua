@@ -19,6 +19,9 @@ function Time:start(currentTime)
 end
 
 function Time:tick(currentTime)
+	if self.finished then 
+		return
+	end
 	local elapsedTime = currentTime - self.startTime
 	self.remaining = os.date(GAME_TIME_FORMAT, self.limit - elapsedTime)
 
@@ -29,4 +32,8 @@ end
 
 function Time:draw()
     love.graphics.print(self.remaining, 920, 10, 0, 2, 2)
+end
+
+function Time:game_over()
+	return self.finished 
 end
