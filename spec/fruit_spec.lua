@@ -5,6 +5,7 @@ describe("Fruit", function()
 	describe("randomlyPlace", function()
 
 		local fruits = {}
+		local fruit1
 
 		before_each(function()
 			fruit1 = Fruit:randomlyPlace({},fruits, {}, 1)
