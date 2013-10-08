@@ -69,7 +69,7 @@ function Player:collide(other)
 end
 
 function Player:collect(points)
-    -- TODO: add to score
+    scoreboard:update(points)
 end
 
 function Player:update(dt)
