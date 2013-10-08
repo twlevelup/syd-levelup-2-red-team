@@ -6,6 +6,7 @@ require 'inner_wall'
 require 'outer_wall'
 require 'time'
 require 'presets'
+require 'fruit_placer'
 
 love.animation = require 'vendor/anim8'
 
@@ -34,7 +35,9 @@ function love.load()
         table.insert(entities, outerWalls[i])
     end
 
-    fruits = Fruit:randomlyPlace(love, entities, {}, 10)
+    -- fruits = Fruit:randomlyPlace(love, entities, {}, 10)
+    fruitPlacer = FruitPlacer:new(love, entities)
+    fruitPlacer:place(10)
 
     love.input.bind('up', 'up')
     love.input.bind('left', 'left')

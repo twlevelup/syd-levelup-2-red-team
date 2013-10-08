@@ -5,7 +5,7 @@ describe("FruitFactory", function()
 		local fruitFactory = FruitFactory:new({})
 		local fruits = {}
 
-		fruit = fruitFactory.createRandom({})
+		fruit = fruitFactory.createRandomFruit()
 
 		assert.is.equal("Fruit", fruit.type)
 	end)
@@ -22,7 +22,7 @@ describe("FruitFactory", function()
 		local fruitFactory = FruitFactory:new({})
 		local fruits = {}
 		
-		fruit = fruitFactory.createRandom()
+		fruit = fruitFactory.createRandomFruit()
 
 
 		assert.is.equal(42, fruit.x)

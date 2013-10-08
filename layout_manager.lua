@@ -1,4 +1,4 @@
-require 'fruit'
+require 'entity'
 
 LayoutManager = {}
 LayoutManager.__index = LayoutManager
@@ -13,18 +13,17 @@ end
 
 function LayoutManager:place(entity)
 
- --    fruits = {}
-    local config = config or {}
- --    local collides = false
- --    local randomX = 0
- --    local randomY = 0
- --    local i = 1
+	local collides = false
 
-    config.x = math.random(1024)
-    config.y = math.random(768)
+    for itemNum = 1, #entities do
+        if entities[itemNum]:collidingWith(entity) then
+            collides = true
+        end
+    end
 
+    if collides == false then
+        table.insert(entities, entity)
+    end
 
-
-	-- local fruit = Fruit:new({})
-	return fruit
+	return collides
 end
