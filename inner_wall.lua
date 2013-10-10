@@ -4,7 +4,7 @@ InnerWall = {}
 InnerWall.__index = InnerWall
 setmetatable(InnerWall, {__index = Obstacle})
 
-function InnerWall:new(game, config)
+function InnerWall:new(game, config, style)
     local config = config or {}
 
     local newInnerWall = Obstacle:new(game)
@@ -16,9 +16,24 @@ function InnerWall:new(game, config)
         y = 50
     }
 
-    return setmetatable(newInnerWall, self)
-end
+    newInnerWall.style = style or '1'
 
-function InnerWall:draw()
-    self.game.graphics.rectangle("line", self.x, self.y + GAME_INFO_OFFSET_Y, self.size.x, self.size.y)
+    newInnerWall.graphics = config.graphics or {
+        source = "assets/images/bush" .. newInnerWall.style .. ".png"
+    }
+
+    if game.graphics ~= nil and game.animation ~= nil then
+        newInnerWall.graphics.sprites = game.graphics.newImage(newInnerWall.graphics.source)
+        newInnerWall.graphics.grid = game.animation.newGrid(
+            newInnerWall.size.x, newInnerWall.size.y,
+            newInnerWall.graphics.sprites:getWidth(),
+            newInnerWall.graphics.sprites:getHeight()
+        )
+        newInnerWall.graphics.animation = game.animation.newAnimation(
+            newInnerWall.graphics.grid("1-1", 1),
+            0.5
+        )
+    end
+
+    return setmetatable(newInnerWall, self)
 end
