@@ -10,7 +10,9 @@ function BackgroundImage:new(game)
         fenceBotImage = game.graphics.newImage("assets/images/fence-bottom.png"),
         grassImage = game.graphics.newImage("assets/images/grass.png"),
         soilImage = game.graphics.newImage("assets/images/soil.png"),
-        love = game
+        love = game,
+        repeatX = 0,
+        repeatY = 0
     }
 
 	return setmetatable(newBackgroundImage, self)
@@ -19,26 +21,20 @@ end
 
 function BackgroundImage:calculateRepeat()
 
-    local repeats = {
-        x = 0,
-        y = 0
-    }
-
     local sizeX = self.fenceTopImage:getWidth()
     local sizeY = self.fenceTopImage:getHeight()
     local screenHeight = self.love.graphics.getHeight()
     local screenWidth = self.love.graphics.getWidth()
 
-    repeats.x = math.ceil(screenWidth/sizeX)
-    repeats.y = math.ceil(screenHeight/sizeY)
+    self.repeatX = math.ceil(screenWidth/sizeX)
+    self.repeatY = math.ceil(screenHeight/sizeY)
 
-    return repeats
 end
 
-function BackgroundImage:repeatImages(repeats)
+function BackgroundImage:repeatImages()
 
-    local x = repeats.x
-    local y = repeats.y
+    local x = self.repeatX
+    local y = self.repeatY
 
     local i, j
 
@@ -61,10 +57,23 @@ function BackgroundImage:draw(tile, offsetX, offsetY)
     love.graphics.draw(tile, 0 + (40*offsetX), 0 + (40*offsetY), 0, 1, 1, 0, 0)
 end
 
+function BackgroundImage:drawBottom(tile, offsetX, y)
+    love.graphics.draw(tile, 0 + (40*offsetX), y, 0, 1, 1, 0, 0)
+end
+
 function BackgroundImage:fillBackground()
 
     local repeats = self:calculateRepeat()
     self:repeatImages(repeats)
 
+end
+
+function BackgroundImage:drawBottomFence()
+    local x = self.repeatX
+    local y = self.love.graphics.getHeight() - self.fenceBotImage:getHeight()
+
+    for i = 0, x do
+        self:drawBottom(self.fenceBotImage, i, y)
+    end
 end
 

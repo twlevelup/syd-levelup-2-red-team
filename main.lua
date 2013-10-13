@@ -107,4 +107,7 @@ function love.draw()
     if time:game_over() then
         popup:draw()
     end
+
+    backgroundImage:drawBottomFence()
+
 end
