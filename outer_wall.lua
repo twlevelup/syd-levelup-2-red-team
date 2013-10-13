@@ -71,5 +71,4 @@ function OuterWall:new(game, config)
 end
 
 function OuterWall:draw()
-    -- Lolz, we don't draw outer walls.
 end
