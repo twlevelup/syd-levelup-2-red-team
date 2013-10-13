@@ -78,6 +78,9 @@ function love.update(dt)
                         if other.type == 'Fruit' then
                             entity:collide(other)
                             other:collide(entity, fruitPlacer)
+                        elseif entity.type == 'Fruit' then
+                            entity:collide(other, fruitPlacer)
+                            other:collide(entity)
                         else
                             entity:collide(other)
                             other:collide(entity)
