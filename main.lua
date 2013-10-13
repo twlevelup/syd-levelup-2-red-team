@@ -9,6 +9,7 @@ require 'presets'
 require 'fruit_placer'
 require 'scoreboard'
 require 'popup'
+require 'background_image'
 
 love.animation = require 'vendor/anim8'
 
@@ -21,6 +22,8 @@ local wall_2 = InnerWall:new(love, {x = 200, y = 400}, 2)
 local wall_3 = InnerWall:new(love, {x = 200, y = 600}, 3)
 
 local popup = Popup:new("Game over!")
+
+local backgroundImage = BackgroundImage:new(love)
 
 -- Outer Walls render all 4 render
 local outerWalls = OuterWall:createWalls(love)
@@ -91,6 +94,9 @@ function love.update(dt)
 end
 
 function love.draw()
+    
+    backgroundImage:fillBackground()
+
     for _, e in pairs(entities) do
         e:draw()
     end
