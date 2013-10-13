@@ -16,9 +16,9 @@ entities = {}
 fruits = {}
 
 local player = Player:new(love, {x = 10, y = 10})
-local wall_1 = InnerWall:new(love, {x = 200, y = 200})
-local wall_2 = InnerWall:new(love, {x = 200, y = 400})
-local wall_3 = InnerWall:new(love, {x = 200, y = 600})
+local wall_1 = InnerWall:new(love, {x = 200, y = 200}, 1)
+local wall_2 = InnerWall:new(love, {x = 200, y = 400}, 2)
+local wall_3 = InnerWall:new(love, {x = 200, y = 600}, 3)
 
 local popup = Popup:new("Game over!")
 
