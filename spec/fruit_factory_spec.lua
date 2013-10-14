@@ -1,5 +1,4 @@
 require 'fruit_factory'
-require 'presets'
 
 describe("FruitFactory", function()
 	describe("generateFruit", function()
@@ -25,9 +24,8 @@ describe("FruitFactory", function()
 		
 		fruit = fruitFactory.createRandomFruit()
 
-
-		assert.is.equal(2, fruit.x)
-		assert.is.equal(2, fruit.y)
+		assert.is.equal(2 + GAME_FENCE_BUFFER, fruit.x)
+		assert.is.equal(2 + GAME_FENCE_BUFFER + GAME_INFO_OFFSET_Y, fruit.y)
 
 		math.random = old_random
 	end)
