@@ -6,8 +6,10 @@ require 'inner_wall'
 require 'outer_wall'
 require 'time'
 require 'presets'
+require 'fruit_placer'
 require 'scoreboard'
 require 'popup'
+require 'background_image'
 
 love.animation = require 'vendor/anim8'
 
@@ -20,6 +22,8 @@ local wall_2 = InnerWall:new(love, {x = 200, y = 400}, 2)
 local wall_3 = InnerWall:new(love, {x = 200, y = 600}, 3)
 
 local popup = Popup:new("Game over!")
+
+local backgroundImage = BackgroundImage:new(love)
 
 -- Outer Walls render all 4 render
 local outerWalls = OuterWall:createWalls(love)
@@ -39,7 +43,9 @@ function love.load()
         table.insert(entities, outerWalls[i])
     end
 
-    fruits = Fruit:randomlyPlace(love, entities, {}, 10)
+    -- fruits = Fruit:randomlyPlace(love, entities, {}, 10)
+    fruitPlacer = FruitPlacer:new(love, entities)
+    fruitPlacer:place(10)
 
     love.input.bind('up', 'up')
     love.input.bind('left', 'left')
@@ -69,11 +75,21 @@ function love.update(dt)
             for _, other in pairs(entities) do
                 if other ~= entity then
                     if entity:collidingWith(other) then
-                        entity:collide(other)
-                        other:collide(entity)
+                        if other.type == 'Fruit' then
+                            entity:collide(other)
+                            other:collide(entity, fruitPlacer)
+                        elseif entity.type == 'Fruit' then
+                            entity:collide(other, fruitPlacer)
+                            other:collide(entity)
+                        else
+                            entity:collide(other)
+                            other:collide(entity)
+                        end
+
                     end
                 end;
             end
+
         end
 
     end
@@ -81,6 +97,9 @@ function love.update(dt)
 end
 
 function love.draw()
+    
+    backgroundImage:fillBackground()
+
     for _, e in pairs(entities) do
         e:draw()
     end
@@ -91,4 +110,7 @@ function love.draw()
     if time:game_over() then
         popup:draw()
     end
+
+    backgroundImage:drawBottomFence()
+
 end

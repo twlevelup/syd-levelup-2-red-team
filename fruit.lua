@@ -1,4 +1,5 @@
 require 'entity'
+require 'presets'
 
 Fruit = {}
 Fruit.__index = Fruit
@@ -40,53 +41,15 @@ function Fruit:new(game, config, flavour)
     return setmetatable(newFruit, self)
 end
 
-function Fruit:collide(other)
+function Fruit:collide(other, fruitPlacer)
     -- remove fruit when player collides with it
     for i,v in pairs(entities) do
         if v == self then
             other:collect(self.value)
             table.remove(entities, i)
+            fruitPlacer:place(1)
         end
     end
-end
-
-function Fruit:randomlyPlace(game, entities, config, count)
-
-    local MAPSCALE_X = 128;
-    local MAPSCALE_Y = 96;
-
-    fruits = {}
-    local config = config or {}
-    local collides = false
-    local randomX = 0
-    local randomY = 0
-    local i = 1
-
-    while i <= count do
-        randomX = math.random(7)
-        randomY = math.random(7)
-
-        config.x = randomX * MAPSCALE_X
-        config.y = randomY * MAPSCALE_Y
-        local fruit = Fruit:new(game, config)
-
-        collides = false
-        for itemNum = 1, #entities do
-            if entities[itemNum]:collidingWith(fruit) then
-                collides = true
-            end
-        end
-
-        if collides == false then
-            table.insert(entities, fruit)
-            table.insert(fruits, fruit)
-            i = i + 1
-        end
-
-    end
-
-    return fruits
-
 end
 
 function Fruit:getRandomFlavour()
