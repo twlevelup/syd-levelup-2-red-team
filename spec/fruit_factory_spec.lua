@@ -5,7 +5,7 @@ describe("FruitFactory", function()
 		local fruitFactory = FruitFactory:new({})
 		local fruits = {}
 
-		fruit = fruitFactory.createRandomFruit()
+		fruit = fruitFactory:createRandomFruit()
 
 		assert.is.equal("Fruit", fruit.type)
 	end)
@@ -22,10 +22,10 @@ describe("FruitFactory", function()
 		local fruitFactory = FruitFactory:new({})
 		local fruits = {}
 		
-		fruit = fruitFactory.createRandomFruit()
+		fruit = fruitFactory:createRandomFruit()
 
 		assert.is.equal(2 + GAME_FENCE_BUFFER, fruit.x)
-		assert.is.equal(2 + GAME_FENCE_BUFFER + GAME_INFO_OFFSET_Y, fruit.y)
+		assert.is.equal(2 + GAME_FENCE_BUFFER, fruit.y)
 
 		math.random = old_random
 	end)
