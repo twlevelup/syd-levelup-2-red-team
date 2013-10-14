@@ -1,5 +1,6 @@
 require 'input'
 require 'entity'
+require 'scoreboard'
 
 Player = {}
 Player.__index = Player
@@ -10,12 +11,15 @@ function Player:new(game, config)
 
     local newPlayer = Entity:new(game)
     newPlayer.type = "player"
+    newPlayer.playerNumber = config.playerNumber or 1
     newPlayer.x = config.x or 400
     newPlayer.y = config.y or 300
     newPlayer.size = config.size or {
         x = 98,
         y = 60
     }
+
+    newPlayer.scoreboard = Scoreboard:new(newPlayer.playerNumber)
 
     newPlayer.speed = config.speed or 5
 
@@ -27,7 +31,7 @@ function Player:new(game, config)
     }
 
     newPlayer.graphics = config.graphics or {
-        source = "assets/images/nyancat-sprites.png",
+        source = "assets/images/nyancat-sprites-playerI.png",
         facing = "right"
     }
 
@@ -69,7 +73,7 @@ function Player:collide(other)
 end
 
 function Player:collect(points)
-    scoreboard:update(points)
+    self.scoreboard:update(points)
 end
 
 function Player:update(dt)

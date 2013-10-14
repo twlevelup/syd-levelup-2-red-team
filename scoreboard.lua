@@ -1,10 +1,11 @@
 Scoreboard = {}
 Scoreboard.__index = Scoreboard
 
-function Scoreboard:new()
+function Scoreboard:new(playerNumber)
 	
 
 	local newScoreboard = {
+		playerNumber = playerNumber or 1,
 		score = 0,
 		x_pos = 10,
 		y_pos = 10,
@@ -22,6 +23,15 @@ function Scoreboard:update(value)
 end
 
 function Scoreboard:draw()
-    love.graphics.print(self.score, self.x_pos, self.y_pos, self.orientation, 
+
+	offset = 200
+
+	if self.playerNumber == 1 then
+		love.graphics.print("Player I = "..self.score.."", self.x_pos, self.y_pos, self.orientation, 
     	self.x_scale, self.y_scale)
+	else
+		love.graphics.print("Player O = "..self.score.."", self.x_pos + offset, self.y_pos, self.orientation, 
+    	self.x_scale, self.y_scale)
+	end
+    
 end
