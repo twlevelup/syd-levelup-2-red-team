@@ -27,7 +27,7 @@ function Scoreboard:draw()
 	offset = 200
 
 	if self.playerNumber == 1 then
-		love.graphics.print("Player I = "..self.score.."", self.x_pos, self.y_pos, self.orientation, 
+		love.graphics.print("Player 1 = "..self.score.."", self.x_pos, self.y_pos, self.orientation, 
     	self.x_scale, self.y_scale)
 	else
 		love.graphics.print("Player O = "..self.score.."", self.x_pos + offset, self.y_pos, self.orientation, 

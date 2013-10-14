@@ -141,7 +141,7 @@ function love.draw()
         local popup
 
         if player1.scoreboard.score > player2.scoreboard.score then
-            popup = Popup:new("Game Over! Player I Wins!!")
+            popup = Popup:new("Game Over! Player 1 Wins!!")
         elseif player2.scoreboard.score > player1.scoreboard.score then
             popup = Popup:new("Game Over! Player O Wins!!")
         else
