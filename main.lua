@@ -17,6 +17,27 @@ entities = {}
 fruits = {}
 
 local player = Player:new(love, {x = 10, y = 10})
+
+local player2 = Player:new(love, {
+    x = GAME_WIDTH - 200,
+    y = GAME_HEIGHT - GAME_INFO_OFFSET_Y - 200,
+    keys = {
+        up = "w",
+        down = "s",
+        left = "a",
+        right = "d"
+    },
+    graphics = {
+        source = "assets/images/nyancat-sprites2.png",
+        facing = "right"
+    },
+    sound = {
+        moving = {
+            source = "assets/sounds/move2.wav"
+        }
+    }    
+})
+
 local wall_1 = InnerWall:new(love, {x = 200, y = 200}, 1)
 local wall_2 = InnerWall:new(love, {x = 200, y = 400}, 2)
 local wall_3 = InnerWall:new(love, {x = 200, y = 600}, 3)
@@ -34,6 +55,7 @@ function love.load()
     scoreboard = Scoreboard:new()
 
     table.insert(entities, player)
+    table.insert(entities, player2)
     table.insert(entities, obstacle)
     table.insert(entities, wall_1)
     table.insert(entities, wall_2)
@@ -51,6 +73,13 @@ function love.load()
     love.input.bind('left', 'left')
     love.input.bind('right', 'right')
     love.input.bind('down', 'down')
+
+    love.input.bind('w', 'w')
+    love.input.bind('a', 'a')
+    love.input.bind('d', 'd')
+    love.input.bind('s', 's')
+
+
 end
 
 function love.update(dt)

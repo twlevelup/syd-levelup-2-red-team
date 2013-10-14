@@ -118,11 +118,12 @@ function Player:update(dt)
         end
     end
 
-    if self.sound.moving.sample ~= nil then
-        if dx ~= 0 or dy ~= 0 then
-            self.sound.moving.sample:play()
-        else
-            self.sound.moving.sample:stop()
-        end
-    end
+    -- -- This fails in 2 player. 
+    -- if self.sound.moving.sample ~= nil then
+    --     if dx ~= 0 or dy ~= 0 then
+    --         self.sound.moving.sample:play()
+    --     else
+    --         self.sound.moving.sample:stop()
+    --     end
+    -- end
 end
