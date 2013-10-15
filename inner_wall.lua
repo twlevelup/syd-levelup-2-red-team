@@ -13,13 +13,13 @@ function InnerWall:new(game, config, style)
     newInnerWall.y = config.y or 0
     newInnerWall.size = config.size or {
         x = 600,
-        y = 50
+        y = 40
     }
 
     newInnerWall.style = style or '1'
 
     newInnerWall.graphics = config.graphics or {
-        source = "assets/images/bush" .. newInnerWall.style .. ".png"
+        source = "assets/images/long_hedge.png"
     }
 
     if game.graphics ~= nil and game.animation ~= nil then
