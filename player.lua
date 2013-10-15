@@ -41,6 +41,10 @@ function Player:new(game, config)
         }
     }
 
+    newPlayer.sound.collect = {
+            source = "assets/sounds/blip.ogg"
+        }
+
     newPlayer.lastPosition = {
         x = nil,
         y = nil
@@ -49,6 +53,9 @@ function Player:new(game, config)
     if game.audio ~= nil then
         newPlayer.sound.moving.sample = game.audio.newSource(newPlayer.sound.moving.source)
         newPlayer.sound.moving.sample:setLooping(true)
+
+        newPlayer.sound.collect.sample = game.audio.newSource(newPlayer.sound.collect.source)
+        newPlayer.sound.collect.sample:setLooping(false)
     end
 
     if game.graphics ~= nil and game.animation ~= nil then
@@ -74,6 +81,7 @@ end
 
 function Player:collect(points)
     self.scoreboard:update(points)
+    self.sound.collect.sample:play()
 end
 
 function Player:update(dt)

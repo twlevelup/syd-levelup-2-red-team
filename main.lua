@@ -10,6 +10,8 @@ require 'fruit_placer'
 require 'scoreboard'
 require 'popup'
 require 'background_image'
+require 'background_sound'
+require 'TEsound' -- Using an external Library for managing sound
 
 love.animation = require 'vendor/anim8'
 
@@ -44,6 +46,7 @@ local wall_2 = InnerWall:new(love, {x = 200, y = 400}, 2)
 local wall_3 = InnerWall:new(love, {x = 200, y = 600}, 3)
 
 local backgroundImage = BackgroundImage:new(love)
+local backgroundSound = BackgroundSound:new(love)
 
 -- Outer Walls render all 4 render
 local outerWalls = OuterWall:createWalls(love)
@@ -51,7 +54,6 @@ local outerWalls = OuterWall:createWalls(love)
 function love.load()
     time = Time:new(GAME_TIME_LIMIT_SECONDS)
     time:start(os.time());
-    scoreboard = Scoreboard:new()
 
     table.insert(entities, player1)
     table.insert(entities, player2)
@@ -64,7 +66,6 @@ function love.load()
         table.insert(entities, outerWalls[i])
     end
 
-    -- fruits = Fruit:randomlyPlace(love, entities, {}, 10)
     fruitPlacer = FruitPlacer:new(love, entities)
     fruitPlacer:place(10)
 
@@ -78,11 +79,13 @@ function love.load()
     love.input.bind('d', 'd')
     love.input.bind('s', 's')
 
-
+    -- backgroundSound:play()
+    TEsound.playLooping("assets/sounds/on-cloud.wav", "music")
 end
 
 function love.update(dt)
     time:tick(os.time())
+    TEsound.cleanup()
 
     if (time.finished) then
         thread = love.thread.getThread("die_thread")
