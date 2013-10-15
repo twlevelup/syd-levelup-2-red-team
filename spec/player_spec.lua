@@ -38,23 +38,23 @@ describe("Player", function()
             return sound_spy
         end
 
-        describe("playing the movement sound", function()
-            it("should play the movement sound when the player is moving", function()
-                local player = Player:new(mock_input('up'))
-                player.sound.moving.sample = mock_sound()
-                player:update(dt)
+        -- describe("playing the movement sound", function()
+        --     it("should play the movement sound when the player is moving", function()
+        --         local player = Player:new(mock_input('up'))
+        --         player.sound.moving.sample = mock_sound()
+        --         player:update(dt)
 
-                assert.spy(player.sound.moving.sample.play).was.called()
-            end)
+        --         assert.spy(player.sound.moving.sample.play).was.called()
+        --     end)
 
-            it("should stop playing the movement sound when the player is stationary", function()
-                local player = Player:new(mock_input('none'))
-                player.sound.moving.sample = mock_sound()
-                player:update(dt)
+        --     it("should stop playing the movement sound when the player is stationary", function()
+        --         local player = Player:new(mock_input('none'))
+        --         player.sound.moving.sample = mock_sound()
+        --         player:update(dt)
 
-                assert.spy(player.sound.moving.sample.stop).was.called()
-            end)
-        end)
+        --         assert.spy(player.sound.moving.sample.stop).was.called()
+        --     end)
+        -- end)
 
         describe("initial position", function()
             it("should be in the overriden position if it is provided", function()

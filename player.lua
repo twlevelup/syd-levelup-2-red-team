@@ -1,5 +1,6 @@
 require 'input'
 require 'entity'
+require 'scoreboard'
 
 Player = {}
 Player.__index = Player
@@ -10,12 +11,15 @@ function Player:new(game, config)
 
     local newPlayer = Entity:new(game)
     newPlayer.type = "player"
+    newPlayer.playerNumber = config.playerNumber or 1
     newPlayer.x = config.x or 400
     newPlayer.y = config.y or 300
     newPlayer.size = config.size or {
         x = 98,
         y = 60
     }
+
+    newPlayer.scoreboard = Scoreboard:new(newPlayer.playerNumber)
 
     newPlayer.speed = config.speed or 5
 
@@ -27,7 +31,7 @@ function Player:new(game, config)
     }
 
     newPlayer.graphics = config.graphics or {
-        source = "assets/images/nyancat-sprites.png",
+        source = "assets/images/nyancat-sprites-playerI.png",
         facing = "right"
     }
 
@@ -37,6 +41,10 @@ function Player:new(game, config)
         }
     }
 
+    newPlayer.sound.collect = {
+            source = "assets/sounds/blip.ogg"
+        }
+
     newPlayer.lastPosition = {
         x = nil,
         y = nil
@@ -45,6 +53,9 @@ function Player:new(game, config)
     if game.audio ~= nil then
         newPlayer.sound.moving.sample = game.audio.newSource(newPlayer.sound.moving.source)
         newPlayer.sound.moving.sample:setLooping(true)
+
+        newPlayer.sound.collect.sample = game.audio.newSource(newPlayer.sound.collect.source)
+        newPlayer.sound.collect.sample:setLooping(false)
     end
 
     if game.graphics ~= nil and game.animation ~= nil then
@@ -69,7 +80,8 @@ function Player:collide(other)
 end
 
 function Player:collect(points)
-    scoreboard:update(points)
+    self.scoreboard:update(points)
+    self.sound.collect.sample:play()
 end
 
 function Player:update(dt)
@@ -118,11 +130,12 @@ function Player:update(dt)
         end
     end
 
-    if self.sound.moving.sample ~= nil then
-        if dx ~= 0 or dy ~= 0 then
-            self.sound.moving.sample:play()
-        else
-            self.sound.moving.sample:stop()
-        end
-    end
+    -- -- This fails in 2 player. 
+    -- if self.sound.moving.sample ~= nil then
+    --     if dx ~= 0 or dy ~= 0 then
+    --         self.sound.moving.sample:play()
+    --     else
+    --         self.sound.moving.sample:stop()
+    --     end
+    -- end
 end
