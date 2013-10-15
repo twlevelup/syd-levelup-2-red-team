@@ -111,11 +111,11 @@ function love.update(dt)
                             other:collide(entity)
                         else
                             entity:collide(other)
-                            other:collide(entity)
+                            -- other:collide(entity)
                         end
 
                     end
-                end;
+                end
             end
 
         end
